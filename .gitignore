@@ -1,0 +1,34 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+alchemy-20-front/node_modules
+alchemy-20-front/.pnp
+alchemy-20-front/.pnp.js
+
+# testing
+alchemy-20-front/coverage
+
+# next.js
+alchemy-20-front/.next/
+alchemy-20-front/out/
+
+# production
+alchemy-20-front/build
+
+# misc
+alchemy-20-front/.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+alchemy-20-front/.env.local
+alchemy-20-front/.env.development.local
+alchemy-20-front/.env.test.local
+alchemy-20-front/.env.production.local
+
+# vercel
+alchemy-20-front/.vercel

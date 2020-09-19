@@ -1,0 +1,129 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.card {
+  width: 200px;
+  height: 40px;
+  line-height: 37px;
+
+	background: #303030;
+  border: 2px solid #ECC82C;
+  
+  color: #ECC82C;
+	font-size: 1.2rem;
+	text-align: center;
+  cursor: pointer;
+  
+  margin-top: 5px;
+  margin: 0.5rem;
+
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  background: #ECC82C;
+	color: #303030;
+}
+
+.card2 {
+  width: 200px;
+  height: 40px;
+  line-height: 37px;
+  
+	border-radius: 5px;
+	background: #ECC82C;
+	border: 2px solid #ECC82C;
+	
+	color: #303030;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+	text-align: center;
+  cursor: pointer;
+  
+  margin-top: 5px;
+  margin: 0.5rem;
+  
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+
+.card2:hover,
+.card2:focus,
+.card2:active {
+  background: #303030;
+	color: #ECC82C;
+}
+
+.logo {
+  height: 20em;
+}
+
+.titledate {
+  margin-top: 2rem;
+  background-color: #ECC82C;
+  width: 100%;
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titledate p{
+  color: #303030;
+  text-align: center;
+  font-size: 1.3rem;
+  flex: 1
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .logo {
+    height: 15em;
+  }
+
+  .titledate {
+    height: 35px;
+  }
+
+  .titledate p {
+    font-size: 1.1rem;
+  }
+}
