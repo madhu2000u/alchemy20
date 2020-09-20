@@ -45,34 +45,34 @@ export default function Home() {
       <main className={styles.main}>
         <img src='/alchemy_2018.png' alt="Alchemy Logo" className={styles.logo}></img>
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" target='_blank'>
+          <a href="/ssd" target='_blank'>
             <div className={styles.card}>
               Events
             </div>
           </a>
-          <a href="https://nextjs.org/docs" target='_blank'>
+          <a href="/sdf" target='_blank'>
             <div className={styles.card}>
               Workshops
             </div>
           </a>
-          <a href="https://nextjs.org/docs" target='_blank'>
+          <a href="/sdf" target='_blank'>
             <div className={styles.card}>
               Sponsors
             </div>
           </a><br></br><br></br>
-          <a href="https://nextjs.org/docs" target='_blank'>
+          <a href="/sdf" target='_blank'>
             <div className={styles.card2}>
               Get ID
             </div>
           </a>
-          <a href="https://nextjs.org/docs" target='_blank'>
+          <a href="/sdf" target='_blank'>
             <div className={styles.card2}>
               Register
             </div>
           </a>
         </div>
         <div className={styles.titledate}>
-          <p>OCTOBER 18<sup>th</sup> - 20<sup>th</sup>, 2019</p>
+          <p>OCTOBER 18<sup>th</sup> - 20<sup>th</sup>, 2020</p>
         </div>
         <div ref={node}>
           <Burger open={open} setOpen={setOpen} />
