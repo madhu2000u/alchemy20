@@ -1,8 +1,16 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
+import Burger from '../components/Burger/Burger'
+import Menu from '../components/Menu/Menu'
+import React, { useState, useRef } from 'react';
+import { useOnClickOutside } from './hooks';
 
 export default function Home() {
+
+  const [open, setOpen] = useState(false);
+  const node = useRef(); 
+  useOnClickOutside(node, () => setOpen(false));
 
   useEffect(() => {
     const effect = VANTA.TOPOLOGY('#index_container')
@@ -20,7 +28,7 @@ export default function Home() {
       backgroundColor: 0x303030
     });
 
-    return function cleanUp(){
+    return function cleanUp() {
       effect.destroy()
     }
   }, [])
@@ -31,8 +39,9 @@ export default function Home() {
         <title>Alchemy 2020</title>
         <link rel="icon" href="/favicon.ico" />
         <script type="text/javascript" src="/static/p5.min.js"></script>
-        <script type="text/javascript" src="/static/vanta.topology.min.js"></script>
+        <script type='text/javascript' src='/static/vanta.topology.min.js'></script>
       </Head>
+      
       <main className={styles.main}>
         <img src='/alchemy_2018.png' alt="Alchemy Logo" className={styles.logo}></img>
         <div className={styles.grid}>
@@ -64,6 +73,10 @@ export default function Home() {
         </div>
         <div className={styles.titledate}>
           <p>OCTOBER 18<sup>th</sup> - 20<sup>th</sup>, 2019</p>
+        </div>
+        <div ref={node}>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} setOpen={setOpen} />
         </div>
       </main>
     </div>
