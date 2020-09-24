@@ -21,7 +21,7 @@ export default function Menu({ open }) {
         <div>
           <Link href="/">
             <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg"></img>
+              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
               <p>Accommodation</p>
             </div>
           </Link>
@@ -29,7 +29,7 @@ export default function Menu({ open }) {
         <div>
           <Link href="/">
             <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg"></img>
+              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
               <p>Schedule</p>
             </div>
           </Link>
@@ -37,7 +37,7 @@ export default function Menu({ open }) {
         <div>
           <Link href="/">
             <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg"></img>
+              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
               <p>Sponsors</p>
             </div>
           </Link>
