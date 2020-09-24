@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const StyledBurger = styled.button`
-  position: absolute;
+  position: fixed;
   top: 5%;
   left: 2rem;
   display: flex;
@@ -12,7 +12,7 @@ export const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 4;
 
   &:focus {
     outline: none;
