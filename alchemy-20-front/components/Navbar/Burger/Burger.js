@@ -16,7 +16,7 @@ export default function Burger({ open, setOpen }) {
       marginTop: 0 }}>
     {props => <StyledBurger style={props} open={open} onClick={() => setOpen(!open)}>
         <div />
-        <div />
+        <div aria-label="Side menu"/>
         <div />
       </StyledBurger>}
     </Spring>
