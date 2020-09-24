@@ -67,7 +67,7 @@ export const StyledMenu = styled.div`
     color: white;
     cursor: pointer;
     transition: color 0.3s linear;
-    transition: letter-spacing 0.3s linear;
+    transition: letter-spacing 0.1s linear;
     padding: 0;
     margin: 0;
   

@@ -22,24 +22,24 @@ export default function Home() {
         </animated.div>
         <div className={styles.grid}>
           <Link href="/coming-soon">
-            <animated.div style={appear} className={styles.card}>
+            <animated.div style={appear} className={styles.card} aria-label="Events">
               Events
             </animated.div>
           </Link>
-          <Link href="/coming-soon">
-            <animated.div style={appear} className={styles.card}>
+          <Link href="/coming-soon" aria-label="Workshops">
+            <animated.div style={appear} className={styles.card} aria-label="Workshops">
               Workshops
             </animated.div>
           </Link>
-          <Link href="/coming-soon">
+          <Link href="/coming-soon" aria-label="Sponsors">
             <animated.div style={appear} className={styles.card}>
               Sponsors
             </animated.div>
           </Link>
-          <animated.div style={appear} onClick={togglePopup} className={styles.card2}>
+          <animated.div style={appear} onClick={togglePopup} className={styles.card2} aria-label="Get Alchemy ID">
             Get ID
           </animated.div>
-          <Link href="/coming-soon">
+          <Link href="/coming-soon" aria-label="Register">
             <animated.div style={appear} className={styles.card2}>
               Register
             </animated.div>
