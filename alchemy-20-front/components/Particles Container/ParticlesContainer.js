@@ -7,7 +7,7 @@ export default function ParticlesContainer() {
       <Particles
         params={{
           particles: {
-            number: { value: 200, density: { enable: false, value_area: 800 } },
+            number: { value: 140, density: { enable: true, value_area: 800 } },
             color: { value: "#ecc82c" },
             shape: {
               type: "circle",
@@ -16,7 +16,7 @@ export default function ParticlesContainer() {
               image: { width: 100, height: 100 },
             },
             opacity: {
-              value: 0.8,
+              value: 0.6,
               random: true,
               anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
             },
@@ -34,7 +34,7 @@ export default function ParticlesContainer() {
             },
             move: {
               enable: true,
-              speed: 6,
+              speed: 3,
               direction: "top-right",
               random: false,
               straight: false,

@@ -63,11 +63,11 @@ export default function Home() {
           </animated.div>
         </Link>
       </div>
-      <animated.p style={appear} className={styles.titledate}>
+      <animated.div style={appear} className={styles.titledate}>
         <p>
           October 18<sup>th</sup> - 20<sup>th</sup>, 2020
         </p>
-      </animated.p>
+      </animated.div>
       {isOpen && <IdPopup handleClose={togglePopup}></IdPopup>}
     </main>
   );
