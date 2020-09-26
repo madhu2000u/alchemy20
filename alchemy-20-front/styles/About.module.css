@@ -34,7 +34,7 @@
   height: auto;
   margin: auto;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row wrap-reverse;
   align-items: center;
   justify-content: space-evenly;
   position: absolute;
