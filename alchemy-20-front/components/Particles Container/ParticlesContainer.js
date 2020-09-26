@@ -16,7 +16,7 @@ export default function ParticlesContainer() {
               image: { src: "/atom.svg", width: 100, height: 100 },
             },
             opacity: {
-              value: 0.4,
+              value: 0.6,
               random: true,
               anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
             },
