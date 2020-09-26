@@ -20,7 +20,7 @@ export default function Home() {
     <main className={styles.main}>
       <animated.div style={appear}>
         <img
-          src="/alchemy_2018.png"
+          src="https://i.ibb.co/g9gLDkH/alchemy-2018.png"
           alt="Alchemy Logo"
           className={styles.logo}
         ></img>

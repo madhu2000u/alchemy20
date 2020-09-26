@@ -7,7 +7,7 @@ export default function ComingSoon() {
     <main className={styles.cs_main}>
       <Subpage />
       <div className={styles.image_div}>
-        <img src="/coming_soon.png" className={styles.coming_soon_img}></img>
+        <img src="https://i.ibb.co/QFxpSYR/coming-soon.png" className={styles.coming_soon_img}></img>
       </div>
     </main>
   );

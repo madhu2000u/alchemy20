@@ -7,7 +7,7 @@ export default function Subpage() {
       <Link href="/">
         <img
           className={styles.top_logo}
-          src="/alchemy_text_logo.png"
+          src="https://i.ibb.co/QY8JPrL/alchemy-text-logo.png"
           alt="Alchemy Logo with Text"
         ></img>
       </Link>
