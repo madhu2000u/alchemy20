@@ -1,22 +1,22 @@
-import React from "react";
 import { StyledMenu } from "./Menu.styled";
 import { bool } from "prop-types";
 import Link from "next/link";
 
-export default function Menu({ open }) {
+export default function Menu({ open, setOpen }) {
+
   return (
     <StyledMenu open={open}>
       <div className="menu_header">
         <img src="/alchemy_2018.png" alt="Alchemy Logo"></img>
         <a>ALCHEMY'20</a>
-        <h4>
+        <p>
           October 18<sup>th</sup> - 20<sup>th</sup>, 2020
-        </h4>
+        </p>
         <hr className="solid"></hr>
       </div>
       <div className="nav-links">
-        <div className="active-div">
-          <Link href="/">
+        <div className="active-div" onClick={() => setOpen(!open)}>
+          <Link href="/about">
             <p>About</p>
           </Link>
         </div>
@@ -44,8 +44,8 @@ export default function Menu({ open }) {
             </div>
           </Link>
         </div>
-        <div className="active-div">
-          <Link href="/">
+        <div className="active-div" onClick={() => setOpen(!open)}>
+          <Link href="/coming-soon">
             <p>Contact</p>
           </Link>
         </div>

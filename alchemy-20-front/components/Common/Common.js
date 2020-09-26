@@ -1,12 +1,13 @@
-import Burger from "./Burger/Burger";
-import Menu from "./Menu/Menu";
-import { useOnClickOutside } from "./hooks";
+import Burger from "../Navbar/Burger/Burger";
+import Menu from "../Navbar/Menu/Menu";
+import { useOnClickOutside } from "../Navbar/hooks";
 import { useState, useRef, useEffect } from "react";
-import styles from "./Navbar.module.css";
+import styles from "./Common.module.css";
 import Head from "next/head";
+import Link from "next/link";
 import ParticlesContainer from "../Particles Container/ParticlesContainer";
 
-export default function Navbar({ children }) {
+export default function Common({ children }) {
   const [open, setOpen] = useState(false);
   const node = useRef();
 
@@ -28,8 +29,10 @@ export default function Navbar({ children }) {
         <meta name="author" content="Shambu" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ParticlesContainer/>
+      <ParticlesContainer />
+
       {children}
+
       <div ref={node}>
         <Burger open={open} setOpen={setOpen} />
         <Menu open={open} setOpen={setOpen} />

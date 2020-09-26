@@ -13,7 +13,7 @@ export const StyledMenu = styled.div`
   transition: transform 0.3s ease-in-out;
   z-index: 3;
   padding: 2rem;
-  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-100%)")};
+  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-200%)")};
 
   .menu_header {
     display: flex;
@@ -31,7 +31,7 @@ export const StyledMenu = styled.div`
     margin-top: 1rem;
     font-weight: bolder;
   }
-  .menu_header h4 {
+  .menu_header p {
     color: white;
     font-weight: normal;
     margin: 0.5rem;

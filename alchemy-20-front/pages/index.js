@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css";
 import React, { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Common from "../components/Common/Common";
 import IdPopup from "../components/ID Popup/IdPopup";
 import Link from "next/link";
 import { useSpring, animated } from "react-spring";
@@ -73,4 +73,4 @@ export default function Home() {
   );
 }
 
-Home.Layout = Navbar;
+Home.Layout = Common;

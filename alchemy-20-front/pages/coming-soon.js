@@ -1,22 +1,16 @@
-import Navbar from "../components/Navbar/Navbar";
-import cs_styles from "../styles/ComingSoon.module.css";
-import Link from "next/link";
+import Common from "../components/Common/Common";
+import Subpage from "../components/Subpage Template/Subpage"
+import styles from "../styles/ComingSoon.module.css";
 
 export default function ComingSoon() {
   return (
-    <main className={cs_styles.cs_main}>
-      <Link href="/">
-        <img
-          className={cs_styles.top_logo}
-          src="/alchemy_text_logo.png"
-          alt="Alchemy Logo with Text"
-        ></img>
-      </Link>
-      <div className={cs_styles.image_div}>
-        <img src="/coming_soon.png" className={cs_styles.coming_soon_img}></img>
+    <main className={styles.cs_main}>
+      <Subpage />
+      <div className={styles.image_div}>
+        <img src="/coming_soon.png" className={styles.coming_soon_img}></img>
       </div>
     </main>
   );
 }
 
-ComingSoon.Layout = Navbar;
+ComingSoon.Layout = Common;
