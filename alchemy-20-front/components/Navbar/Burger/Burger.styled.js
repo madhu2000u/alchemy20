@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const StyledBurger = styled.button`
   position: fixed;
-  top: 5%;
+  top: 3%;
   left: 2rem;
   display: flex;
   flex-direction: column;

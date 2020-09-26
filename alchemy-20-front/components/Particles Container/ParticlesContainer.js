@@ -13,7 +13,7 @@ export default function ParticlesContainer() {
               type: "circle",
               stroke: { width: 0, color: "#000000" },
               polygon: { nb_sides: 5 },
-              image: { width: 100, height: 100 },
+              image: { src: "/atom.svg", width: 100, height: 100 },
             },
             opacity: {
               value: 0.6,
@@ -44,10 +44,10 @@ export default function ParticlesContainer() {
             },
           },
           interactivity: {
-            detect_on: "canvas",
+            detect_on: "window",
             events: {
               onhover: { enable: true, mode: "bubble" },
-              onclick: { enable: true, mode: "repulse" },
+              onclick: { enable: false, mode: "repulse" },
               resize: true,
             },
             modes: {

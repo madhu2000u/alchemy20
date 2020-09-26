@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css";
 import React, { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Common from "../components/Common/Common";
 import IdPopup from "../components/ID Popup/IdPopup";
 import Link from "next/link";
 import { useSpring, animated } from "react-spring";
@@ -20,7 +20,7 @@ export default function Home() {
     <main className={styles.main}>
       <animated.div style={appear}>
         <img
-          src="/alchemy_2018.png"
+          src="https://i.ibb.co/g9gLDkH/alchemy-2018.png"
           alt="Alchemy Logo"
           className={styles.logo}
         ></img>
@@ -73,4 +73,4 @@ export default function Home() {
   );
 }
 
-Home.Layout = Navbar;
+Home.Layout = Common;

@@ -6,7 +6,7 @@ export default function IdPopup(props) {
       <div className={styles.modal}>
         <div onClick={props.handleClose} className={styles.modal_close_btn}>
           &times;
-          <img src="/coming_soon.png" className={styles.coming_img}></img>
+          <img src="https://i.ibb.co/QFxpSYR/coming-soon.png" className={styles.coming_img}></img>
         </div>
       </div>
       <div className={styles.overlay}></div>
