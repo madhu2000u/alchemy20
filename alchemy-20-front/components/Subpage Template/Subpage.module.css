@@ -1,5 +1,5 @@
 .subpage_container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   margin: 0 auto;
   background: rgba(26, 26, 26, 0.6);

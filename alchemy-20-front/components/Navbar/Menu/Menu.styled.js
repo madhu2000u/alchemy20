@@ -13,7 +13,8 @@ export const StyledMenu = styled.div`
   transition: transform 0.3s ease-in-out;
   z-index: 3;
   padding: 2rem;
-  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-200%)")};
+  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-100%)")};
+  overflow: auto;
 
   .menu_header {
     display: flex;
