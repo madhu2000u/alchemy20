@@ -4,15 +4,15 @@ const mongoose=require('mongoose')
 
 const userSchema=new mongoose.Schema({
     alc_id: {type: String, required:true, unique:true},
-    email: String,
+    email: {type:String, unique:true},
     hashed_password: String,
-    auth_token: String,
     name: String,
     mobile: String,
     college: String,
     dept: String,
     year_of_study: String,
     accommodation: Boolean,
+    acc_active: Boolean,
     registered_events: [String]
 
 })
