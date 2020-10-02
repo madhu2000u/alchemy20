@@ -5,7 +5,6 @@ const tempUser=require('../models/tempActivationUser')
 const utils=require('../functions/utils')
 
 
-
 exports.resendVerificationMail=(email)=>{
     console.log('Inside resendVerificationEmail()')
     return new Promise((resolve, reject)=>{             //returns a new Promise where if any error we reject it and if sucess we resolve. Then the function that called it will use .then to handle if promise is resolved and .catch, it promise is rejected
