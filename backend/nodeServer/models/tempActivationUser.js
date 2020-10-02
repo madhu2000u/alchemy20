@@ -5,7 +5,7 @@ const mongoose=require('mongoose')
 const tempActivation=new mongoose.Schema({
     
     user_id: String,
-    verificatoin_token:String
+    verification_token:String
     
 })
 
