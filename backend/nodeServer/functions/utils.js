@@ -4,6 +4,8 @@ const validator=require('email-validator')
 const crypto =require('crypto')
 
 
+
+
 exports.mailer=(to_email, sub, html)=>{
     return new Promise((resolve, reject)=>{
         try {
@@ -72,6 +74,8 @@ exports.validatePostapi=(req, res, next)=>{
     }
 
 }
+
+
 
 exports.gen_alc_id=(curr_cout)=>{       //curr_count is the value 'len' passed from signup route in auth_route. it is the number of users in the current database. so if there are 10 users the the ALC id will be alloted as per the algorightm
     let alc_id="ALC"
