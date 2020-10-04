@@ -11,10 +11,9 @@ const events_route='/allEvents'
 const galary_route='/galary'
 
 
+
 //////////Galary related routes START/////////////////////////
 //main_router.get()
-
-
 
 //////////All Events related routes START///////////////////
 main_router.get(events_route, utils.validateGetapi, (req, res)=>{
@@ -23,10 +22,6 @@ main_router.get(events_route, utils.validateGetapi, (req, res)=>{
     }).catch((events_err)=>{
         res.status(500).json(events_err)
     })
-         
-    
-
-
 })
 
 
@@ -58,9 +53,7 @@ main_router.post(events_route, utils.validatePostapi, (req, res)=>{
 main_router.put(events_route, utils.validatePostapi, (req, res)=>{  //HTTP put is for update, and utils.validatePostapi because it for use for the admin prople, so wheter it is a post or a put request doesnt matter the api_key if it is validatePostapi for put instead of a separate utils.validatePutapi
     //console.log("content-type header - ", req.headers["content-type"])
     if(req.headers['content-type']!="application/json"){res.status(400).json({message:"content-type header missing"});console.log("content-type param missing- ", req.headers['content-type'] )}
-    else if(!req.headers['event_id']){res.status(400).json({message:"event id parameter missing"})}    //event id is the _id of the events document, when clienc does GET for events, the _id is also returned.
-
-    
+    else if(!req.headers['event_id']){res.status(400).json({message:"event id parameter missing"})}    //event id is the _id of the events document, when clienc does GET for events, the _id is also returned.    
     else{
         events.updateOne({"_id":req.headers['event_id']}, req.body).then((event_update_result)=>{
             console.log("Inside events PUT .then - ",event_update_result)
@@ -72,7 +65,6 @@ main_router.put(events_route, utils.validatePostapi, (req, res)=>{  //HTTP put i
             res.status(404).json({message:"Event with given id doesn't exist or Internal server error"})
         })
     }
-
 })
 
 main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
@@ -94,6 +86,9 @@ main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
 
 
 
+
+
+/////All Notification routes START (This is for temporary classification only. Finally before production deploment, routes will be organized separately in their respective route JS source file for better readability and documentation)
 
 
 /////All Notification routes START (This is for temporary classification only. Finally before production deploment, routes will be organized separately in their respective route JS source file for better readability and documentation)
@@ -171,5 +166,6 @@ main_router.get('/alcid', (req, res)=>{
     
     
 })
+
 
 module.exports=main_router
