@@ -93,7 +93,7 @@ export default function Team() {
         </div>
         <div className={styles.team_container}>
           <p>ORGANIZING COMMITTEE</p>
-          <div className={styles.team}>
+          <div className={styles.oc_team}>
             <TeamPerson
               isHead={false}
               img="https://imgur.com/5Mu8TRr.jpg"
