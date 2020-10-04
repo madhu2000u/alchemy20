@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 const dotenv=require('dotenv')
 // const key=require('./models/api_keys')
 const app=express()
-const defalul_port=3000
+const default_port=3000
 
 dotenv.config()
 
@@ -20,4 +20,4 @@ mongoose.connect('mongodb://localhost:27017/alchemy-20-db', ({useNewUrlParser:tr
 //     }
 // })
 
-app.listen(process.env.process || defalul_port, ()=>{console.log('Server listening...')} )
+app.listen(process.env.process || default_port, ()=>{console.log('Server listening...')} )
