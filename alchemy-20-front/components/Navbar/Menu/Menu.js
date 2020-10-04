@@ -45,7 +45,7 @@ export default function Menu({ open, setOpen }) {
           </Link>
         </div>
         <div className="active-div" onClick={() => setOpen(!open)}>
-          <Link href="/coming-soon">
+          <Link href="/team">
             <p>Team</p>
           </Link>
         </div>
