@@ -12,7 +12,7 @@ const temp_actvn_user=require('../models/tempActivationUser')
 router.get('/auth', (req, res)=>{
     const body=req.body
     console.log('body - ', body)
-    if(!body.email || !body.password){res.status(400).json({"message":"Bad request. One or more requried fields are missing"}); return }
+    if(Object.keys(body).length===0){res.status(400).json({"message":"Bad request. One or more requried fields are missing"}); return }
     if(!utils.validateEmail(body.email)){res.status(400).json({"message":"Invalid email"}); return}
     user.findOne({"email":body.email}, (err, result)=>{        //here instead of using the promise's .then and .catch, I have used the findOne() function's callback method which returens a respons and the found document and an error if any. I'm just using this just for a change and to see how it is different from the Promise way of handling.
         if(err){res.status(500).json({message:"Internal server error"})}
@@ -53,7 +53,7 @@ router.get('/auth', (req, res)=>{
 //Signup route
 router.post('/auth', (req, res)=>{
     const body=req.body
-    if(!body.email || !body.password || !body.name || !body.mobile || !body.college || !body.dept || !body.year_of_study || !body.requires_accommodation){res.status(400); res.json({"message":"Bad request. One or more requried fields are missing"})}
+    if(Object.keys(body).length===0/*!body.email || !body.password || !body.name || !body.mobile || !body.college || !body.dept || !body.year_of_study || !body.requires_accommodation*/){res.status(400); res.json({"message":"Bad request. One or more requried fields are missing"})}
     else if(body.mobile.length<10){res.status(400); res.json({"message":"Invalid mobile number"})}
     else if(!utils.validateEmail(body.email)){res.status(400); res.json({"message":"Invalid email"})}
     else{
