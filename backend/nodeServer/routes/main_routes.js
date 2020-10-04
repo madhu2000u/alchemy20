@@ -6,17 +6,14 @@ const user_token=require('../models/user_tokens')
 const users=require('../models/users')
 const events=require('../models/events')
 
-const notific_route='/allNotific'
-const events_route='/allEvents'
-const galary_route='/galary'
-
+const mainRoutes = require('./endpoints')
 
 
 //////////Galary related routes START/////////////////////////
 //main_router.get()
 
 //////////All Events related routes START///////////////////
-main_router.get(events_route, utils.validateGetapi, (req, res)=>{
+main_router.get(mainRoutes.events_route, utils.validateGetapi, (req, res)=>{
     events.find().then((events_result)=>{
         res.status(200).json(events_result)
     }).catch((events_err)=>{
@@ -25,7 +22,7 @@ main_router.get(events_route, utils.validateGetapi, (req, res)=>{
 })
 
 
-main_router.post(events_route, utils.validatePostapi, (req, res)=>{
+main_router.post(mainRoutes.events_route, utils.validatePostapi, (req, res)=>{
     const body=req.body
     if(!body.event_type || !body.event_name || !body.event_description || !body.event_img || !body.event_date || !body.event_cost || !body.event_contacts){
         res.status(400).json({message:"One or more parameters null"})
@@ -50,7 +47,7 @@ main_router.post(events_route, utils.validatePostapi, (req, res)=>{
 
 })
 
-main_router.put(events_route, utils.validatePostapi, (req, res)=>{  //HTTP put is for update, and utils.validatePostapi because it for use for the admin prople, so wheter it is a post or a put request doesnt matter the api_key if it is validatePostapi for put instead of a separate utils.validatePutapi
+main_router.put(mainRoutes.events_route, utils.validatePostapi, (req, res)=>{  //HTTP put is for update, and utils.validatePostapi because it for use for the admin prople, so wheter it is a post or a put request doesnt matter the api_key if it is validatePostapi for put instead of a separate utils.validatePutapi
     //console.log("content-type header - ", req.headers["content-type"])
     if(req.headers['content-type']!="application/json"){res.status(400).json({message:"content-type header missing"});console.log("content-type param missing- ", req.headers['content-type'] )}
     else if(!req.headers['event_id']){res.status(400).json({message:"event id parameter missing"})}    //event id is the _id of the events document, when clienc does GET for events, the _id is also returned.    
@@ -67,7 +64,7 @@ main_router.put(events_route, utils.validatePostapi, (req, res)=>{  //HTTP put i
     }
 })
 
-main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
+main_router.delete(mainRoutes.events_route, utils.validatePostapi, (req, res)=>{
     if(req.headers['content-type']!="application/json"){res.status(400).json({message:"content-type header missing"});console.log("content-type param missing- ", req.headers['content-type'] )}
     else if(!req.headers['event_id']){res.status(400).json({message:"event id parameter missing"})}
     else{
@@ -93,7 +90,7 @@ main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
 
 /////All Notification routes START (This is for temporary classification only. Finally before production deploment, routes will be organized separately in their respective route JS source file for better readability and documentation)
 
-main_router.get(notific_route, utils.validateGetapi, (req, res)=>{
+main_router.get(mainRoutes.notific_route, utils.validateGetapi, (req, res)=>{
     
     notific_coll.find({}).then((result)=>{
         res.status(200)
@@ -111,7 +108,7 @@ main_router.get(notific_route, utils.validateGetapi, (req, res)=>{
 
 })
 
-main_router.post(notific_route, utils.validatePostapi, (req, res)=>{
+main_router.post(mainRoutes.notific_route, utils.validatePostapi, (req, res)=>{
     const body=req.body
     if(!body.notif_heading || !body.notif_desc || !body.notif_posted_on){
         res.status(400)
@@ -123,7 +120,7 @@ main_router.post(notific_route, utils.validatePostapi, (req, res)=>{
     
 })
 
-main_router.delete(notific_route, utils.validatePostapi, (req,res)=>{       //the utils.validatePostapi is called a middleware which means, in JS, the sequence of function execution after reaching this route will be(in this case stored as a stack)=>{1st:utils.validatePostapi (the req and res is sent automatically to this middleware), 2nd: the callback function(only when the middleware calles next(), it will go on to execute the next function in stack which is the callback or esle we can just send the response from midleware and leave it.)} we can add as many middleware as wanted eg: router.post(route, middleware1, middleware2, middleware3, (callback function)), but we need to call next() in the middlewar to advance to the next middleware in the stack. 
+main_router.delete(mainRoutes.notific_route, utils.validatePostapi, (req,res)=>{       //the utils.validatePostapi is called a middleware which means, in JS, the sequence of function execution after reaching this route will be(in this case stored as a stack)=>{1st:utils.validatePostapi (the req and res is sent automatically to this middleware), 2nd: the callback function(only when the middleware calles next(), it will go on to execute the next function in stack which is the callback or esle we can just send the response from midleware and leave it.)} we can add as many middleware as wanted eg: router.post(route, middleware1, middleware2, middleware3, (callback function)), but we need to call next() in the middlewar to advance to the next middleware in the stack. 
     const id=req.body.notif_id
     console.log('delete id - ',id)
     notific_coll.deleteOne({_id:id}).then((result)=>{
