@@ -5,6 +5,7 @@ const mongoose=require('mongoose')
 const gallerySchema=new mongoose.Schema({
        
     image_url:String,
+    image_desc:String,
     is_sliding:Boolean
 })
 
