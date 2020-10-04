@@ -4,11 +4,10 @@
   "description": "API backend for alchemy 20",
   "main": "app.js",
   "scripts": {
-    "db":"mongod",
+    "db": "mongod",
     "server": "node app",
-    "deploy":"start npm run db && start npm run server",
+    "deploy": "start npm run db && start npm run server",
     "deploy1": "npm-run-all -p db server"
-
   },
   "author": "Madhu Sudhanan",
   "license": "MIT",

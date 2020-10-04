@@ -62,10 +62,33 @@ main_router.get(events_route, utils.validateGetapi, (req, res)=>{
     })
 })
 
-
 main_router.post(events_route, utils.validatePostapi, (req, res)=>{         //
     const body=req.body
     if(!body.event_type || !body.event_name || !body.event_description || !body.event_img || !body.event_date || !body.event_cost || !body.event_contacts){     //Object.keys(body.event).length===0 is not user cuz when particular attribute such as event_desc is not event send in the body, it gets created.
+        res.status(400).json({message:"One or more parameters null"})
+    }else{
+        // const event=new events({
+        //     event_id:body.event_id,
+        //     event_type:body.event_type,
+        //     event_name:body.event_name,
+        //     event_description:body.event_description,
+        //     event_img:body.event_img,
+        //     event_cost:body.event_cost,
+        //     event_contacts:body.event_cost
+        // })
+
+        events.create(body).then((event_result)=>{
+            res.sendStatus(201)
+        }).then((event_err)=>{
+            res.status(500).json(event_err)
+        })
+    }
+})
+    //res.send('events POST working')
+
+main_router.post(mainRoutes.events_route, utils.validatePostapi, (req, res)=>{
+    const body=req.body
+    if(!body.event_type || !body.event_name || !body.event_description || !body.event_img || !body.event_date || !body.event_cost || !body.event_contacts){
         res.status(400).json({message:"One or more parameters null"})
     }else{
         // const event=new events({
@@ -108,7 +131,7 @@ main_router.put(events_route, utils.validatePostapi, (req, res)=>{  //HTTP put i
     }
 })
 
-main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
+main_router.delete(mainRoutes.events_route, utils.validatePostapi, (req, res)=>{
     if(req.headers['content-type']!="application/json"){res.status(400).json({message:"content-type header missing"});console.log("content-type param missing- ", req.headers['content-type'] )}
     else if(!req.headers['event_id']){res.status(400).json({message:"event id parameter missing"})}
     else{
@@ -134,7 +157,7 @@ main_router.delete(events_route, utils.validatePostapi, (req, res)=>{
 
 /////All Notification routes START (This is for temporary classification only. Finally before production deploment, routes will be organized separately in their respective route JS source file for better readability and documentation)
 
-main_router.get(notific_route, utils.validateGetapi, (req, res)=>{
+main_router.get(mainRoutes.notific_route, utils.validateGetapi, (req, res)=>{
     
     notific_coll.find({}).then((result)=>{
         res.status(200)
@@ -152,7 +175,7 @@ main_router.get(notific_route, utils.validateGetapi, (req, res)=>{
 
 })
 
-main_router.post(notific_route, utils.validatePostapi, (req, res)=>{
+main_router.post(mainRoutes.notific_route, utils.validatePostapi, (req, res)=>{
     const body=req.body
     if(Object.keys(body).length===0/*!body.notif_heading || !body.notif_desc || !body.notif_posted_on*/){
         res.status(400)
