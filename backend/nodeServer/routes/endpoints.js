@@ -1,7 +1,7 @@
 mainRoutes = {
     notific_route: '/allNotific',
     events_route: '/allEvents',
-    galary_route: '/galary',
+    gallery_route: '/gallery',
 }
 
 module.exports = mainRoutes
