@@ -6,10 +6,6 @@ const user_token=require('../models/user_tokens')
 const users=require('../models/users')
 const events=require('../models/events')
 
-//const notific_route='/allNotific'
-const events_route='/allEvents'
-const galary_route='/galary'
-
 const mainRoutes = require('./endpoints')
 
 
