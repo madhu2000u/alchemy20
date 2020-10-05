@@ -8,11 +8,12 @@ export const StyledMenu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   background: #303030;
+  padding-left: 2rem;
+  padding-right: 2rem;
   transition: transform 0.3s ease-in-out;
   z-index: 3;
-  padding: 2rem;
   transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-100%)")};
   overflow: auto;
 
@@ -20,6 +21,7 @@ export const StyledMenu = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
   }
 
   .menu_header img {
@@ -45,20 +47,16 @@ export const StyledMenu = styled.div`
   }
 
   .nav-links {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
   }
 
   .coming-soon-div {
     display: flex;
     flex-direction: column;
     justify-content: start; 
-    margin-top: 2rem;
-  }
-
-  .active-div {
-    margin-top: 2rem;
   }
 
   .active-div p{
