@@ -158,7 +158,7 @@ export default function Team() {
         <div className={styles.market_gl}>
           <div className={styles.team_container}>
             <p>MARKETING</p>
-            <div className={styles.team}>
+            <div className={styles.mar_gl_team}>
               <TeamPerson
                 isHead={false}
                 img="https://imgur.com/XuQVuJJ.jpg"
@@ -175,7 +175,7 @@ export default function Team() {
           </div>
           <div className={styles.team_container}>
             <p>GUEST LECTURES</p>
-            <div className={styles.team}>
+            <div className={styles.mar_gl_team}>
               <TeamPerson
                 isHead={false}
                 img="https://imgur.com/Th0LV1s.jpg"

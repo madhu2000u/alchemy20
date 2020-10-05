@@ -48,8 +48,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 70%;
   justify-content: space-evenly;
+  margin-top: 2rem;
 }
 
 .team_container {
@@ -81,7 +82,7 @@
 }
 
 .oc_team {
-  width: 40%;
+  width: 25%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -98,6 +99,14 @@
   display: flex;
 }
 
+.mar_gl_team {
+  width: 48%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 1158px) {
   .web_pr_des {
     flex-wrap: wrap;
@@ -109,10 +118,16 @@
 }
 
 @media (max-width: 420px) {
+  .other_heads {
+    width: 100%;
+  }
   .team {
     width: 100%;
   }
   .oc_team {
+    width: 100%;
+  }
+  .mar_gl_team {
     width: 100%;
   }
 }
