@@ -27,6 +27,4 @@ mongoose
     console.log("Error connection to db - ", err);
   });
 
-app.listen(process.env.PORT || default_port, () => {
-  console.log("Server listening at PORT:"+process.env.PORT || default_port);
-});
+app.listen(process.env.PORT || default_port, ()=>{console.log('Server listening...')} )
