@@ -32,3 +32,5 @@ alchemy-20-front/.env.production.local
 
 # vercel
 alchemy-20-front/.vercel
+
+alchemy-20-front/.env.local
