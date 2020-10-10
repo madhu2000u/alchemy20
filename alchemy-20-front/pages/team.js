@@ -18,6 +18,7 @@ export default function Team() {
             alt="Image of Surya"
             name="Surya BJ"
             title="CHAIRMAN"
+            phno="+91 99945 41821"
           />
         </div>
         <div className={styles.other_heads}>
@@ -27,6 +28,7 @@ export default function Team() {
             alt="Image of Kande"
             name="Ashish Kande"
             title={"OVERALL\nCOORDINATOR"}
+            phno="+91 94418 83896"
           />
           <TeamPerson
             isHead={true}
@@ -41,6 +43,7 @@ export default function Team() {
             alt="Image of Maank"
             name="Mayank"
             title="TREASURER"
+            phno="+91 87091 67370"
           />
         </div>
         <div className={styles.content_and_publicity}>

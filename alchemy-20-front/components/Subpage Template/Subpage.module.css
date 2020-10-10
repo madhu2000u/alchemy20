@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   margin: 0 auto;
-  background: rgba(26, 26, 26, 0.6);
+  background: rgba(26, 26, 26, 0.4);
   height: 70px;
   z-index: 2;
   top: 0;
@@ -16,12 +16,8 @@
   width: 140px;
   position: absolute;
   top: 14%;
-  left: 5rem;
+  left: 45%;
   z-index: 3;
-}
-
-.login_signup{
-    float: right;
 }
 
 @media (max-width: 600px) {
