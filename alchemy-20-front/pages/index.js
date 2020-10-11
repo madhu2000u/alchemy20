@@ -10,7 +10,6 @@ import fetch from "node-fetch";
 export default function Home({ sliding_images, notifs }) {
   return (
     <main className={styles.main}>
-      {console.log(notifs)}
       <Subpage notifs={notifs} showNot={true} />
       <ImageSlider images={sliding_images} />
       <div className={styles.grid}>
