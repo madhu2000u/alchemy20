@@ -48,7 +48,7 @@ export default function Home({sliding_images, notifs}) {
 
 Home.Layout = Common;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const img_res = await fetch(process.env.endpoint+"/gallery", {
