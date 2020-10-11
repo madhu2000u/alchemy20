@@ -5,9 +5,17 @@ import styles from "../styles/About.module.css";
 export default function About() {
   return (
     <main className={styles.main}>
-      <Subpage />
-      <img src="https://i.ibb.co/J5LG2Pg/tri-tl.png" alt="Design element at top left" className={styles.tri_tl} />
-      <img src="https://i.ibb.co/Qcpf375/tri-br.png" alt="Design element at bottom right" className={styles.tri_br} />
+      <Subpage showNot={false} />
+      <img
+        src="https://i.ibb.co/J5LG2Pg/tri-tl.png"
+        alt="Design element at top left"
+        className={styles.tri_tl}
+      />
+      <img
+        src="https://i.ibb.co/Qcpf375/tri-br.png"
+        alt="Design element at bottom right"
+        className={styles.tri_br}
+      />
       <div className={styles.about_container}>
         <div className={styles.about_subcontainer}>
           <h1>ABOUT</h1>
@@ -32,7 +40,11 @@ export default function About() {
             initiatives, events and workshops from scratch.
           </p>
         </div>
-        <img src='https://i.ibb.co/72N8cX0/illustration-hello.png' alt="Illustration of man saying hello" className={styles.illustration}/>
+        <img
+          src="https://i.ibb.co/72N8cX0/illustration-hello.png"
+          alt="Illustration of man saying hello"
+          className={styles.illustration}
+        />
       </div>
     </main>
   );

@@ -5,40 +5,30 @@ import Subpage from "../components/Subpage Template/Subpage";
 import Footer from "../components/Footer/Footer";
 import Link from "next/link";
 import ImageSlider from "../components/Image Slider/ImageSlider";
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 
-export default function Home({sliding_images, notifs}) {
-
+export default function Home({ sliding_images, notifs }) {
   return (
     <main className={styles.main}>
-      <Subpage notifs={notifs}/>
+      {console.log(notifs)}
+      <Subpage notifs={notifs} showNot={true} />
       <ImageSlider images={sliding_images} />
       <div className={styles.grid}>
         <Link href="/coming-soon">
-          <div
-            className={styles.card}
-            aria-label="Events"
-          >
+          <div className={styles.card} aria-label="Events">
             EVENTS
           </div>
         </Link>
         <Link href="/coming-soon" aria-label="Workshops">
-          <div
-            className={styles.card}
-            aria-label="Workshops"
-          >
+          <div className={styles.card} aria-label="Workshops">
             WORKSHOPS
           </div>
         </Link>
         <Link href="/coming-soon" aria-label="Register">
-          <div className={styles.card2}>
-            REGISTER
-          </div>
+          <div className={styles.card2}>REGISTER</div>
         </Link>
         <Link href="/coming-soon" aria-label="Login">
-          <div className={styles.card2}>
-            LOGIN
-          </div>
+          <div className={styles.card2}>LOGIN</div>
         </Link>
       </div>
       <Footer />
@@ -48,26 +38,26 @@ export default function Home({sliding_images, notifs}) {
 
 Home.Layout = Common;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const img_res = await fetch(process.env.endpoint+"/gallery", {
+  const img_res = await fetch(process.env.endpoint + "/gallery", {
     method: "GET",
     headers: {
-      "get_api": process.env.get_api_key,
+      get_api: process.env.get_api_key,
     },
   });
 
-  const not_res = await fetch(process.env.endpoint+"/allNotific", {
+  const not_res = await fetch(process.env.endpoint + "/allNotific", {
     method: "GET",
     headers: {
-      "get_api": process.env.get_api_key,
+      get_api: process.env.get_api_key,
     },
   });
   const images = await img_res.json();
-  const sliding_images = images.filter(function filterSliding(image) {
-    if(image.is_sliding) return image;
-  })
+  const sliding_images = await images.filter(function filterSliding(image) {
+    if (image.is_sliding) return image;
+  });
   const notifs = await not_res.json();
   return {
     props: {

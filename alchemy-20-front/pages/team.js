@@ -6,7 +6,7 @@ import TeamPerson from "../components/Team Person/TeamPerson";
 export default function Team() {
   return (
     <main className={styles.main}>
-      <Subpage />
+      <Subpage showNot={false} />
       <div className={styles.heading}>
         <p>Team</p>
       </div>
