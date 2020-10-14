@@ -6,15 +6,16 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "start-build": "npm run build && npm start",
     "export": "next export",
     "deploy": "npm run build && npm run export"
   },
   "dependencies": {
-    "next": "9.5.3",
+    "next": "^9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-multi-carousel": "^2.5.5",
     "react-particles-js": "^3.3.0",
-    "react-spring": "^8.0.27",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {}

@@ -12,7 +12,6 @@
   top: 0;
   left: 0;
   z-index: 2;
-  overflow: auto;
 }
 
 .grid {
@@ -20,14 +19,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 2rem;
+  max-width: 600px;
+  margin-top: 1rem;
 }
 
 .card {
   width: 200px;
   height: 40px;
-  line-height: 37px;
+  line-height: 38px;
 
   background: #303030;
   border: 2px solid #ecc82c;
@@ -54,9 +53,9 @@
 }
 
 .card2 {
-  width: 200px;
+  width: 420px;
   height: 40px;
-  line-height: 37px;
+  line-height: 40px;
 
   background: #ecc82c;
 
@@ -74,6 +73,7 @@
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
+  border-radius: 7px;
 }
 
 .card2:hover,
@@ -83,45 +83,10 @@
   color: #ecc82c;
 }
 
-.logo {
-  height: 20em;
-  margin-top: 70px;
-}
-
-.titledate {
-  margin-top: 2rem;
-  background-color: #ecc82c;
-  width: 100%;
-  height: 46px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.titledate p {
-  color: #303030;
-  text-align: center;
-  font-size: 1.3rem;
-  flex: 1;
-}
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
-  }
-
-  .logo {
-    height: 13em;
-    margin-top: 30px;
-  }
-
-  .titledate {
-    height: 35px;
-  }
-
-  .titledate p {
-    font-size: 1.1rem;
   }
 
   .card {

@@ -4,7 +4,6 @@ import { useOnClickOutside } from "../Navbar/hooks";
 import { useState, useRef, useEffect } from "react";
 import styles from "./Common.module.css";
 import Head from "next/head";
-import Link from "next/link";
 import ParticlesContainer from "../Particles Container/ParticlesContainer";
 
 export default function Common({ children }) {

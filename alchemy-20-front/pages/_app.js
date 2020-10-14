@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import '../styles/globals.css'
+import "react-multi-carousel/lib/styles.css";
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {

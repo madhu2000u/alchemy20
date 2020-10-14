@@ -1,19 +1,28 @@
 import Link from "next/link";
 import styles from "./Subpage.module.css";
+import Notification from "./Notification/Notification";
+import DropdownMenu from "./Notification/DropdownMenu";
+import { useState } from "react";
 
-export default function Subpage() {
+export default function Subpage({ notifs, showNot }) {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <div className={styles.subpage_container}>
       <Link href="/">
         <img
           className={styles.top_logo}
-          src="https://i.ibb.co/QY8JPrL/alchemy-text-logo.png"
+          src="https://i.imgur.com/xDQ25iF.png"
           alt="Alchemy Logo with Text"
         ></img>
       </Link>
-      <div className={styles.login_signup}>
-          
-      </div>
+      {showNot && (
+        <a onClick={() => setOpen(!isOpen)}>
+          <Notification isOpen={isOpen}>
+            <DropdownMenu isOpen={isOpen} notifs={notifs} />
+          </Notification>
+        </a>
+      )}
     </div>
   );
 }
