@@ -9,9 +9,9 @@ export default function Menu({ open, setOpen }) {
       <div className="menu_header">
         <img src="https://i.ibb.co/g9gLDkH/alchemy-2018.png" alt="Alchemy Logo"></img>
         <a>ALCHEMY'21</a>
-        <p>
+        {/* <p>
           October 18<sup>th</sup> - 20<sup>th</sup>, 2020
-        </p>
+        </p> */}
         <hr className="solid"></hr>
       </div>
       <div className="nav-links">
@@ -50,8 +50,8 @@ export default function Menu({ open, setOpen }) {
           </Link>
         </div>
         <div className="active-div" onClick={() => setOpen(!open)}>
-          <Link href="/coming-soon">
-            <p>Contact</p>
+          <Link href="/gallery">
+            <p>Gallery</p>
           </Link>
         </div>
       </div>

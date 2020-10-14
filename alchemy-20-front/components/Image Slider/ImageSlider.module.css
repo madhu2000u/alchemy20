@@ -1,23 +1,24 @@
 .slider {
-  width: 60%;
+  width: 100vw;
   margin-top: 6rem;
+  overflow-y: hidden;
 }
 
-.image {
-  max-width: 80%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+.img_container img {
+  width: 420px;
+  height: 300px;
+  object-fit: cover;
 }
 
-.image_container {
+.img_container {
   display: block;
   text-align: center;
 }
 
 @media (max-width: 1024px) {
-  .slider {
-    margin-top: 9rem;
+  .img_container img {
+    width: 360px;
+    height: 210px;
+    object-fit: cover;
   }
 }

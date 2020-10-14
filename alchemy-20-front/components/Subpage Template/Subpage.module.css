@@ -19,9 +19,3 @@
   left: 45%;
   z-index: 3;
 }
-
-@media (max-width: 600px) {
-  .top_logo {
-    display: none;
-  }
-}
