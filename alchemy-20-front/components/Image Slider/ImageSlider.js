@@ -34,7 +34,6 @@ export default function ImageSlider({ images }) {
       <Carousel
         arrows={false}
         autoPlay={true}
-        autoPlaySpeed={3000}
         transitionDuration={1500}
         focusOnSelect={false}
         infinite={true}

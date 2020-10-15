@@ -8,7 +8,7 @@ export default function ComingSoon() {
       <Subpage showNot={false} />
       <div className={styles.image_div}>
         <img
-          src="https://i.ibb.co/QFxpSYR/coming-soon.png"
+          src="https://i.imgur.com/nPyZGGK.png"
           className={styles.coming_soon_img}
         ></img>
       </div>

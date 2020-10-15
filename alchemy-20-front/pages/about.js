@@ -7,12 +7,12 @@ export default function About() {
     <main className={styles.main}>
       <Subpage showNot={false} />
       <img
-        src="https://i.ibb.co/J5LG2Pg/tri-tl.png"
+        src="https://i.imgur.com/Wc93Fuf.png"
         alt="Design element at top left"
         className={styles.tri_tl}
       />
       <img
-        src="https://i.ibb.co/Qcpf375/tri-br.png"
+        src="https://i.imgur.com/zQh2jAz.png"
         alt="Design element at bottom right"
         className={styles.tri_br}
       />
@@ -41,7 +41,7 @@ export default function About() {
           </p>
         </div>
         <img
-          src="https://i.ibb.co/72N8cX0/illustration-hello.png"
+          src="https://i.imgur.com/dcCB0YU.png"
           alt="Illustration of man saying hello"
           className={styles.illustration}
         />

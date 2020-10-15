@@ -43,6 +43,8 @@
 
 .about_subcontainer {
     width: 500px;
+    background-color: rgba(26,26,26,0.4);
+    padding: 1rem;
 }
 
 .about_subcontainer h1 {
@@ -60,7 +62,6 @@
 
 .about_subcontainer p{
     color: white;
-    text-align: justify;
 }
 
 .illustration {

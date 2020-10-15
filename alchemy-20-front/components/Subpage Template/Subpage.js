@@ -9,12 +9,12 @@ export default function Subpage({ notifs, showNot }) {
 
   return (
     <div className={styles.subpage_container}>
-      <Link href="/">
-        <img
+      <Link href='/' passHref>
+        <a><img
           className={styles.top_logo}
           src="https://i.imgur.com/xDQ25iF.png"
           alt="Alchemy Logo with Text"
-        ></img>
+        ></img></a>
       </Link>
       {showNot && (
         <a onClick={() => setOpen(!isOpen)}>

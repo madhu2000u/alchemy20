@@ -1,9 +1,10 @@
 import styles from "./Footer.module.css";
+import Link from "next/link"
 
 export default function Footer() {
   return (
     <div className={styles.footer_container}>
-      <div className={styles.newsletter}>View our Newsletter</div>
+      <Link href="/coming-soon"><div className={styles.newsletter}>View our Newsletter</div></Link>
       <div className={styles.connect_text}>
         <p>Connect with us</p>
       </div>
