@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.footer_container a {
+  text-decoration: none;
+}
+
 .connect_text p {
   color: white;
   text-align: center;
