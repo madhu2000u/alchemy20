@@ -34,7 +34,7 @@ export default function ImageSlider({ images }) {
       <Carousel
         arrows={false}
         autoPlay={true}
-        autoPlaySpeed={3000}
+        autoPlaySpeed={0}
         transitionDuration={1500}
         focusOnSelect={false}
         infinite={true}
@@ -47,6 +47,8 @@ export default function ImageSlider({ images }) {
         showDots={false}
         slidesToSlide={1}
         swipeable={false}
+        minimumTouchDrag={0}
+        draggable={false}
       >
         {images.map((image) => (
           <div key={image._id}>

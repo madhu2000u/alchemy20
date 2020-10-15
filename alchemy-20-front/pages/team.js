@@ -172,7 +172,7 @@ export default function Team() {
                 isHead={false}
                 img="https://imgur.com/Gry5psh.jpg"
                 alt="Image of Arindham"
-                name="Arindham"
+                name="Arindam"
               />
             </div>
           </div>

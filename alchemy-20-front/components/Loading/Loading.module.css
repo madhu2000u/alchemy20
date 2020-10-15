@@ -1,0 +1,59 @@
+.main {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main p {
+    margin: 12px;
+    color: #ecc82c;
+    text-align: center;
+    font-size: 2em;
+}
+
+.image_container img {
+  max-width: 300px;
+  height: auto;
+}
+
+.bar {
+  /* Size and position */
+  font-size: 20px; /* 1em */
+  width: 10em;
+  height: 0.3em;
+  position: relative;
+  margin: 12px auto;
+
+  background-color: grey;
+}
+
+.sphere {
+  display: block;
+  width: 2em;
+  height: 0.3em;
+  background: #ecc82c;
+  animation: move 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  to {
+    margin-left: 80%;
+  }
+}
+
+@media (max-width: 464px) {
+    .image_container img {
+        max-width: 230px;
+        height: auto;
+      }
+}

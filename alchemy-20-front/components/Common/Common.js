@@ -1,7 +1,7 @@
 import Burger from "../Navbar/Burger/Burger";
 import Menu from "../Navbar/Menu/Menu";
 import { useOnClickOutside } from "../Navbar/hooks";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import styles from "./Common.module.css";
 import Head from "next/head";
 import ParticlesContainer from "../Particles Container/ParticlesContainer";

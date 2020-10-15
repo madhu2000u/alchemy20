@@ -8,6 +8,7 @@ export const StyledMenu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  border-right: solid #ecc82c 5px;
   height: 100%;
   background: #303030;
   padding-left: 2rem;
@@ -98,6 +99,7 @@ export const StyledMenu = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     padding: 0;
+    border-left: none;
 
     .menu_header img {
       margin-top: 1.5rem;
