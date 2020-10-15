@@ -18,6 +18,9 @@
 }
 
 @media (max-width: 1024px) {
+  .slider {
+    padding-bottom: 215px;
+  }
   .img_container img {
     width: 360px;
     height: 210px;

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: node
+    build: .
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    command: node app
+    ports:
+      - "5700:4700"
+    links:
+      - database
+    depends_on:
+      - "database"
+
+  database:
+    image: "mongo"
+    ports:
+      - "27000:27017"
