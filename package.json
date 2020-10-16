@@ -20,6 +20,9 @@
       "mongoose": "^5.10.7",
       "nodemailer": "^6.4.12",
       "nodemon": "^2.0.4"
-    }
+    },
+    "engines": {
+        "node": ">=8"
+      }
   }
   
