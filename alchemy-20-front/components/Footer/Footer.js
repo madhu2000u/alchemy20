@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <div className={styles.footer_container}>
-      <a href="https://drive.google.com/drive/folders/1rY5y5iVOFGWufJ8QSYbK-wluL1bfESJd?usp=sharing">
+      <a href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf">
         <div className={styles.newsletter}>View our Newsletter</div>
       </a>
       <div className={styles.connect_text}>
