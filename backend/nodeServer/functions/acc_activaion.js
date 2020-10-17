@@ -72,7 +72,7 @@ exports.sendVerificationMail=(user_id, email)=>{
                 console.log("mail sent - ", info)
                 tempUser.create(newTempUser).then((result)=>{
                     console.log('Acc verificatoin temp user created')
-                }).catch((err)=>{console.log('ERROR creating Acc verification temp user'); return err})
+                }).catch((err)=>{console.log('ERROR creating Acc verification temp user'); reject(err)})
                 resolve({status:200, message:"Verification mail sent"})
 
             }).catch((err)=>{
@@ -103,7 +103,7 @@ exports.sendVerificationMail=(user_id, email)=>{
             
         } catch (error) {
             console.log('Inside sendVerificaionEmail() catch block - ', error)
-            reject({status:500,message:"Verification mail failed to send"})
+            reject({status:403,message:"Verification mail failed to send", error})
             
         }
         

@@ -88,10 +88,10 @@ router.post('/auth', (req, res)=>{
                         console.log("Sign up user_token created")
                         console.log("result values - ", result._id, result.email)
                         acc_verify.sendVerificationMail(result._id, result.email).then((verif_mail)=>{
-                            res.status(201).json({message:"User registered successfully"})
+                            res.status(201).json({message:"User registered successfully", verif_mail:verif_mail})
                             console.log(verif_mail)
                         }).catch((err)=>{
-                            res.json(403).json(err)
+                            res.status(403).json(err)
                             console.log("sendVerificationMail() error - ", err.message)
                         })
                         
