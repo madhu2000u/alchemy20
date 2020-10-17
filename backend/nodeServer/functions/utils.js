@@ -108,3 +108,9 @@ exports.compare_pass=(hashed_pass, password, salt)=>{
     return hashed_pass==crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512')
 
 }
+
+exports.db_connection=()=>{
+    if(process.env.environment=="production"){return "mongodb://database:27017/alchemy-20-db"}
+    else if(process.env.environment=="testing"){return `mongodb+srv://alchemy-db-madhu:${process.env.my_db_pass}@alchemy-20.xrhio.gcp.mongodb.net/alchemy-20?retryWrites=true&w=majority`}
+    else if(process.env.environment=="local"){return "mongodb://localhost:27017/alchemy-20-db"}
+}

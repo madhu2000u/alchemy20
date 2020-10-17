@@ -4,6 +4,13 @@ const users=require('../models/users')
 const tempUser=require('../models/tempActivationUser')
 const utils=require('../functions/utils')
 
+function verific_link(environment) {
+    if(environment=='production'){return 'https://alchemy.nitt.edu/api/confirm/'}
+    else if(environment=='testing'){return process.env.TESTING_BASE_URL+'/api/confirm/'}
+    else if(environment=='local'){return 'http://localhost:4700/api/confirm/'}
+    
+}
+
 
 exports.resendVerificationMail=(email)=>{
     console.log('Inside resendVerificationEmail()')
@@ -20,7 +27,7 @@ exports.resendVerificationMail=(email)=>{
                     const subject="Email Verification"
                     const html=`<h4>Welcome for Alchemy'20,<br><br>\
                     Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link http://localhost:3000/api/confirm/${tempUser_result.verification_token}</h3>` //+ verification_token
+                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link ${verific_link(process.env.environment)}${tempUser_result.verification_token}</h3>` //+ verification_token
             
                     utils.mailer(email, subject, html).then((info)=>{       //mailer function in the utils.js module that sends a promise based on whether the mail sending was successfull or not
                         console.log("mail sent - ", info)
@@ -52,7 +59,7 @@ exports.sendVerificationMail=(user_id, email)=>{
             const subject="Email Verification"
             const html=`<h4>Welcome for Alchemy'20,<br><br>\
             Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link http://localhost:3000/api/confirm/${verification_token}</h3>` //+ verification_token
+            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link ${verific_link(process.env.environment)}${tempUser_result.verification_token}</h3>` //+ verification_token
             // let t=mailer.createTransport({
             //     service: 'gmail',
             //     auth:{
