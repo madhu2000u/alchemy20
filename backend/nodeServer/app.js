@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const utils = require("./functions/utils")
+
 // const key=require('./models/api_keys')
 const app = express();
 const default_port = 4700;
 
-let db_connection="mongodb://database:27017/alchemy-20-db"    // default connectin string
+
 
 dotenv.config();
 
@@ -15,10 +15,10 @@ app.use("/api", require("./routes/auth_routes"));
 app.use("/api", require("./routes/main_routes"));
 
 db_connection=utils.db_connection()
-
+console.log(process.env.db_url)
 
 mongoose
-  .connect(db_connection, {
+  .connect(process.env.db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
