@@ -4,12 +4,6 @@ const users=require('../models/users')
 const tempUser=require('../models/tempActivationUser')
 const utils=require('../functions/utils')
 
-function verific_link(environment) {
-    if(environment=='production'){return 'https://alchemy.nitt.edu/api/confirm/'}
-    else if(environment=='testing'){return process.env.TESTING_BASE_URL+'/api/confirm/'}
-    else if(environment=='local'){return 'http://localhost:4700/api/confirm/'}
-    
-}
 
 
 exports.resendVerificationMail=(email)=>{
