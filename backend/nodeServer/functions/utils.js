@@ -32,6 +32,7 @@ exports.mailer=(to_email, sub, html)=>{
             })
             
         } catch (error) {
+            reject(error)
             
         }
     })
