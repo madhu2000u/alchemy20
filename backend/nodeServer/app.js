@@ -14,8 +14,6 @@ app.use(express.json());
 app.use("/api", require("./routes/auth_routes"));
 app.use("/api", require("./routes/main_routes"));
 
-db_connection=utils.db_connection()
-console.log(process.env.db_url)
 
 mongoose
   .connect(process.env.db_url, {
