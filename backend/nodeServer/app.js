@@ -1,11 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
 // const key=require('./models/api_keys')
 const app = express();
 const default_port = 4700;
-
 
 
 dotenv.config();
