@@ -77,7 +77,6 @@ main_router.put(mainRoutes.gallery_route, utils.validatePostapi, (req, res)=>{
         })        
 
     }
-
 })
 
 main_router.delete(mainRoutes.gallery_route, utils.validatePostapi, (req, res)=>{

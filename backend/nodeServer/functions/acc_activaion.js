@@ -5,6 +5,7 @@ const tempUser=require('../models/tempActivationUser')
 const utils=require('../functions/utils')
 
 
+
 exports.resendVerificationMail=(email)=>{
     console.log('Inside resendVerificationEmail()')
     return new Promise((resolve, reject)=>{             //returns a new Promise where if any error we reject it and if sucess we resolve. Then the function that called it will use .then to handle if promise is resolved and .catch, it promise is rejected
@@ -20,7 +21,7 @@ exports.resendVerificationMail=(email)=>{
                     const subject="Email Verification"
                     const html=`<h4>Welcome for Alchemy'20,<br><br>\
                     Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link http://localhost:3000/api/confirm/${tempUser_result.verification_token}</h3>` //+ verification_token
+                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link ${process.env.base_url}/api/confirm/${tempUser_result.verification_token}</h3>` //+ verification_token
             
                     utils.mailer(email, subject, html).then((info)=>{       //mailer function in the utils.js module that sends a promise based on whether the mail sending was successfull or not
                         console.log("mail sent - ", info)
@@ -52,7 +53,7 @@ exports.sendVerificationMail=(user_id, email)=>{
             const subject="Email Verification"
             const html=`<h4>Welcome for Alchemy'20,<br><br>\
             Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link http://localhost:3000/api/confirm/${verification_token}</h3>` //+ verification_token
+            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link ${process.env.base_url}/api/confirm/${verification_token}</h3>` //+ verification_token
             // let t=mailer.createTransport({
             //     service: 'gmail',
             //     auth:{
@@ -71,7 +72,7 @@ exports.sendVerificationMail=(user_id, email)=>{
                 console.log("mail sent - ", info)
                 tempUser.create(newTempUser).then((result)=>{
                     console.log('Acc verificatoin temp user created')
-                }).catch((err)=>{console.log('ERROR creating Acc verification temp user'); return err})
+                }).catch((err)=>{console.log('ERROR creating Acc verification temp user'); reject(err)})
                 resolve({status:200, message:"Verification mail sent"})
 
             }).catch((err)=>{
@@ -102,7 +103,7 @@ exports.sendVerificationMail=(user_id, email)=>{
             
         } catch (error) {
             console.log('Inside sendVerificaionEmail() catch block - ', error)
-            reject({status:500,message:"Verification mail failed to send"})
+            reject({status:403,message:"Verification mail failed to send", error})
             
         }
         

@@ -88,8 +88,10 @@ router.post('/auth', (req, res)=>{
                         console.log("Sign up user_token created")
                         console.log("result values - ", result._id, result.email)
                         acc_verify.sendVerificationMail(result._id, result.email).then((verif_mail)=>{
+                            res.status(201).json({message:"User registered successfully", verif_mail:verif_mail})
                             console.log(verif_mail)
                         }).catch((err)=>{
+                            res.status(403).json(err)
                             console.log("sendVerificationMail() error - ", err.message)
                         })
                         
@@ -99,8 +101,8 @@ router.post('/auth', (req, res)=>{
                         //res.status(500).json({message:"Internal Server Error",err})
                     })   
 
-                    res.status(201)
-                    res.json({message:"User registered successfully!"})            
+                    // res.status(201)
+                    // res.json({message:"User registered successfully!"})            
                     
                 }).catch((err)=>{
                     if(err.code==11000){
