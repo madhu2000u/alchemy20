@@ -110,4 +110,3 @@ exports.compare_pass=(hashed_pass, password, salt)=>{
 
 }
 
-

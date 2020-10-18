@@ -7,7 +7,6 @@ const app = express();
 const default_port = 4700;
 
 
-
 dotenv.config();
 
 app.use(express.json());
@@ -27,6 +26,4 @@ mongoose
     console.log("Error connection to db - ", err);
   });
 
-app.listen(process.env.PORT || default_port, () => {
-  console.log("Server listening at PORT:"+process.env.PORT || default_port);
-});
+app.listen(process.env.PORT || default_port, ()=>{console.log('Server listening...')} )
