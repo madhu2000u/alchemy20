@@ -1,0 +1,28 @@
+{
+    "name": "alchemy21",
+    "version": "1.0.0",
+    "description": "Alchemy'21",
+    "main": "app.js",
+    "scripts": {
+      "db": "mongod",
+      "start": "node ./backend/nodeServer/app.js",
+      "server": "node app",
+      "deploy": "start npm run db && start npm run server",
+      "deploy1": "npm-run-all -p db server"
+    },
+    "author": "Madhu Sudhanan",
+    "license": "MIT",
+    "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "dotenv": "^8.2.0",
+      "email-validator": "^2.0.4",
+      "express": "^4.17.1",
+      "mongoose": "^5.10.7",
+      "nodemailer": "^6.4.12",
+      "nodemon": "^2.0.4"
+    },
+    "engines": {
+        "node": ">=8"
+      }
+  }
+  

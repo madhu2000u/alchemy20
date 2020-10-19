@@ -77,8 +77,8 @@ main_router.put(mainRoutes.gallery_route, utils.validatePostapi, (req, res)=>{
         })        
 
     }
-
 })
+
 
 main_router.delete(mainRoutes.gallery_route, utils.validatePostapi, (req, res)=>{
     if(!req.headers['image_id']){res.status(400).json({message:"Image ID missing in header"})}
