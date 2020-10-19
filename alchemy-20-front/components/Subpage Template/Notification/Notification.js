@@ -5,7 +5,7 @@ export default function Notification(props) {
       <StyledNotification>
           <img
             className="notification_img"
-            src="https://i.imgur.com/vOcSbox.png"
+            src="https://i.imgur.com/t8DencH.png"
             alt="Notifications"
           ></img>
         {props.children}

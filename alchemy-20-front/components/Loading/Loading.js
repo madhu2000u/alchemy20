@@ -5,7 +5,7 @@ export default function Loading() {
     <div className={styles.main}>
       <div className={styles.image_container}>
         <img
-          src="https://i.imgur.com/yICWwO1.png"
+          src="https://i.imgur.com/T9uOy33.png"
           alt="alchemy logo loading screen"
         />
       </div>

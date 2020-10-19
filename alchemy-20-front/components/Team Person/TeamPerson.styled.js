@@ -15,7 +15,7 @@ export const StyledPerson = styled.div`
   .name {
     font-size: 1.2em;
     font-weight: bold;
-    color: #ecc82c;
+    color: #2fb996;
     margin: 0;
     text-decoration: none;
   }

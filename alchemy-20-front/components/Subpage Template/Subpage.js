@@ -12,7 +12,7 @@ export default function Subpage({ notifs, showNot }) {
       <Link href="/" passHref>
         <img
           className={styles.top_logo}
-          src="https://i.imgur.com/xDQ25iF.png"
+          src="https://i.imgur.com/4Cctteg.png"
           alt="Alchemy Logo with Text"
         ></img>
       </Link>
