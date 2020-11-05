@@ -14,10 +14,14 @@ npm install
 Get the .env files from maintainers and put them in the front-end and back-end folders
 
 ### Running the back-end server without docker
-
+Make sure mongodb service is running.
 ```bash
 cd backend/nodeServer
 npm run start
+```
+Open another terminal and run
+```bash
+mongod
 ```
 Server will start running in port 4700
 ### Running the back-end server using docker
