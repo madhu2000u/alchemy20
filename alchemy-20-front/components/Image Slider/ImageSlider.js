@@ -21,7 +21,7 @@ export default function ImageSlider({ images }) {
     },
     tablet: {
       breakpoint: {
-        max: 1024,
+        max: 1345,
         min: 730,
       },
       items: 2,
@@ -30,12 +30,11 @@ export default function ImageSlider({ images }) {
   }
 
   return (
-    <div className={styles.slider}>
       <Carousel
         arrows={false}
         autoPlay={true}
-        autoPlaySpeed={0}
-        transitionDuration={1500}
+        autoPlaySpeed={2500}
+        transitionDuration={2000}
         focusOnSelect={false}
         infinite={true}
         itemClass={styles.img_container}
@@ -49,6 +48,7 @@ export default function ImageSlider({ images }) {
         swipeable={false}
         minimumTouchDrag={0}
         draggable={false}
+        containerClass={styles.slider}
       >
         {images.map((image) => (
           <div key={image._id}>
@@ -56,6 +56,5 @@ export default function ImageSlider({ images }) {
           </div>
         ))}
       </Carousel>
-    </div>
   );
 }
