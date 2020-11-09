@@ -1,4 +1,4 @@
-import { StyledPerson } from "./TeamPerson.styled.js";
+import {StyledPerson} from './TeamPerson.styled.js';
 
 export default function TeamPerson(props) {
   let position, phone;

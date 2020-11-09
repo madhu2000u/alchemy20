@@ -1,16 +1,16 @@
-import Burger from "../Navbar/Burger/Burger";
-import Menu from "../Navbar/Menu/Menu";
-import { useOnClickOutside } from "../Navbar/hooks";
-import { useState, useRef } from "react";
-import styles from "./Common.module.css";
-import Head from "next/head";
-import ParticlesContainer from "../Particles Container/ParticlesContainer";
+import Burger from '../Navbar/Burger/Burger';
+import Menu from '../Navbar/Menu/Menu';
+import {useOnClickOutside} from '../Navbar/hooks';
+import {useState, useRef} from 'react';
+import styles from './Common.module.css';
+import Head from 'next/head';
+import ParticlesContainer from '../Particles Container/ParticlesContainer';
 
-export default function Common({ children }) {
-  const [open, setOpen] = useState(false);
-  const node = useRef();
+export default function Common({children}) {
+	const [open, setOpen] = useState(false);
+	const node = useRef();
 
-  useOnClickOutside(node, () => setOpen(false));
+	useOnClickOutside(node, () => setOpen(false));
 
   return (
     <div className={styles.container}>
@@ -31,12 +31,12 @@ export default function Common({ children }) {
       </Head>
       <ParticlesContainer />
 
-      {children}
+			{children}
 
-      <div ref={node}>
-        <Burger open={open} setOpen={setOpen} />
-        <Menu open={open} setOpen={setOpen} />
-      </div>
-    </div>
-  );
+			<div ref={node}>
+				<Burger open={open} setOpen={setOpen} />
+				<Menu open={open} setOpen={setOpen} />
+			</div>
+		</div>
+	);
 }

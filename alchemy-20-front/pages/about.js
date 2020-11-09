@@ -1,6 +1,6 @@
-import Common from "../components/Common/Common";
-import Subpage from "../components/Subpage Template/Subpage";
-import styles from "../styles/About.module.css";
+import Common from '../components/Common/Common';
+import Subpage from '../components/Subpage Template/Subpage';
+import styles from '../styles/About.module.css';
 
 export default function About() {
   return (

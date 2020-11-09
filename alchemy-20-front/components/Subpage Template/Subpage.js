@@ -1,11 +1,11 @@
-import Link from "next/link";
-import styles from "./Subpage.module.css";
-import Notification from "./Notification/Notification";
-import DropdownMenu from "./Notification/DropdownMenu";
-import { useState } from "react";
+import Link from 'next/link';
+import styles from './Subpage.module.css';
+import Notification from './Notification/Notification';
+import DropdownMenu from './Notification/DropdownMenu';
+import {useState} from 'react';
 
-export default function Subpage({ notifs, showNot }) {
-  const [isOpen, setOpen] = useState(false);
+export default function Subpage({notifs, showNot}) {
+	const [isOpen, setOpen] = useState(false);
 
   return (
     <div className={styles.subpage_container}>

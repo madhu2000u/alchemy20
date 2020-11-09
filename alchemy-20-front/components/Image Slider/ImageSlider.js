@@ -1,5 +1,5 @@
-import styles from "./ImageSlider.module.css";
-import Carousel from "react-multi-carousel";
+import styles from './ImageSlider.module.css';
+import Carousel from 'react-multi-carousel';
 
 export default function ImageSlider({ images }) {
   const responsive = {

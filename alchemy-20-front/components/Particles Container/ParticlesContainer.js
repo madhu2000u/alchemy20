@@ -1,5 +1,5 @@
-import Particles from "react-particles-js";
-import styles from "./ParticlesContainer.module.css"
+import Particles from 'react-particles-js';
+import styles from './ParticlesContainer.module.css';
 
 export default function ParticlesContainer() {
   return (

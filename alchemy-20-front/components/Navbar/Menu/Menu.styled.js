@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledMenu = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const StyledMenu = styled.div`
   padding-right: 2rem;
   transition: transform 0.3s ease-in-out;
   z-index: 3;
-  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-100%)")};
+  transform: ${({open}) => (open ? 'translateX(0%)' : 'translateX(-100%)')};
   overflow: auto;
 
   .menu_header {

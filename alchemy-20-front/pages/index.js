@@ -1,11 +1,11 @@
-import styles from "../styles/Home.module.css";
-import React from "react";
-import Common from "../components/Common/Common";
-import Subpage from "../components/Subpage Template/Subpage";
-import Footer from "../components/Footer/Footer";
-import Link from "next/link";
-import ImageSlider from "../components/Image Slider/ImageSlider";
-import fetch from "node-fetch";
+import styles from '../styles/Home.module.css';
+import React from 'react';
+import Common from '../components/Common/Common';
+import Subpage from '../components/Subpage Template/Subpage';
+import Footer from '../components/Footer/Footer';
+import Link from 'next/link';
+import ImageSlider from '../components/Image Slider/ImageSlider';
+import fetch from 'node-fetch';
 
 export default function Home({ sliding_images, notifs }) {
   return (
@@ -49,21 +49,21 @@ export async function getServerSideProps() {
     },
   });
 
-  const not_res = await fetch(process.env.endpoint + "/allNotific", {
-    method: "GET",
-    headers: {
-      get_api: process.env.get_api_key,
-    },
-  });
-  const images = await img_res.json();
-  const sliding_images = await images.filter(function filterSliding(image) {
-    if (image.is_sliding) return image;
-  });
-  const notifs = await not_res.json();
-  return {
-    props: {
-      sliding_images,
-      notifs,
-    },
-  };
+	const not_res = await fetch(process.env.endpoint + '/allNotific', {
+		method: 'GET',
+		headers: {
+			get_api: process.env.get_api_key,
+		},
+	});
+	const images = await img_res.json();
+	const sliding_images = await images.filter(function filterSliding(image) {
+		if (image.is_sliding) return image;
+	});
+	const notifs = await not_res.json();
+	return {
+		props: {
+			sliding_images,
+			notifs,
+		},
+	};
 }

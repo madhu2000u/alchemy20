@@ -1,6 +1,6 @@
-import { StyledMenu } from "./Menu.styled";
-import { bool } from "prop-types";
-import Link from "next/link";
+import {StyledMenu} from './Menu.styled';
+import {bool} from 'prop-types';
+import Link from 'next/link';
 
 export default function Menu({ open, setOpen }) {
 
@@ -12,53 +12,53 @@ export default function Menu({ open, setOpen }) {
         {/* <p>
           October 18<sup>th</sup> - 20<sup>th</sup>, 2020
         </p> */}
-        <hr className="solid"></hr>
-      </div>
-      <div className="nav-links">
-        <div className="active-div" onClick={() => setOpen(!open)}>
-          <Link href="/about">
-            <p>About</p>
-          </Link>
-        </div>
-        <div>
-          <Link href="/">
-            <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-              <p>Accommodation</p>
-            </div>
-          </Link>
-        </div>
-        <div>
-          <Link href="/">
-            <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-              <p>Schedule</p>
-            </div>
-          </Link>
-        </div>
-        <div>
-          <Link href="/">
-            <div className="coming-soon-div">
-              <img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-              <p>Sponsors</p>
-            </div>
-          </Link>
-        </div>
-        <div className="active-div" onClick={() => setOpen(!open)}>
-          <Link href="/team">
-            <p>Team</p>
-          </Link>
-        </div>
-        <div className="active-div" onClick={() => setOpen(!open)}>
-          <Link href="/gallery">
-            <p>Gallery</p>
-          </Link>
-        </div>
-      </div>
-    </StyledMenu>
-  );
+				<hr className="solid"></hr>
+			</div>
+			<div className="nav-links">
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/about">
+						<p>About</p>
+					</Link>
+				</div>
+				<div>
+					<Link href="/">
+						<div className="coming-soon-div">
+							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+							<p>Accommodation</p>
+						</div>
+					</Link>
+				</div>
+				<div>
+					<Link href="/">
+						<div className="coming-soon-div">
+							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+							<p>Schedule</p>
+						</div>
+					</Link>
+				</div>
+				<div>
+					<Link href="/">
+						<div className="coming-soon-div">
+							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+							<p>Sponsors</p>
+						</div>
+					</Link>
+				</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/team">
+						<p>Team</p>
+					</Link>
+				</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/gallery">
+						<p>Gallery</p>
+					</Link>
+				</div>
+			</div>
+		</StyledMenu>
+	);
 }
 
 Menu.propTypes = {
-  open: bool.isRequired,
+	open: bool.isRequired,
 };
