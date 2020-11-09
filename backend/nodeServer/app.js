@@ -9,13 +9,19 @@ const default_port = 4700;
 dotenv.config();
 
 app.use(express.json());
-app.use('/api', require('./routes/auth_routes'));
-app.use('/api', require('./routes/main_routes'));
+
+//Routes
+app.use('/api', require('./routes/authRoutes'));
+app.use('/api', require('./routes/eventRoutes'));
+app.use('/api', require('./routes/galleryRoutes'));
+app.use('/api', require('./routes/notifRoutes'));
+app.use('/api', require('./routes/alcidRoutes'));
 
 mongoose
 	.connect(process.env.db_url, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
+		useCreateIndex: true,
 	})
 	.then(() => {
 		console.log('Connected to alchemy db');
