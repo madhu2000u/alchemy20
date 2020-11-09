@@ -38,17 +38,8 @@ exports.mailer = (to_email, sub, html) => {
 exports.validateEmail = (email) => {
 	return validator.validate(email);
 };
-//     if(!validator.validate(email)){
-//         //reject({status: 400, message: 'Invalid email'})
-//         return false
-//     }else{
-//         //resolve({status:200, message: 'Valid email'})
-//         return true
-//     }
-// })
 
 exports.validateGetapi = (req, res, next) => {
-	//console.log('get api - ', process.env)
 	const header = req.headers['get_api'];
 	if (header == process.env.get_api_key) {
 		next();
@@ -59,7 +50,6 @@ exports.validateGetapi = (req, res, next) => {
 };
 
 exports.validatePostapi = (req, res, next) => {
-	//console.log('get api - ', process.env)
 	const header = req.headers['post_api'];
 	if (header == process.env.post_api_key) {
 		next();
@@ -73,14 +63,14 @@ exports.gen_alc_id = (curr_cout) => {
 	//curr_count is the value 'len' passed from signup route in auth_route. it is the number of users in the current database. so if there are 10 users the the ALC id will be alloted as per the algorightm
 	let alc_id = 'ALC';
 	if (curr_cout < 10) {
-		alc_id += '000' + (curr_cout + 1).toString();
+		alc_id += '000' + curr_cout.toString();
 		console.log('ALC id - ', alc_id);
 	} else if ((curr_cout >= 10) & (curr_cout < 100)) {
-		alc_id += '00' + (curr_cout + 1).toString();
+		alc_id += '00' + curr_cout.toString();
 	} else if ((curr_cout >= 100) & (curr_cout < 1000)) {
-		alc_id += '0' + (curr_cout + 1).toString();
+		alc_id += '0' + curr_cout.toString();
 	} else {
-		alc_id += (curr_cout + 1).toString();
+		alc_id += curr_cout.toString();
 	}
 	return alc_id;
 };

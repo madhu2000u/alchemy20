@@ -18,11 +18,13 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "mongoose": "^5.10.7",
-    "nodemailer": "^6.4.12",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.1.2"
+    "nodemailer": "^6.4.12"
   },
   "engines": {
     "node": ">=8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
   }
 }
