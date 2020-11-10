@@ -7,7 +7,8 @@
     "start": "node app.js",
     "db": "mongod",
     "deploy": "start npm run db && start npm run start",
-    "deploy1": "npm-run-all -p db start"
+    "deploy1": "npm-run-all -p db start",
+    "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\""
   },
   "author": "Madhu Sudhanan",
   "license": "MIT",
@@ -24,5 +25,9 @@
   },
   "engines": {
     "node": ">=8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
   }
 }

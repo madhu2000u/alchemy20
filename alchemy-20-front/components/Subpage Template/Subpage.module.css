@@ -14,8 +14,11 @@
 
 .top_logo {
   width: 140px;
-  position: relative;
-  top: 14%;
-  left: 45%;
+  height: 50.7px;
   z-index: 3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -70px;
+  margin-top: -25.35px;
 }
