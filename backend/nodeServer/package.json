@@ -4,7 +4,7 @@
   "description": "API backend for alchemy 20",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "db": "mongod",
     "deploy": "start npm run db && start npm run start",
     "deploy1": "npm-run-all -p db start"
@@ -18,7 +18,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.7",
     "nodemailer": "^6.4.12",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
   },
   "engines": {
     "node": ">=8"

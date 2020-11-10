@@ -5,6 +5,8 @@ const mongoose=require('mongoose')
 const userSchema=new mongoose.Schema({          //_id is created automatically by mongoose
     alc_id: {type: String, required:true, unique:true},
     email: {type:String, required: true, unique:true},
+    google_id: {type:String, required:true, unique:true},
+    profile_pic: String,
     hashed_password: String,
     name: String,
     mobile: String,
