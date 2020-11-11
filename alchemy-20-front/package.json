@@ -8,7 +8,8 @@
     "start": "next start -p 3612",
     "start_build": "next build && next start",
     "export": "next export",
-    "deploy": "npm run build && npm run export"
+    "deploy": "npm run build && npm run export",
+    "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\""
   },
   "dependencies": {
     "next": "^9.5.5",
@@ -19,5 +20,7 @@
     "react-photo-gallery": "^8.0.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
 }
