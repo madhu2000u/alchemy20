@@ -13,7 +13,7 @@ oauth_router.get("/logout", (req, res) => {
 })
 
 //callback to handle google redirect
-oauth_router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+oauth_router.get("oauth/google/redirect", passport.authenticate("google"), (req, res) => {
     //res.send("Redirect")
 
 })
