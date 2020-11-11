@@ -1,8 +1,5 @@
 .slider {
   width: 100vw;
-  margin-top: 6rem;
-  overflow-y: hidden;
-  padding-bottom: 300px;
 }
 
 .img_container img {
@@ -18,9 +15,7 @@
 }
 
 @media (max-width: 1024px) {
-  .slider {
-    padding-bottom: 215px;
-  }
+
   .img_container img {
     width: 360px;
     height: 210px;

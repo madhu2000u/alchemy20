@@ -1,0 +1,44 @@
+.loginContainer {
+   margin-left:43%;
+   
+}
+
+.formContainer {
+    margin-top: 10%;
+    
+ }
+.main {
+   padding-top: 8px;
+   margin: 10px;
+   color:  #ecc82c;
+   
+ }
+
+ .input {
+   margin-left:6px;
+   padding:7px;
+   border-radius: 3px;
+   
+ }
+ .card{
+    padding: 8px;
+    background-color:  #ecc82c;
+    border: 2px solid #ecc82c;
+    border-radius: 4px;
+
+    font-size: 1.0rem;
+    text-align: center;
+    cursor: pointer;
+
+    margin-top: 5px;
+    margin: 0.5rem;
+
+  }
+
+.links {
+    text-decoration: none;
+    padding-top: 4px;
+   
+    color:  #cfb027;
+    cursor: pointer;
+  }

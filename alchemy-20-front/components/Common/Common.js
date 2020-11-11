@@ -26,6 +26,7 @@ export default function Common({ children }) {
           content="Alchemy, Chemical Engineering, NIT Tiruchirappalli, NIT Trichy, NITT"
         />
         <meta name="author" content="Shambu" />
+        <meta name="theme-color" content="#ecc82c" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ParticlesContainer />
