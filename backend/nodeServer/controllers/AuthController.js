@@ -4,6 +4,7 @@ const acc_verify = require('../functions/activationUtils');
 const User = require('../models/users');
 const UserToken = require('../models/user_tokens');
 const TempUser = require('../models/tempActivationUser');
+const RegisteredEvent = require('../models/registered_students');
 
 exports.signUp = (req, res) => {
 	const body = req.body;
@@ -49,8 +50,15 @@ exports.signUp = (req, res) => {
 							accommodation: body.requires_accommodation,
 							acc_active: false,
 						});
+
 						User.create(newUser)
 							.then((result) => {
+								RegisteredEvent.create({user_id: result._id, events: []})
+									.then((res) => {
+										console.log(res);
+									})
+									.catch((err) => console.log(err));
+
 								//create a new doc newUser, this create() returns a promise and .then is used to handle when the creation is successfull and the callback function with return parameter returns the created document. And the .cathc is used to handle any error that arises when creating the doc
 								const tokens = new UserToken({
 									user_id: result._id,
@@ -85,6 +93,7 @@ exports.signUp = (req, res) => {
 								// res.json({message:"User registered successfully!"})
 							})
 							.catch((err) => {
+								console.log(err);
 								if (err.code == 11000) {
 									res.status(409);
 									res.json({message: 'Email already exists! Login instead'});
