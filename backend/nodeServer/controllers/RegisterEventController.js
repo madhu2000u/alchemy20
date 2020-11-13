@@ -67,14 +67,18 @@ exports.removeRegisteredEvent = (req, res) => {
 			if (err) {
 				res.status(500).json({message: 'Internal server error'});
 			} else {
-				RegisteredEvent.updateOne({user_id: _id}, {$pull: {events: event_id}}, (err, raw) => {
-					if (err) {
-						console.log(err);
-						res.status(500).json({message: 'Internal server error'});
-					} else {
-						res.status(200).json({message: 'Cancelled your registration for the Event'});
-					}
-				});
+				if (!result.events.includes(event_id)) {
+					res.status(400).json({message: 'Event not present in your registered list'});
+				} else {
+					RegisteredEvent.updateOne({user_id: _id}, {$pull: {events: event_id}}, (err, raw) => {
+						if (err) {
+							console.log(err);
+							res.status(500).json({message: 'Internal server error'});
+						} else {
+							res.status(200).json({message: 'Cancelled your registration for the Event'});
+						}
+					});
+				}
 			}
 		});
 	}
