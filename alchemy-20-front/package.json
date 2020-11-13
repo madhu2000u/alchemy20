@@ -12,6 +12,7 @@
     "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\""
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "next": "^9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",

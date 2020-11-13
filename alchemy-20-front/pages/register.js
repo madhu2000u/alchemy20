@@ -4,47 +4,52 @@ import Common from "../components/Common/Common";
 import Subpage from "../components/Subpage Template/Subpage";
 import styles from "../styles/Login.module.css";
 import fetch from "node-fetch";
-
+import 'font-awesome/css/font-awesome.min.css';
 
 export default function Register({ notifs }){
 
     return(
         <div className={styles.loginContainer}>
-            <div className={styles.nav}>
+            <div>
                 <Subpage notifs={notifs} showNot={true} />
             </div> 
         
-        <div className={styles.formContainer}>
-            
+        <div  style={{"marginTop": "9%", "marginLeft": "39%"}}>
+        <img src={'https://i.imgur.com/HiNJNAv.png'} style={{"width": "13%", "marginLeft": "12.5%", "marginBottom": "2%"}} alt="User Icon" className="img-responsive"/>
         <div className={styles.main}>
-            <label >EMAIL</label>
-            <input type="email" className={styles.input} name="email" placeholder="Enter your email" />
+            <input type="email" className={styles.input} name="email" placeholder="Email Id" />
         </div>
 
         <div className={styles.main}>
-            <label >PASSWORD</label>
-            <input type="password" className={styles.input} name="password" placeholder="Enter Password" />
+            <input type="password" className={styles.input} name="password" placeholder="Password" />
         </div>
 
         <div className={styles.main} >
-            <label >RE-ENTER PASWORD</label>
             <input type="password" className={styles.input} name="confirmPassword" placeholder="Confirm Password"/>
         </div>
 
-        <button className={styles.card} type="submit" >
-            REGISTER
-        </button>
+        <div >
+            <button className={styles.card}  style={{ marginTop:45, "marginLeft": "12%"}}type="submit" >
+                REGISTER
+            </button>
+        </div>
+        </div>
 
-        <button className={styles.card} type="submit" >
-            SIGN-UP WITH GOOGLE
-        </button>
-
-        <div className={styles.main}>
+        <div className="separator" className={styles.separator}>OR</div>
+        
+        <div className={styles.formContainer}>
+        <div>
+            <button className={styles.card2} style={{ "marginLeft": "46.2%", fontWeight:100}}type="submit" >
+                Sign-up with  <i style={{paddingLeft:5}}className="fa fa-google" aria-hidden="true"></i>
+            </button>
+        </div>
+     
+        
+        {/* <div className={styles.main}>
             <Link href="/login" passHref >
                 <a className={styles.links}>Back to Login</a>
             </Link>
-        </div>
-       
+        </div> */}
         </div>
         </div>
        

@@ -4,52 +4,62 @@ import Common from "../components/Common/Common";
 import Subpage from "../components/Subpage Template/Subpage";
 import styles from "../styles/Login.module.css";
 import fetch from "node-fetch";
+import 'font-awesome/css/font-awesome.min.css';
 
+export default function Register({ notifs }){
 
-export default function Login({ notifs }){
-  return(
-    <div className={styles.loginContainer}>
-        <div className={styles.nav}>
-            <Subpage notifs={notifs} showNot={true} />
-        </div> 
+    return(
+        <div className={styles.loginContainer}>
+            <div>
+                <Subpage notifs={notifs} showNot={true} />
+            </div> 
         
-    <div className={styles.formContainer}>
-        
-    <div className={styles.main}>
-        <label >EMAIL</label>
-        <input type="email" className={styles.input} name="email" placeholder="Enter your email" />
-    </div>
-
-    <div className={styles.main}>
-        <label >PASWORD</label>
-        <input type="password" className={styles.input} name="password" placeholder="Enter Password" />
-    </div>
-
-    <button className={styles.card} type="submit"  >
-        LOGIN
-    </button>
-
-    <button className={styles.card} type="submit"  >
-        CONTINUE WITH GOOGLE
-    </button>
-
-    <div className={styles.main}>
-        <Link href="/register" passHref >
-            <a className={styles.links}>Register</a>
-        </Link>
-    </div>
-    
-    <div className={styles.main}>
-        <Link href="#" passHref >
-            <a className={styles.links}>Forgot Password? Click here.</a>
-        </Link>
+        <div  style={{"marginTop": "9%", "marginLeft": "39%"}}>
+        <img src={'https://i.imgur.com/HiNJNAv.png'} style={{"width": "13%", "marginLeft": "13.5%", "marginBottom": "1.5%"}} alt="User Icon" className="img-responsive"/>
+        <div className={styles.main}>
+            <input type="email" className={styles.input} name="email" placeholder="Email Id" />
         </div>
-    </div>
-    </div>
-   )            
+
+        <div className={styles.main}>
+            <input type="password" className={styles.input} name="password" placeholder="Password" />
+        </div>
+
+        <div >
+            <button className={styles.card}  style={{"marginTop": "4%", "marginLeft": "12%", "paddingLeft": "5%", "paddingRight": "5%"}}type="submit" >
+                LOGIN
+            </button>
+        </div>
+
+        <div className={styles.main} style={{"marginTop": "2.5%"}}>
+            <Link href="#" passHref >
+                <a className={styles.links} style={{"marginLeft": "11.5%"}}>Forgot Password?</a>
+            </Link>
+        </div> 
+
+        <div >
+            <Link href="/register" passHref >
+                <a className={styles.links}  style={{"marginLeft": "16%"}}>Sign up?</a>
+            </Link>
+        </div> 
+        </div>
+
+        <div className="separator" className={styles.separator}>OR</div>
+        
+        <div className={styles.formContainer}>
+        <div>
+            <button className={styles.card2} style={{ "marginLeft": "46.2%", fontWeight:100}}type="submit" >
+                Continue with  <i style={{paddingLeft:5}}className="fa fa-google" aria-hidden="true"></i>
+            </button>
+        </div>
+     
+        </div>
+        </div>
+       
+    )  
+    
 }
 
-Login.Layout=Common;
+Register.Layout = Common;
 
 export async function getServerSideProps() {
   

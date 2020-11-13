@@ -7,7 +7,6 @@ import Link from 'next/link';
 import ImageSlider from '../components/Image Slider/ImageSlider';
 import fetch from 'node-fetch';
 
-
 export default function Home({ sliding_images, notifs }) {
   return (
     <div className={styles.home_container}>
