@@ -88,3 +88,8 @@ exports.gen_pass_hash = (password) => {
 exports.compare_pass = (hashed_pass, password, salt) => {
 	return hashed_pass == crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512');
 };
+
+exports.validateUserLogin = (token) => {
+	//send token for verificaiont to the respective function
+	//return boolean
+};

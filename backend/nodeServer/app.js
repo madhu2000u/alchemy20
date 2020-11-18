@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({path: __dirname + '/.env'});
+const passport = require('passport');
 const passportCofig = require('./config/passport_config');
 
 // const key=require('./models/api_keys')
@@ -9,7 +10,7 @@ const app = express();
 const default_port = 4700;
 
 app.use(express.json());
-//app.use(passportCofig.initialize());
+app.use(passport.initialize());
 
 //Routes
 app.use('/api', require('./routes/authRoutes'));
