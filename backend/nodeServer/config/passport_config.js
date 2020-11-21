@@ -22,11 +22,13 @@ passport.use(
 				profile_pic: profile._json.picture,
 				acc_active: profile._json.email_verified,
 			};
-			oauthController.oauth(user).then(result => {
-                done(null, result)
-            }).catch(err => done(err));
+			oauthController
+				.oauth(user)
+				.then((result) => {
+					done(null, result);
+				})
+				.catch((err) => done(err));
 			//const user={name:"madhu",mob:123}
-			
 		}
 	)
 );
