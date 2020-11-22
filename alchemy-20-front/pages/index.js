@@ -7,36 +7,37 @@ import Link from 'next/link';
 import ImageSlider from '../components/Image Slider/ImageSlider';
 import fetch from 'node-fetch';
 
-export default function Home({sliding_images, notifs}) {
-	return (
-		<div className={styles.home_container}>
-			<div className={styles.nav}>
-				<Subpage notifs={notifs} showNot={true} />
-			</div>
-			<div className={styles.main}>
-				<ImageSlider images={sliding_images} />
-				<div className={styles.grid}>
-					<Link href="/coming-soon">
-						<div className={styles.card} aria-label="Events">
-							EVENTS
-						</div>
-					</Link>
-					<Link href="/coming-soon" aria-label="Workshops">
-						<div className={styles.card} aria-label="Workshops">
-							WORKSHOPS
-						</div>
-					</Link>
-					<Link href="/coming-soon" aria-label="Register">
-						<div className={styles.card2}>REGISTER</div>
-					</Link>
-					<Link href="/coming-soon" aria-label="Login">
-						<div className={styles.card2}>LOGIN</div>
-					</Link>
-				</div>
-			</div>
-			<Footer />
-		</div>
-	);
+export default function Home({ sliding_images, notifs }) {
+  return (
+    <div className={styles.home_container}>
+      <div className={styles.nav}>
+        <Subpage notifs={notifs} showNot={true} />
+      </div>
+      <div className={styles.main}>
+        <ImageSlider images={sliding_images} />
+        <div className={styles.grid}>
+          <Link href="/coming-soon">
+            <div className={styles.card} aria-label="Events">
+              EVENTS
+            </div>
+          </Link>
+          <Link href="/coming-soon" aria-label="Workshops">
+            <div className={styles.card} aria-label="Workshops">
+              WORKSHOPS
+            </div>
+          </Link>
+          <Link href="/register" aria-label="Register">
+            <div className={styles.card2}>REGISTER</div>
+          </Link>
+          <Link href="/login" aria-label="Login">
+            <div className={styles.card2}>LOGIN</div>
+          </Link>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+
 }
 
 Home.Layout = Common;

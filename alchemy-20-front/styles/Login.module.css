@@ -1,0 +1,142 @@
+.loginContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;  
+} 
+
+.main {
+   padding-top:8px;
+   margin: 10px;
+   color:  #ecc82c;
+}
+ 
+.formContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userIcon {
+  width: 10%;
+  margin-bottom: 2%;
+  margin-top: 8%;
+ 
+}
+ .input {
+   width:280px;
+   padding:9px; 
+   border-radius: 3px;
+   background-color: rgb(29, 27, 0);
+   color: #ecc82c ;
+   font-family: "Montserrat", sans-serif;
+   font-size: 0.9em;
+   border: solid rgb(29, 27, 0);
+}
+
+ .input::placeholder {
+  color: #ecc82c;
+  font-family: "Montserrat", sans-serif;
+  opacity: 1;
+}
+
+ .card{
+    padding: 10px;
+    background-color:  #ecc82c;
+    border: 2px solid #ecc82c;
+    border-radius: 4px;
+    width: fit-content;
+    font-size: 0.77rem;
+    text-align: center;
+    cursor: pointer;
+    line-height: 65%;
+    margin-top: 5px;
+
+  }
+  .card2{
+    background-color:  rgb(29, 27, 0);
+    border: 1.5px solid #ecc82c;
+    border-radius: 4px;
+    color:whitesmoke;
+    line-height: 65%;
+    padding: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+   
+  }
+  .card3{
+    padding: 11px;
+    padding-left: 26px;
+    padding-right: 26px;
+    background-color:  rgb(29, 27, 0);
+    border: 1.5px solid #ecc82c;
+    border-radius: 4px;
+    width: fit-content;
+    color:whitesmoke;
+    font-size: 0.8rem;
+    line-height: 55%;
+    text-align: center;
+    cursor: pointer;  
+  }
+
+.links {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color:  whitesmoke;
+    cursor: pointer;
+  }
+  .links2 {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color:  whitesmoke;
+    cursor: pointer;
+  }
+
+ .separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 200px;
+  padding:15px;
+  font-size: 15px;
+}
+.separator::before, .separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1.58px solid #cfb027;
+  
+}
+.separator::before {
+  margin-right: .70em;
+}
+.separator::after {
+  margin-left: .70em;
+}
+.logo{
+ padding-left: 10px;
+}
+
+@media (max-width: 1400px) {
+  .userIcon {
+    margin-top: 10%;
+   
+  }
+}
+@media (max-width: 1000px) {
+  .userIcon {
+    margin-top: 15%;
+    width: 14%;
+  }
+}
+@media (max-width: 600px) {
+  .userIcon {
+    margin-top: 23%;
+    width: 16%;
+  }
+}
+
+
