@@ -33,7 +33,6 @@ export default function Register({ notifs }){
                 REGISTER
             </button>
         </div>
-        </div>
 
         <div className="separator" className={styles.separator}>OR</div>
         
@@ -44,7 +43,8 @@ export default function Register({ notifs }){
         </div>
     
         </div>
-       
+
+        </div>  
        
     )  
     

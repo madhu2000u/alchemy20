@@ -41,8 +41,6 @@ export default function Register({ notifs }){
                 <a className={styles.links2}>Sign up?</a>
             </Link>
         </div> 
-        </div>
-
         <div className="separator" className={styles.separator}>OR</div>
         
         <div>
@@ -50,6 +48,7 @@ export default function Register({ notifs }){
                 Continue with  <i style={{paddingLeft:5}}className="fa fa-google" aria-hidden="true"></i>
             </button>
      
+        </div>
         </div>
         </div>       
     )    

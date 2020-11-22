@@ -2,28 +2,30 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: 1; 
- } 
+  z-index: 1;  
+} 
 
 .main {
    padding-top:8px;
    margin: 10px;
    color:  #ecc82c;
- }
+}
  
 .formContainer {
-  margin-left: 39.3%;  
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .userIcon {
-  width: 14.5%;
-  margin-left: 12%;
+  width: 10%;
   margin-bottom: 2%;
-  margin-top: 20%;
+  margin-top: 8%;
  
 }
  .input {
-   width:36%;
+   width:280px;
    padding:9px; 
    border-radius: 3px;
    background-color: rgb(29, 27, 0);
@@ -50,24 +52,19 @@
     cursor: pointer;
     line-height: 65%;
     margin-top: 5px;
-    margin: 0.4rem;
-    margin-left: 15.6%;
 
   }
   .card2{
-    padding: 11px;
-    padding-left: 26px;
-    padding-right: 26px;
     background-color:  rgb(29, 27, 0);
     border: 1.5px solid #ecc82c;
     border-radius: 4px;
-    width: fit-content;
     color:whitesmoke;
+    line-height: 65%;
+    padding: 10px;
     font-size: 0.8rem;
-    line-height: 55%;
     text-align: center;
     cursor: pointer;
-    margin-left: 47.3%;
+    width: fit-content;
    
   }
   .card3{
@@ -82,20 +79,17 @@
     font-size: 0.8rem;
     line-height: 55%;
     text-align: center;
-    cursor: pointer;
-    margin-left: 47%;  
+    cursor: pointer;  
   }
 
 .links {
     text-decoration: none;
-    margin-left: 13%;
     font-size: 0.95rem;
     color:  whitesmoke;
     cursor: pointer;
   }
   .links2 {
     text-decoration: none;
-    margin-left: 16.7%;
     font-size: 0.95rem;
     color:  whitesmoke;
     cursor: pointer;
@@ -106,7 +100,6 @@
   align-items: center;
   text-align: center;
   color: white;
-  margin-left: 40.3%;
   width: 20%;
   padding:15px;
   font-size: 15px;
@@ -127,548 +120,23 @@
  padding-left: 10px;
 }
 
-.input {
-  width:35%;
-   padding:9px;
-   border-radius: 3px;
-   background-color: rgb(29, 27, 0);
-   color: #ecc82c ;
-   font-family: "Montserrat", sans-serif;
-   font-size: 0.9em;
-   border: solid rgb(29, 27, 0);
-}
-
-@media (max-width: 1650px) {  
-  .card{
-    margin-left: 14.8%;
-  }
-  .card2{
-    margin-left:46.5%;
-  }
-  .formContainer {
-    margin-top: 1%;  
-  }
-  .links {
-    margin-left: 12.3%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16.7%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 46.5%;   
-  }     
-}
-@media (max-width: 1500px) {
-  .card{
-    margin-left: 14.6%;
-  }
-  .card2{
-    margin-left:46.3%;
-  }    
-  .formContainer {
-    margin-top: 2%;  
-  }
-  .links {
-    margin-left: 12%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16.5%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 46%;   
-  }   
-}
 @media (max-width: 1400px) {
-  .card{
-    margin-left: 14%;
-  }
-  .card2{
-    margin-left:45.7%;
-  } 
-  .formContainer {
-    margin-top: 3%;  
-  }
-  .links {
-    margin-left: 11%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 45.8%;   
-  }     
-}
-
-@media (max-width: 1300px) {
-  .card{
-    margin-left: 14.2%;
-  }
-  .card2{
-    margin-left:45.5%;
-  }  
-  .formContainer {
-    margin-top: 5%;  
-  }
-  .links {
-    margin-left: 10%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 45.5%;   
-  }  
-}
-@media (max-width: 1200px) {
-  .card{
-    margin-left: 14%;
-  }
-  .card2{
-    margin-left:45%;
-  }  
-  .separator {
-    margin-left: 41%;
-    width: 18%;
-  }
-  .formContainer {
-    margin-top: 7%;  
-  }
-  .links {
-    margin-left: 8.7%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 15%;
-    font-size: 0.9rem;
-  }
   .userIcon {
-    width: 17%;
-    margin-left: 10.5%;
+    margin-top: 10%;
+   
   }
-  .card3 {
-    margin-left: 45%;   
-  }  
-}
-
-@media (max-width: 1100px) {
-  .card{
-    margin-left: 13.6%;
-  }
-  .card2{
-    margin-left:44.7%;
-  } 
-  .formContainer {
-    margin-top: 10%;  
-  }
-  .links {
-    margin-left: 7.8%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 15%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 44.5%;   
-  } 
-  .userIcon {
-    width: 18.5%;
-    margin-left: 10.5%;
-  } 
 }
 @media (max-width: 1000px) {
-  .card{
-    margin-left: 13%;
-    width: 15%
-  }
-  .card2{
-    margin-left:44%;
-  }   
-  .formContainer {
-    margin-top: 12%;  
-  }
   .userIcon {
-    width: 19.5%;
-    margin-left: 10.5%;
+    margin-top: 15%;
+    width: 14%;
   }
-  .links {
-    margin-left: 7%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 14.5%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 43.5%;   
-  }
-}
-@media (max-width: 900px) {
-  .card{
-    margin-left: 8.3%;
-    width:28%
-  }
-  .card2{
-    margin-left:44.3%;
-  }  
-  .input {
-    width:38%;
-  }
-  .userIcon {
-    width: 21%;
-    margin-left: 11.3%;
-  }
-  .separator {
-    margin-left: 42%;
-    width: 18%;
-  }
-  .formContainer {
-    margin-top: 15%;  
-  }
-  .links {
-    margin-left: 8.3%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16.5%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 44%;   
-  } 
-}
-@media (max-width: 850px) {
-  .card{
-    margin-left: 5%;
-    width:35%;
-  }
-  .card2{
-    margin-left:43.5%;
-    width: fit-content;
-  } 
-  .userIcon {
-    width: 21%;
-    margin-left: 12%;
-  }
-  .separator {
-    margin-left: 40.5%;
-    width: 21%;
-  }
-  .formContainer {
-    margin-top: 15%;  
-  }
-  .links {
-    margin-left: 7.3%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 43.7%;   
-  }  
-}
-@media (max-width: 800px) {
-  .card{
-    margin-left: 5%;
-    width:35%;
-  }
-  .card2{
-    margin-left:43.5%;
-    width: fit-content; 
-  } 
-  .userIcon {
-    width: 21%;
-    margin-left: 12%;
-  } 
-  .separator {
-    margin-left: 40.5%;
-    width: 21%;
-  }  
-  .formContainer {
-    margin-top: 16%;  
-  }
-  .links {
-    margin-left: 6.6%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 43.3%;   
-  } 
-}
-@media (max-width: 750px) {
-  .card{
-    margin-left: 5.5%;
-    width:35%;
-  }
-  .card2{
-    margin-left:43%;
-    width: fit-content;   
-  }  
-  .separator {
-    margin-left: 40.5%;
-    width: 21%;
-  }
-  .userIcon {
-    width: 21%;
-    margin-left: 12%;
-  }
-  .formContainer {
-    margin-top: 17%;  
-  }
-  .links {
-    margin-left: 5.5%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 42.9%;   
-  } 
-  
-}
-@media (max-width: 700px) {
-  .card{
-    margin-left: 6.3%;
-    width:35%;
-  }
-  .card2{
-    margin-left:43%;
-    width: fit-content;  
-  }  
-  .userIcon {
-    width: 21%;
-    margin-left: 12%;
-  }
-  .separator {
-    margin-left: 40.5%;
-    width: 22%;
-  }
-  .formContainer {
-    margin-top: 18%;  
-  }
-  .links {
-    margin-left: 5.3%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 16%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 42.7%;   
-  } 
-  
-}
-@media (max-width: 650px) {
-  .card{
-    margin-left: 6%;
-    width:35%;
-  }
-  .card2{
-    margin-left:41.7%;
-    width: fit-content;
-  }
-  .separator {
-    margin-left: 39.7%;
-    width: 22%;
-  } 
-  .formContainer {
-    margin-top: 20%;   
-  }
-  .userIcon {
-    width: 21%;
-    margin-left: 12%;
-  }
-  .links {
-    margin-left: 4%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 15%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 41.5%;   
-  } 
 }
 @media (max-width: 600px) {
-  .input {
-    width:70%;
-  }
-  .formContainer {
-    margin-left: 24%;
-    margin-top: 20%;   
-  }
-  .card{
-    margin-left: 21.5%;
-
-  }
-  .card2{
-    margin-left:40.5%;
-
-  }  
   .userIcon {
-    width: 22%;
-    margin-left: 28%;
-     
-  }
-  .separator {
-    margin-left: 39.5%;
-    width: 23%;
-  }
-  .links {
-    margin-left: 22.5%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 31.5%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 40.5%;   
-  }
-
-}
-@media (max-width: 550px) {
-  .card{
-    margin-left: 21.5%;
-
-  }
-  .card2{
-    margin-left:40%;
-
-  }  
-  .separator {
-    margin-left: 39.5%;
-    width: 23%;
-  }
-  .links {
-    margin-left: 21%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 31%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 39.5%;   
-  }
-
-}
-@media (max-width: 500px) {
-  .card{
-    margin-left: 22%;
-
-  }
-  .card2{
-    margin-left:38.5%;
-
-  } 
-  .separator {
-    margin-left: 38%;
-    width: 25%;
-  } 
-  .userIcon {
-    width: 22%;
-    margin-left: 28%;  
-  }
-  .links {
-    margin-left: 20%;
-    font-size: 0.9rem;
-  }
-  .links2 {
-    margin-left: 30%;
-    font-size: 0.9rem;
-  }
-  .card3 {
-    margin-left: 38%;   
+    margin-top: 23%;
+    width: 16%;
   }
 }
-@media (max-width: 450px) {
-  .card{
-    margin-left: 21%;
 
-  }
-  .card2{
-    margin-left:36.7%;
 
-  } 
-  .separator {
-    margin-left: 37%;
-    width: 25%;
-  } 
-  .userIcon {
-    width: 22%;
-    margin-left: 28%;   
-  }
-  .links {
-    margin-left: 17%;
-    font-size: 0.9rem;
-    
-  }
-  .links2 {
-    margin-left: 30%;
-    font-size: 0.9rem;
-    
-  }
-  .card3 {
-    margin-left: 36%;
-    
-  }
-
-}
-@media (max-width: 400px) {
-  .formContainer {
-    margin-left: 19%;
-    margin-top: 20%;
-    
-  }
-  .card{
-    margin-left: 23%;
-
-  } 
-  .card2{
-    margin-left:32.5%;
-
-  } 
-  .separator {
-    margin-left: 35%;
-    width: 25%;
-  }
-
-  .userIcon {
-    width: 22%;
-    margin-left: 28%;
-     
-  }
-  .links {
-    margin-left: 17%;
-    font-size: 0.9rem;
-    
-  }
-  .links2 {
-    margin-left: 30%;
-    font-size: 0.9rem;
-    
-  }
-  .card3 {
-    margin-left: 32%;
-    
-  }
-}
