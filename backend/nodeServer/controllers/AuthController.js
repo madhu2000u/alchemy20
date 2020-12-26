@@ -9,25 +9,12 @@ const RegisteredEvent = require('../models/registered_students');
 exports.signUp = (req, res) => {
 	const body = req.body;
 	//regex to indetify phone number
-	const phoneNo = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-	if (
-		!body.email ||
-		!body.password ||
-		!body.name ||
-		!body.mobile ||
-		!body.college ||
-		!body.dept ||
-		!body.year_of_study ||
-		!body.requires_accommodation
-	) {
+	if (!body.email || !body.password) {
 		res.status(400).json({message: 'Bad request. One or more requried fields are missing'});
-	} else if (!body.mobile.match(phoneNo)) {
-		res.status(400).json({message: 'Invalid mobile number'});
-	} else if (!utils.validateEmail(body.email)) {
-		res.status(400).json({message: 'Invalid email'});
 	} else {
 		User.findOne({email: body.email}).then((result) => {
 			if (result !== null) {
+				console.log(result);
 				res.status(409).json({message: 'Email already exists! Login instead'});
 			} else {
 				let alc_id = 'ALC';
