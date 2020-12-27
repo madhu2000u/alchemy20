@@ -17,7 +17,12 @@ export default function Register({notifs}) {
 	const [errors, setErrors] = useState({});
 
 	const register = async (e) => {
-		if (errors.email === null && errors.password === null && errors.password_confirmation === null) {
+		if (
+			errors.email === null &&
+			errors.password === null &&
+			errors.password_confirmation === null &&
+			errors.password_val === null
+		) {
 			addToast('Checking Credentials... Please wait!', {appearance: 'success', autoDismiss: true});
 			e.preventDefault();
 			let data = {
@@ -36,8 +41,13 @@ export default function Register({notifs}) {
 				addToast(`Cannot register : ${error.message}`, {appearance: 'error', autoDismiss: true});
 			}
 		} else {
-			addToast('PLease fix your errors first !!', {appearance: 'error', autoDismiss: true});
+			addToast('PLease enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
 		}
+	};
+
+	const OauthRegister = async (e) => {
+		e.preventDefault();
+		window.open('http://localhost:4700/api/google', '_blank');
 	};
 
 	const validatePassword = (value) => {
@@ -45,6 +55,14 @@ export default function Register({notifs}) {
 			errors.password = null;
 		} else {
 			errors.password = ['Empty password is not allowed'];
+		}
+
+		if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)) {
+			errors.password_val = null;
+		} else {
+			errors.password_val = [
+				'Password needs to be minimum eight characters with at least one letter and one number',
+			];
 		}
 		setPassword(value);
 	};
@@ -83,6 +101,7 @@ export default function Register({notifs}) {
 					<ul className="errorMessages">
 						{errors.email ? <li> {errors.email}</li> : null}
 						{errors.password ? <li> {errors.password}</li> : null}
+						{errors.password_val ? <li> {errors.password_val}</li> : null}
 						{errors.password_confirmation ? <li> {errors.password_confirmation} </li> : null}
 					</ul>
 				</div>
@@ -128,7 +147,7 @@ export default function Register({notifs}) {
 				</div>
 
 				<div>
-					<button className={styles.card2} style={{fontWeight: 100}} type="submit">
+					<button className={styles.card2} onClick={OauthRegister} style={{fontWeight: 100}} type="submit">
 						Sign-up with <i style={{paddingLeft: 5}} className="fa fa-google" aria-hidden="true"></i>
 					</button>
 				</div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config({path: __dirname + '/.env'});
 const passport = require('passport');
 const passportCofig = require('./config/passport_config');
@@ -9,6 +10,7 @@ const passportCofig = require('./config/passport_config');
 const app = express();
 const default_port = 4700;
 
+app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
 

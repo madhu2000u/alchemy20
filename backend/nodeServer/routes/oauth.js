@@ -14,10 +14,6 @@ oauth_router.get('/logout', (req, res) => {});
 //callback to handle google redirect
 oauth_router.get('/oauth/google/redirect', passport.authenticate('google', {session: false}), (req, res) => {
 	console.log('inside oauth_router -', req.user);
-	res.send({
-		name: req.user.name,
-		email: req.user.email,
-		profile_pic: req.user.profile_pic,
-	});
+	res.redirect(process.env.app_url + '/login');
 });
 module.exports = oauth_router;

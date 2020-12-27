@@ -21,7 +21,7 @@ export default function MyApp({Component, pageProps}) {
 		<Loading />
 	) : (
 		<Layout>
-			<ToastProvider autoDismiss autoDismissTimeout={6000} placement="bottom-center">
+			<ToastProvider autoDismiss autoDismissTimeout={6000} placement="bottom-right">
 				<Component {...pageProps} />
 			</ToastProvider>
 		</Layout>
