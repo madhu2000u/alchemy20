@@ -38,10 +38,10 @@ export default function Register({notifs}) {
 					}, 1000);
 				}
 			} catch (error) {
-				addToast(`Cannot register : ${error.message}`, {appearance: 'error', autoDismiss: true});
+				addToast(`Cannot register : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
 			}
 		} else {
-			addToast('PLease enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
+			addToast('Please enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
 		}
 	};
 
