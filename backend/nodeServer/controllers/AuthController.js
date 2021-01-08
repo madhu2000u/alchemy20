@@ -29,12 +29,12 @@ exports.signUp = (req, res) => {
 							alc_id: alc_id,
 							email: body.email,
 							hashed_password: hashed_password.hashed_password,
-							name: body.name,
-							mobile: body.mobile,
-							college: body.college,
-							dept: body.department,
-							year_of_study: body.year_of_study,
-							accommodation: body.requires_accommodation,
+							// name: body.name,
+							// mobile: body.mobile,
+							// college: body.college,
+							// dept: body.department,
+							// year_of_study: body.year_of_study,
+							// accommodation: body.requires_accommodation,
 							acc_active: false,
 						});
 
@@ -131,9 +131,17 @@ exports.signIn = (req, res) => {
 						res.status(403).json({message: 'Account not activated'});
 						return;
 					} else if (result.acc_active & password_compare) {
+						const payload={
+							id:user_tokens_result._id
+						}
+						const auth_token=utils.genAccessToken(payload)
+						const refreshToken=utils.genRefreshToken(payload)
+						UserToken.update({user_id:user_tokens_result._id}, {refreshToken:refreshToken})
 						res.status(200).json({
-							auth_token: user_tokens_result.auth_token,
+							auth_token:auth_token,
+							refreshToken:refreshToken,
 							name: result.name,
+							dp:result.profile_pic
 						});
 						return;
 					}
@@ -143,6 +151,16 @@ exports.signIn = (req, res) => {
 		return;
 	});
 };
+
+exports.logout = (req, res) => {
+	const refreshToken = req.headers['refreshToken']
+	if (!token) {res.sendStatus(401)}
+
+	UserToken.deleteOne({refreshToken:refreshToken}).then(result => {
+		console.log(result)
+		res.redirect(process.env.app_url)
+	})
+}
 
 exports.Verify = (req, res) => {
 	TempUser.findOne({verification_token: req.params.verification_token})
@@ -173,11 +191,11 @@ exports.Verify = (req, res) => {
 					TempUser.deleteOne({user_id: actvn_result.user_id}, (err) => {
 						console.log('Error in verification token when when deleting tempActivaion - ', err);
 					});
-					res.send('Account has been activated');
+					res.redirect(process.env.app_url);
 				});
 			} else {
 				res.status(200);
-				res.json({message: 'Verification done or link expired'});
+				res.redirect(process.env.app_url);
 			}
 		})
 		.catch((err) => {
@@ -206,3 +224,7 @@ exports.ResendVerify = (req, res) => {
 		});
 	}
 };
+
+exports.newAccessToken = (req, res) => {
+	
+}

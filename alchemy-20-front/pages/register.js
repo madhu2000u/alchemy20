@@ -4,7 +4,7 @@ import Common from '../components/Common/Common';
 import Subpage from '../components/Subpage Template/Subpage';
 import styles from '../styles/Login.module.css';
 import fetch from 'node-fetch';
-import {ApiService} from '../api.service';
+import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -31,6 +31,7 @@ export default function Register({notifs}) {
 			};
 			try {
 				let isRegisterSuccess = await ApiService.register(data);
+				console.log("isRegisterSuccess")
 				if (isRegisterSuccess.status === 201) {
 					addToast('Registration successful!', {appearance: 'success', autoDismiss: true});
 					setTimeout(() => {
@@ -38,7 +39,8 @@ export default function Register({notifs}) {
 					}, 1000);
 				}
 			} catch (error) {
-				addToast(`Cannot register : ${error.message}`, {appearance: 'error', autoDismiss: true});
+				console.log(error);
+				addToast(`Cannot register : ${error}`, {appearance: 'error', autoDismiss: true});
 			}
 		} else {
 			addToast('PLease enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});

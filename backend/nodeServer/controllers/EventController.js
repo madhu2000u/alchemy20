@@ -1,5 +1,8 @@
 const events = require('../models/events');
 
+
+
+
 exports.getEvent = (req, res) => {
 	events
 		.find()
@@ -17,7 +20,7 @@ exports.postEvent = (req, res) => {
 		!body.event_type ||
 		!body.event_name ||
 		!body.event_description ||
-		!body.event_img ||
+		//!body.event_img ||
 		!body.event_date ||
 		!body.event_cost ||
 		!body.event_contacts

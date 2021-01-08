@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
 	//_id is created automatically by mongoose
 	alc_id: {type: String, required: false}, //TODO change required and unique to true.They are changed to false for testing google oauth function as it was showing E11000 duplicate key error (MongoError)
 	email: {type: String, required: true, unique: true},
-	google_id: {type: String, unique: true},
+	google_id: String,
 	profile_pic: String,
 	hashed_password: String,
 	name: String,
