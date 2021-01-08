@@ -1,5 +1,5 @@
 let axios = require('axios');
-let config = 'http://localhost:4700/api';
+let config = process.env.endpoint;
 
 export const ApiService = {
 	login: (data) => {
