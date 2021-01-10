@@ -40,7 +40,7 @@ export default function Register({notifs, api_endpoint}) {
 				}
 			} catch (error) {
 				console.log(error);
-				addToast(`Cannot register : ${error}`, {appearance: 'error', autoDismiss: true});
+				addToast(`Cannot register : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
 			}
 		} else {
 			addToast('PLease enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
