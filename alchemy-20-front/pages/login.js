@@ -9,7 +9,7 @@ import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 
-export default function Register({notifs, api_endpoint}) {
+export default function Login({notifs, api_endpoint}) {
 	const router = useRouter();
 	const {addToast} = useToasts();
 	const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ export default function Register({notifs, api_endpoint}) {
 
 	const OauthLogin = async (e) => {
 		e.preventDefault();
-		window.open(api_endpoint + '/api/google');
+		window.open(api_endpoint + '/google', '_blank');
 	};
 
 	const validatePassword = (value) => {
@@ -133,7 +133,7 @@ export default function Register({notifs, api_endpoint}) {
 	);
 }
 
-Register.Layout = Common;
+Login.Layout = Common;
 
 export async function getServerSideProps() {
 	const not_res = await fetch(process.env.endpoint + '/allNotific', {

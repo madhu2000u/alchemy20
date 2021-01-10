@@ -8,7 +8,7 @@ export const ApiService = {
 	register: (data, config) => {
 		return axios.default.post(config + '/auth/register', data);
 	},
-	refreshToken : (data) => {
-		return axios.default.post(process.env.endpoint + '/auth/newAccessToken', data);
+	refreshToken : (data, config) => {
+		return axios.default.post(config + '/auth/newAccessToken', data);
 	}
 };
