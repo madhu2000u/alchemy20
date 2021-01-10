@@ -1,8 +1,5 @@
 const events = require('../models/events');
 
-
-
-
 exports.getEvent = (req, res) => {
 	events
 		.find()

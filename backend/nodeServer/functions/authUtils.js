@@ -2,7 +2,7 @@
 const mailer = require('nodemailer');
 const validator = require('email-validator');
 const crypto = require('crypto');
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
@@ -95,33 +95,28 @@ exports.validateUserLogin = (token) => {
 	//return boolean
 };
 
-exports.jwtVerify=(req, res, next)=> {
-	const token =req.headers['auth']
-	if (!token) res.status(401).send("No access token sent")
-	else{
+exports.jwtVerify = (req, res, next) => {
+	const token = req.headers['auth'];
+	if (!token) res.status(401).send('No access token sent');
+	else {
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, payload) => {
-			if (err){
-				console.log("jwtVerify error - ",  err)
-				res.sendStatus(403)
-			} 
-			else{
-				req.user = payload
-				console.log("inside jwtVerify req.user = ", req.user)
-				console.log("inside jwtVerify payload	 = ", payload)
-				next()
+			if (err) {
+				console.log('jwtVerify error - ', err);
+				res.sendStatus(403);
+			} else {
+				req.user = payload;
+				console.log('inside jwtVerify req.user = ', req.user);
+				console.log('inside jwtVerify payload	 = ', payload);
+				next();
 			}
-		})
+		});
 	}
+};
 
+exports.genAccessToken = (user) => {
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '60s'});
+};
 
-}
-
- exports.genAccessToken=(user)=> {
-	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn:'60s'});
-}
-
-exports.genRefreshToken=(accessToken)=> {
-	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN)
-
-}
-
+exports.genRefreshToken = (accessToken) => {
+	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN);
+};

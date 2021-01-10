@@ -8,7 +8,7 @@ import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 
-export default function Register({notifs}) {
+export default function Register({notifs, api_endpoint}) {
 	const router = useRouter();
 	const {addToast} = useToasts();
 	const [email, setEmail] = useState('');
@@ -30,8 +30,8 @@ export default function Register({notifs}) {
 				password: password,
 			};
 			try {
-				let isRegisterSuccess = await ApiService.register(data);
-				console.log("isRegisterSuccess")
+				let isRegisterSuccess = await ApiService.register(data, api_endpoint);
+				console.log('isRegisterSuccess');
 				if (isRegisterSuccess.status === 201) {
 					addToast('Registration successful!', {appearance: 'success', autoDismiss: true});
 					setTimeout(() => {
@@ -49,7 +49,7 @@ export default function Register({notifs}) {
 
 	const OauthRegister = async (e) => {
 		e.preventDefault();
-		window.open('http://localhost:4700/api/google', '_blank');
+		window.open(api_endpoint + '/google', '_blank');
 	};
 
 	const validatePassword = (value) => {
@@ -169,9 +169,11 @@ export async function getServerSideProps() {
 	});
 
 	const notifs = await not_res.json();
+	const api_endpoint = process.env.endpoint;
 	return {
 		props: {
 			notifs,
+			api_endpoint,
 		},
 	};
 }

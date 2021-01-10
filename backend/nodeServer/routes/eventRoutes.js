@@ -12,4 +12,3 @@ router.delete('/allEvents', utils.validatePostapi, eventController.deleteEvent);
 //router.get('/dashboard', utils.validateUserLogin, eventController.dashboard);
 
 module.exports = router;
- 
