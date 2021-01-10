@@ -1,5 +1,4 @@
 //import fetch from 'node-fetch'
-
 let axios = require('axios');
 
 export const ApiService = {
@@ -9,4 +8,7 @@ export const ApiService = {
 	register: (data, config) => {
 		return axios.default.post(config + '/auth/register', data);
 	},
+	refreshToken : (data, config) => {
+		return axios.default.post(config + '/auth/newAccessToken', data);
+	}
 };
