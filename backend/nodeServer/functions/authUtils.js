@@ -101,7 +101,7 @@ exports.jwtVerify = (req, res, next) => {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
 			if (err) {
-				console.log("jwtVerify error: " + err);
+				console.log('jwtVerify error: ' + err);
 				return res.status(403).json({message: 'User not allowed to perform this action'});
 			}
 			req.user = user;
