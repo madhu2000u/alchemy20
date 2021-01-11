@@ -1,0 +1,53 @@
+.event_item_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #303030;
+  padding: 10px;
+  margin: 0 40px 40px 40px;
+  border: #ecc82c solid;
+  width: 25em;
+}
+
+.event_item_container p {
+  color: white;
+  margin: 0;
+  margin: 8px 0 0 0;
+}
+
+.event_item_container h2 {
+  color: white;
+  margin: 12px 0 0 0;
+}
+
+.event_item_container h3 {
+  color: white;
+  margin: 12px 0 0 0;
+}
+
+.event_item_container img {
+    width: 100%;
+}
+
+.reg_button {
+  width: 100px;
+  height: 30px;
+  background-color: #ecc82c;
+  border: #ecc82c solid 1px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  align-self: flex-end;
+
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.reg_button:hover {
+  background-color: #303030;
+  border: #ecc82c solid 1px;
+  color: white;
+  cursor: pointer;
+}

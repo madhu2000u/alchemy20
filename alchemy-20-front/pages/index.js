@@ -16,7 +16,7 @@ export default function Home({sliding_images, notifs}) {
 			<div className={styles.main}>
 				<ImageSlider images={sliding_images} />
 				<div className={styles.grid}>
-					<Link href="/coming-soon">
+					<Link href="/events">
 						<div className={styles.card} aria-label="Events">
 							EVENTS
 						</div>

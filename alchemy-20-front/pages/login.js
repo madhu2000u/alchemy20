@@ -18,7 +18,10 @@ export default function Login({notifs, api_endpoint}) {
 
 	const login = async (e) => {
 		if (errors.email === null && errors.password === null) {
-			addToast('Checking Credentials... Please wait!', {appearance: 'success', autoDismiss: true});
+			addToast('Checking Credentials... Please wait!', {
+				appearance: 'success',
+				autoDismiss: true,
+			});
 			e.preventDefault();
 			let data = {
 				email: email,
@@ -30,16 +33,25 @@ export default function Login({notifs, api_endpoint}) {
 					console.log(isLoginSuccess);
 					localStorage.setItem('auth-token', isLoginSuccess.data.auth_token);
 					localStorage.setItem('refersh-token', isLoginSuccess.data.refreshToken);
-					addToast('Login successful!', {appearance: 'success', autoDismiss: true});
+					addToast('Login successful!', {
+						appearance: 'success',
+						autoDismiss: true,
+					});
 					setTimeout(() => {
 						router.push('/dashboard');
 					}, 1000);
 				}
 			} catch (error) {
-				addToast(`Cannot login : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
+				addToast(`Cannot login : ${error.response.data.message}`, {
+					appearance: 'error',
+					autoDismiss: true,
+				});
 			}
 		} else {
-			addToast('Please enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
+			addToast('Please enter email and passwords correctly!!', {
+				appearance: 'error',
+				autoDismiss: true,
+			});
 		}
 	};
 
