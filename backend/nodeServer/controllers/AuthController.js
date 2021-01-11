@@ -155,6 +155,7 @@ exports.signIn = (req, res) => {
 							refreshToken: refreshToken,
 							name: result.name,
 							dp: result.profile_pic,
+							user_id: result._id
 						});
 						return;
 					}

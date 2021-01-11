@@ -33,6 +33,7 @@ export default function Login({notifs, api_endpoint}) {
 					console.log(isLoginSuccess);
 					localStorage.setItem('auth-token', isLoginSuccess.data.auth_token);
 					localStorage.setItem('refersh-token', isLoginSuccess.data.refreshToken);
+					localStorage.setItem('user_id', isLoginSuccess.data.user_id);
 					addToast('Login successful!', {
 						appearance: 'success',
 						autoDismiss: true,
@@ -148,12 +149,12 @@ export default function Login({notifs, api_endpoint}) {
 Login.Layout = Common;
 
 export async function getServerSideProps() {
-	//const not_res = await fetch(process.env.endpoint + '/allNotific', {
-	//	method: 'GET',
-	//	headers: {
-	//		get_api: process.env.get_api_key,
-	//	},
-	//});
+	const not_res = await fetch(process.env.endpoint + '/allNotific', {
+		method: 'GET',
+		headers: {
+			get_api: process.env.get_api_key,
+		},
+	});
 
 	const notifs = await not_res.json();
 	const api_endpoint = process.env.endpoint;

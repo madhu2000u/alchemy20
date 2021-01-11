@@ -96,7 +96,8 @@ exports.validateUserLogin = (token) => {
 };
 
 exports.jwtVerify = (req, res, next) => {
-	const authHeader = req.headers['authorization'];
+	const authHeader = req.body.headers['authorization'];
+	console.log(authHeader);
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {

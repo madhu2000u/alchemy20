@@ -32,8 +32,8 @@ exports.getRegisteredEvents = (req, res) => {
 
 exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
-	const event_id = req.headers['event_id'];
-	const _id = req.headers['user_id'];
+	const event_id = req.body.headers['event_id'];
+	const _id = req.body.headers['user_id'];
 	Event.exists({_id: event_id})
 		.then((result) => {
 			if (result) {
