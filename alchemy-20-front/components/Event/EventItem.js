@@ -14,16 +14,13 @@ export default function EventItem(props) {
 		} else {
 			const headers = {
 				event_id: props.id,
-				authorization: auth_token,
-				// 'user_id' also needed here
+				authorization: 'Bearer '.concat(auth_token)
 			};
-
 			try {
 				let isRegistrationSuccess = await ApiService.eventRegistration(headers, props.api_endpoint);
-
-				// Do stuff with the response..
+				props.showToast(`Registration successfull ${isRegistrationSuccess.data.message}`, 'success');				
 			} catch (error) {
-				props.showToast(`Cannot login : ${error}`, 'error');
+				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 			}
 		}
 	};
