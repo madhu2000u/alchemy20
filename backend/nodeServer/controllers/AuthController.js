@@ -5,7 +5,7 @@ const User = require('../models/users');
 const UserToken = require('../models/user_tokens');
 const TempUser = require('../models/tempActivationUser');
 const RegisteredEvent = require('../models/registered_students');
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 exports.signUp = (req, res) => {
 	const body = req.body;
@@ -53,7 +53,7 @@ exports.signUp = (req, res) => {
 									user_id: result._id,
 									salt: hashed_password.salt,
 									auth_token: crypto.randomBytes(64).toString('hex'),
-									refreshToken: ""
+									refreshToken: '',
 								});
 								UserToken.create(tokens)
 									.then(() => {
@@ -134,18 +134,22 @@ exports.signIn = (req, res) => {
 						res.status(403).json({message: 'Account not activated'});
 						return;
 					} else if (result.acc_active & password_compare) {
-						const payload={
-							id:user_tokens_result._id
-						}
-						const auth_token=utils.genAccessToken(payload)
-						const refreshToken=utils.genRefreshToken(payload)
+						const payload = {
+							id: user_tokens_result._id,
+						};
+						const auth_token = utils.genAccessToken(payload);
+						const refreshToken = utils.genRefreshToken(payload);
 
-						if (refreshToken){
-							UserToken.updateOne({user_id:user_tokens_result.user_id}, {$set: { refreshToken:refreshToken }}, (err, res) => {
-								console.log(res);
-							})
+						if (refreshToken) {
+							UserToken.updateOne(
+								{user_id: user_tokens_result.user_id},
+								{$set: {refreshToken: refreshToken}},
+								(err, res) => {
+									console.log(res);
+								}
+							);
 						}
-						
+
 						res.status(200).json({
 							auth_token: auth_token,
 							refreshToken: refreshToken,
@@ -241,28 +245,28 @@ exports.newAccessToken = (req, res) => {
 	const refreshToken = req.body.token;
 
 	UserToken.find()
-	.then((result) => {
-		const hasRefreshToken = result.some( token => token['refreshToken'] == refreshToken )
-		if (!refreshToken || !hasRefreshToken) {
-			return res.json({ message: "Refresh token not found, login again" });
-		}
-		// If the refresh token is valid, create a new accessToken and return it.
-		jwt.verify(refreshToken, process.env.SECRET_REFRESH_TOKEN, (err, user) => {
-			if (!err) {
-				const accessToken = jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {
-					expiresIn: "20h"
-				});
-				return res.json({ success: true, accessToken });
-			} else {
-				return res.json({
-					success: false,
-					message: "Invalid refresh token"
-				});
+		.then((result) => {
+			const hasRefreshToken = result.some((token) => token['refreshToken'] == refreshToken);
+			if (!refreshToken || !hasRefreshToken) {
+				return res.json({message: 'Refresh token not found, login again'});
 			}
+			// If the refresh token is valid, create a new accessToken and return it.
+			jwt.verify(refreshToken, process.env.SECRET_REFRESH_TOKEN, (err, user) => {
+				if (!err) {
+					const accessToken = jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {
+						expiresIn: '20h',
+					});
+					return res.json({success: true, accessToken});
+				} else {
+					return res.json({
+						success: false,
+						message: 'Invalid refresh token',
+					});
+				}
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({message: 'Internal server error'});
 		});
-	})
-	.catch((err) => {
-		console.log(err);
-		res.status(500).json({message: 'Internal server error'});
-	})
-}
+};
