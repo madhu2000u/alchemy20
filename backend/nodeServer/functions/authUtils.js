@@ -10,7 +10,7 @@ exports.mailer = (to_email, sub, html) => {
 			let t = mailer.createTransport({
 				service: 'gmail',
 				auth: {
-					user: 'nitt.chea@gmail.com',
+					user: 'donotreply.nittchea@gmail.com',
 					pass: process.env.alchemy_gmail_pass,
 				},
 			});

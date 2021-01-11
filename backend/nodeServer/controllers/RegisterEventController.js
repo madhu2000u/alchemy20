@@ -34,11 +34,12 @@ exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
 	const event_id = req.headers['event_id'];
 	const _id = req.headers['user_id'];
+	if(!event_id){res.status(400).json({message: "* Event ID not provided"})}
 	Event.exists({_id: event_id})
 		.then((result) => {
 			if (result) {
 				if (!_id) {
-					res.status(400).json({message: '* Required field missing'});
+					res.status(400).json({message: '* User ID not provided'});
 				} else {
 					RegisteredEvent.findOne({user_id: _id}, (err, result) => {
 						if (err) {

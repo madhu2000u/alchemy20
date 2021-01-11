@@ -22,6 +22,7 @@ app.use('/api', require('./routes/notifRoutes'));
 app.use('/api', require('./routes/alcidRoutes'));
 app.use('/api', require('./routes/registerEventRoutes'));
 app.use('/api', require('./routes/oauth'));
+app.use('/api', require('./routes/dashboardRoute'))
 
 mongoose
 	.connect(process.env.db_url, {
