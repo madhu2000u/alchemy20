@@ -95,28 +95,26 @@ exports.validateUserLogin = (token) => {
 	//return boolean
 };
 
-exports.jwtVerify=(req, res, next)=> {
+exports.jwtVerify = (req, res, next) => {
 	const authHeader = req.headers['authorization'];
 	if (authHeader) {
-        const token = authHeader.split(' ')[1];
-        jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
-            if (err) {
-                return res.sendStatus(403).json({message: 'User not allowed to perform this action'});
-            }
-            req.user = user;
-            next();
-        });
-    } else {
-        res.sendStatus(401).json({message: 'No access token sent'});
-    }
-}
+		const token = authHeader.split(' ')[1];
+		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
+			if (err) {
+				return res.sendStatus(403).json({message: 'User not allowed to perform this action'});
+			}
+			req.user = user;
+			next();
+		});
+	} else {
+		res.sendStatus(401).json({message: 'No access token sent'});
+	}
+};
 
- exports.genAccessToken=(user)=> {
-	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn:'20h'});
-}
+exports.genAccessToken = (user) => {
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '20h'});
+};
 
-exports.genRefreshToken=(accessToken)=> {
-	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN)
-
-}
-
+exports.genRefreshToken = (accessToken) => {
+	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN);
+};
