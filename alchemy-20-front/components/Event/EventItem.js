@@ -14,11 +14,11 @@ export default function EventItem(props) {
 		} else {
 			const headers = {
 				event_id: props.id,
-				authorization: 'Bearer '.concat(auth_token)
+				authorization: 'Bearer '.concat(auth_token),
 			};
 			try {
 				let isRegistrationSuccess = await ApiService.eventRegistration(headers, props.api_endpoint);
-				props.showToast(`Registration successfull ${isRegistrationSuccess.data.message}`, 'success');				
+				props.showToast(`Registration successfull ${isRegistrationSuccess.data.message}`, 'success');
 			} catch (error) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 			}

@@ -19,3 +19,58 @@
     padding-bottom: 20px;
     position: relative;
   }
+
+  .profile_container img {
+    width: 128px;
+  }
+
+  .profile_container p {
+    color: #ecc82c;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .get_id_div {
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+  
+    background: #ecc82c;
+    border: #303030 solid 1px;
+  
+    color: #303030;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+  
+    margin-top: 5px;
+    margin: 0.5rem;
+  
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    border-radius: 7px;
+  }
+  
+  .get_id_div:hover,
+  .get_id_div:focus,
+  .get_id_div:active {
+    background: #303030;
+    color: #ecc82c;
+    border: #ecc82c solid 1px;
+  }
+
+  .events_workshops_container {
+    
+  }
+
+  .eve_wor_backdrop {
+    text-align: center;
+    background-color: rgb(26, 26, 26, 0.4);
+    color: #ecc82c;
+    font-size: 1.5rem;
+    padding: 12px 0 12px 0;
+  }

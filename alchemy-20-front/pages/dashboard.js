@@ -9,6 +9,7 @@ import fetch from 'node-fetch';
 import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
+import DashboardEvents from '../components/DashboardEvents/DashboardEvents';
 
 export default function Dashboard({notifs, api_endpoint}) {
 	const router = useRouter();
@@ -19,14 +20,24 @@ export default function Dashboard({notifs, api_endpoint}) {
 
 	return (
 		<div className={styles.dashboard_container}>
-            <div className={styles.nav}>
+			<div className={styles.nav}>
 				<Subpage notifs={notifs} showNot={true} />
 			</div>
-            <div className={styles.profile_container}>
-                hello
-            </div>
-			
-            <Footer />
+			<div className={styles.profile_container}>
+				<img src="https://i.imgur.com/HiNJNAv.png"></img>
+				<p>Hello, {'Loren Ipsum'}</p>
+				<div className={styles.get_id_div}>Get ID</div>
+			</div>
+			<div className={styles.events_workshops_container}>
+				<div className={styles.eve_wor_backdrop}>REGISTERED EVENTS</div>
+				<div className={styles.events_workshops_list}>{}</div>
+			</div>
+
+			<div className={styles.events_workshops_container}>
+				<div className={styles.eve_wor_backdrop}>REGISTERED WORKSHOPS</div>
+				<div className={styles.events_workshops_list}>{}</div>
+			</div>
+			<Footer />
 		</div>
 	);
 }
@@ -43,6 +54,7 @@ export async function getServerSideProps() {
 
 	const notifs = await not_res.json();
 	const api_endpoint = process.env.endpoint;
+
 	return {
 		props: {
 			notifs,
