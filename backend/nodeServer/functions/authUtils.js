@@ -10,7 +10,7 @@ exports.mailer = (to_email, sub, html) => {
 			let t = mailer.createTransport({
 				service: 'gmail',
 				auth: {
-					user: 'nitt.chea@gmail.com',
+					user: 'donotreply.nittchea@gmail.com',
 					pass: process.env.alchemy_gmail_pass,
 				},
 			});
@@ -96,7 +96,7 @@ exports.validateUserLogin = (token) => {
 };
 
 exports.jwtVerify = (req, res, next) => {
-	const authHeader = req.headers['authorization'];
+	const authHeader = req.body.headers['authorization'];
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
