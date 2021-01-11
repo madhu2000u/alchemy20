@@ -13,7 +13,7 @@ const Event = require('../models/events');
 //get all the registered events of a user
 exports.getRegisteredEvents = (req, res) => {
 	//expecting client to send the and user_id as a header
-	const _id = req.headers['user_id'];
+	const _id = req.user.id;
 	if (!_id) {
 		res.status(400).json({message: 'Required fields missing'});
 	} else {
@@ -33,7 +33,8 @@ exports.getRegisteredEvents = (req, res) => {
 exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
 	const event_id = req.body.headers['event_id'];
-	const _id = req.body.headers['user_id'];
+	const _id = req.user.id;
+
 	Event.exists({_id: event_id})
 		.then((result) => {
 			if (result) {
@@ -71,7 +72,7 @@ exports.pushRegisteredEvents = (req, res) => {
 
 exports.removeRegisteredEvent = (req, res) => {
 	const event_id = req.headers['event_id'];
-	const _id = req.headers['user_id'];
+	const _id = req.user.id;
 	if (!_id || !event_id) {
 		res.status(400).json({message: 'Required fields missing'});
 	} else {

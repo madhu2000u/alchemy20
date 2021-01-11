@@ -33,7 +33,6 @@ export default function Login({notifs, api_endpoint}) {
 					console.log(isLoginSuccess);
 					localStorage.setItem('auth-token', isLoginSuccess.data.auth_token);
 					localStorage.setItem('refersh-token', isLoginSuccess.data.refreshToken);
-					localStorage.setItem('user_id', isLoginSuccess.data.user_id);
 					addToast('Login successful!', {
 						appearance: 'success',
 						autoDismiss: true,

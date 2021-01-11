@@ -135,7 +135,7 @@ exports.signIn = (req, res) => {
 						return;
 					} else if (result.acc_active & password_compare) {
 						const payload = {
-							id: user_tokens_result._id,
+							id: user_tokens_result.user_id,
 						};
 						const auth_token = utils.genAccessToken(payload);
 						const refreshToken = utils.genRefreshToken(payload);
@@ -155,7 +155,6 @@ exports.signIn = (req, res) => {
 							refreshToken: refreshToken,
 							name: result.name,
 							dp: result.profile_pic,
-							user_id: result._id
 						});
 						return;
 					}
