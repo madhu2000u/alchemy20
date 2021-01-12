@@ -115,9 +115,8 @@ exports.signIn = (req, res) => {
 			res.status(500).json({message: 'Internal server error'});
 		} else if (!result) {
 			res.status(404).json({message: 'Email not registered '});
-		} else if (result.google_id) {
-			res.redirect('/api/google');
-		} else {
+		} else if(result.google_id){res.status(409).json({message: 'Use google oauth'})}
+		 else {
 			UserToken.findOne({user_id: result._id}, (err, user_tokens_result) => {
 				//to get the salt for comparing the password. Salt is stored in user_tokens collection. callback method type used instead of the promise's .then and .catch type due to same reason as above comment
 				if (err) {
@@ -156,7 +155,7 @@ exports.signIn = (req, res) => {
 							auth_token: auth_token,
 							refreshToken: refreshToken,
 							name: result.name,
-							dp: result.profile_pic,
+							profile_pic: result.profile_pic,
 						});
 						return;
 					}
@@ -274,4 +273,3 @@ exports.newAccessToken = (req, res) => {
 		});
 };
 
-exports.AddUserDetails = (req, res) => {};

@@ -3,6 +3,7 @@ const mailer = require('nodemailer');
 const validator = require('email-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const User= require('../models/users');
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
@@ -105,9 +106,18 @@ exports.jwtVerify = (req, res, next) => {
 				console.log('jwtVerify error: ' + err);
 				return res.status(403).json({message: 'User not allowed to perform this action'});
 			}
-			req.user = user;
-			console.log('inside jwtVerify, req - ', req.user);
-			next();
+			User.findOne({_id:user.id}).then((user_id)=>{
+				if(!user_id){
+					return res.status(403).json({message: 'Auth token valid but user account not found. Please contact Admin'})	//Suppose user account was deleted by the admin maybe but the auth token was that was given is still active. Rarly happens but server will be more stable if at all it should encounter such issue.
+				}
+				else{
+					req.user = user;
+					console.log('inside jwtVerify, req - ', req.user);
+					next();					
+
+				}
+			})
+
 		});
 	} else {
 		res.sendStatus(401).json({message: 'No access token sent'});

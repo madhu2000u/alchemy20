@@ -25,6 +25,7 @@ passport.use(
 			oauthController
 				.oauth(user)
 				.then((result) => {
+					console.log('oauthController done result - ', result);
 					done(null, result);
 				})
 				.catch((err) => done(err));

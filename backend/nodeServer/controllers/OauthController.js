@@ -1,16 +1,17 @@
 const User = require('../models/users');
+const UserToken = require('../models/user_tokens')
 const utils = require('../functions/authUtils');
 const RegisteredEvent = require('../models/registered_students');
 
-exports.oauth = (profile) => {
+exports.oauth =  (profile) =>{
 	//if user exists then send to sign in. if not send to sign up.
-
+	
 	return new Promise((resolve, reject) => {
 		User.exists({google_id: profile.google_id})
 			.then((user) => {
 				console.log('user found - ', user);
 				if (!user) {
-					oauth_signup(profile)
+					 oauth_signup(profile)
 						.then((result) => {
 							console.log('oauth signup result', result);
 							resolve(result);
@@ -67,14 +68,24 @@ function oauth_signup(profile) {
 						RegisteredEvent.create({user_id: user._id, events: []})
 							.then((res) => {
 								console.log(res);
+								const newTokens = new UserToken({
+									user_id: user._id,
+									refreshToken:'',
+								});
+								UserToken.create(newTokens).then((result) =>{					
+									console.log("OauthController signup user token - ",result)
+									tokens(user).then((result) =>{
+										resolve(result)
+									}).catch((err)=>{rejecter(err)})
+								}).catch((err) =>{console.log("OauthController signup user token error: ",err)})
+								
 							})
 							.catch((err) => console.log(err));
 						//console.log('user created - ', result)
-						resolve(user);
+						
 
-						//Send result._id for JWT signing   //I prefered using the _id created automatically by mongoose. suggest if you have any better ways
-						//receive the JWT token
-						//resolve promise with the {profile_pic, name, JWT token} object   //these 3 will be given to the client.
+						
+						
 					})
 					.catch((err) => {
 						reject(err); // TODO handle the error appropriately
@@ -90,11 +101,7 @@ function oauth_signin(profile) {
 		User.findOne({google_id: profile.google_id})
 			.then((user) => {
 				// console.log('user logged in - ', user);
-				resolve(user);
-
-				//Send user._id for JWT sighning function
-				//receive the JWT token from the function
-				//resolve promise with the {profile_pic, name, JWT token} object
+				resolve(tokens(user));
 			})
 			.catch((err) => {
 				//No error should occur as checks done in the oauth function, but other types of errors maybe possible
@@ -103,4 +110,43 @@ function oauth_signin(profile) {
 				reject(err);
 			});
 	});
+}
+
+function tokens(user) {
+	const payload={id:user._id}
+	const auth_token = utils.genAccessToken(payload)
+	const refreshToken = utils.genRefreshToken(payload);
+
+	return new Promise((resolve, reject) => {
+		UserToken.findOne({user_id: user._id}, (err, user_tokens_result) => {
+		if(err){
+			console.log("OauthController tokens function error - ", err);
+			reject("Oauth Controller tokens function - ", err);
+		}else{
+			if (refreshToken) {
+				UserToken.updateOne(
+					{user_id: user_tokens_result.user_id},
+					{$set: {refreshToken: refreshToken}},
+					(err, res) => {
+						console.log(res);
+					}
+				);
+
+				resolve({
+					auth_token: auth_token,
+					refreshToken:refreshToken,
+					// name: user.name,
+					// profile_pic: user.profile_pic //will be retrieved from /dashboard
+				})
+				
+			}
+
+		}
+	})
+})
+
+
+
+
+	
 }
