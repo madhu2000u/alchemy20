@@ -129,5 +129,5 @@ exports.genAccessToken = (user) => {
 };
 
 exports.genRefreshToken = (accessToken) => {
-	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN);
+	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN, {expiresIn:'60d'});
 };

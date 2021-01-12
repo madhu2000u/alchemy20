@@ -55,7 +55,7 @@ export default function Register({notifs}) {
 
 	const OauthRegister = async (e) => {
 		e.preventDefault();
-		window.open(api_endpoint + '/google', '_blank');
+		window.open(process.env.endpoint + '/google', '_blank');
 	};
 
 	const validatePassword = (value) => {
