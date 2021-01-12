@@ -19,4 +19,7 @@ export const ApiService = {
 			headers: headers,
 		});
 	},
+	profileUpdate: (data, config) => {
+		return axios.default.post(config + '/userdetails', data);
+	},
 };

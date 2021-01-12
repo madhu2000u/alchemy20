@@ -16,7 +16,7 @@ export default function EventItem(props) {
 		} else {
 			const headers = {
 				event_id: props.id,
-				authorization: 'Bearer '.concat(auth_token),
+				Authorization: 'Bearer '.concat(auth_token),
 			};
 			try {
 				let isRegistrationSuccess = await ApiService.eventRegistration(headers);
