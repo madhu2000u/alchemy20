@@ -22,7 +22,7 @@ export default function MyApp({Component, pageProps}) {
 					const headers = {
 						refreshtoken: refreshtoken
 					};
-					let Refreshresult = await ApiService.refreshToken(headers, process.env.endpoint);
+					let Refreshresult = await ApiService.refreshToken(headers);
 					if (Refreshresult.status = 200 && Refreshresult.data.success){
 						var tokenexpiration = new Date();
 						tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));

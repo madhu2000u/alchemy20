@@ -19,7 +19,7 @@ export default function EventItem(props) {
 				authorization: 'Bearer '.concat(auth_token),
 			};
 			try {
-				let isRegistrationSuccess = await ApiService.eventRegistration(headers, props.api_endpoint);
+				let isRegistrationSuccess = await ApiService.eventRegistration(headers);
 				props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
 				setTimeout(() => {
 					router.push('/dashboard');

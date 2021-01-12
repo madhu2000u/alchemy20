@@ -1,20 +1,20 @@
 //import fetch from 'node-fetch'
 let axios = require('axios');
-
+const config = process.env.endpoint;
 export const ApiService = {
-	login: (data, config) => {
+	login: (data) => {
 		return axios.default.post(config + '/auth/login', data);
 	},
-	register: (data, config) => {
+	register: (data) => {
 		return axios.default.post(config + '/auth/register', data);
 	},
-	refreshToken: (headers, config) => {
+	refreshToken: (headers) => {
 		return axios.default.post(config + '/auth/newAccessToken', {
 			headers: headers,
 		});
 	},
 	// send event_id, user_id and jwt authorization
-	eventRegistration: (headers, config) => {
+	eventRegistration: (headers) => {
 		return axios.default.post(config + '/registerEvent', {
 			headers: headers,
 		});

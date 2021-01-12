@@ -8,7 +8,7 @@ import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 
-export default function Register({notifs, api_endpoint}) {
+export default function Register({notifs}) {
 	const router = useRouter();
 	const {addToast} = useToasts();
 	const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ export default function Register({notifs, api_endpoint}) {
 				password: password,
 			};
 			try {
-				let isRegisterSuccess = await ApiService.register(data, api_endpoint);
+				let isRegisterSuccess = await ApiService.register(data);
 				console.log('isRegisterSuccess');
 				if (isRegisterSuccess.status === 201) {
 					addToast('Registration successful!', {appearance: 'success', autoDismiss: true});
@@ -175,11 +175,9 @@ export async function getServerSideProps() {
 	});
 
 	const notifs = await not_res.json();
-	const api_endpoint = process.env.endpoint;
 	return {
 		props: {
 			notifs,
-			api_endpoint,
 		},
 	};
 }

@@ -9,7 +9,7 @@ import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 
-export default function Login({notifs, api_endpoint}) {
+export default function Login({notifs}) {
 	const router = useRouter();
 	const {addToast} = useToasts();
 	const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ export default function Login({notifs, api_endpoint}) {
 				password: password,
 			};
 			try {
-				let isLoginSuccess = await ApiService.login(data, api_endpoint);
+				let isLoginSuccess = await ApiService.login(data);
 				if (isLoginSuccess.status === 200) {
 					var tokenexpiration = new Date();
 					tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
@@ -166,11 +166,9 @@ export async function getServerSideProps() {
 	});
 
 	const notifs = await not_res.json();
-	const api_endpoint = process.env.endpoint;
 	return {
 		props: {
 			notifs,
-			api_endpoint,
 		},
 	};
 }

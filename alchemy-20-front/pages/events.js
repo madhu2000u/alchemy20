@@ -6,7 +6,7 @@ import styles from '../styles/Events.module.css';
 import EventItem from '../components/Event/EventItem';
 import {useToasts} from 'react-toast-notifications';
 
-export default function Events({notifs, api_endpoint, events}) {
+export default function Events({notifs, events}) {
 	const {addToast} = useToasts();
 	const [render, setRender] = useState(false);
 	const router = useRouter();
@@ -42,7 +42,6 @@ export default function Events({notifs, api_endpoint, events}) {
 						date={event.event_date}
 						cost={event.event_cost}
 						showToast={(msg, type) => showToastInPage(msg, type)}
-						api_endpoint={api_endpoint}
 					/>
 				))}
 			</div>
@@ -68,7 +67,6 @@ export async function getServerSideProps() {
 	});
 
 	const notifs = await not_res.json();
-	const api_endpoint = process.env.endpoint;
 	const events_workshops = await event_res.json();
 
 	let events = [];
@@ -80,7 +78,6 @@ export async function getServerSideProps() {
 	return {
 		props: {
 			notifs,
-			api_endpoint,
 			events,
 		},
 	};
