@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useRouter} from 'next/router';
 import Common from '../components/Common/Common';
 import Subpage from '../components/Subpage Template/Subpage';
@@ -15,6 +15,12 @@ export default function Register({notifs, api_endpoint}) {
 	const [password, setPassword] = useState('');
 	const [confirm_password, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState({});
+	
+	useEffect(() => {
+		if (localStorage.getItem('refresh-token')){
+			router.push('/dashboard');
+		}
+	}, []);
 
 	const register = async (e) => {
 		if (
