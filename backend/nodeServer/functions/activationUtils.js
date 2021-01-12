@@ -58,7 +58,7 @@ exports.sendVerificationMail = (user_id, email) => {
 			const subject = 'Email Verification';
 			const html = `<h4>Welcome for Alchemy'20,<br><br>\
             Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link( if you don't see a link, copy paste the following url in your address bar and press enter ) : ${process.env.base_url}/api/confirm/${verification_token}</h3>`; //+ verification_token
+            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this <a href="${process.env.base_url}/api/confirm/${verification_token}">link</a> (if you don't see a link, copy paste the following url in your address bar and press enter) : ${process.env.base_url}/api/confirm/${verification_token}</h3>`; //+ verification_token
 			// let t=mailer.createTransport({
 			//     service: 'gmail',
 			//     auth:{
