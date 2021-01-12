@@ -1,7 +1,9 @@
 import styles from './EventItem.module.css';
 import {ApiService} from '../../api_service';
+import {useRouter} from 'next/router';
 
 export default function EventItem(props) {
+	const router = useRouter();
 	const registerEvent = async (e) => {
 		props.showToast('Registering...', 'success');
 		// I am not sure if this is the right way to access localstorage from child components
@@ -18,7 +20,10 @@ export default function EventItem(props) {
 			};
 			try {
 				let isRegistrationSuccess = await ApiService.eventRegistration(headers, props.api_endpoint);
-				props.showToast(`Registration successfull ${isRegistrationSuccess.data.message}`, 'success');
+				props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
+				setTimeout(() => {
+					router.push('/dashboard');
+				}, 1000);
 			} catch (error) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 			}

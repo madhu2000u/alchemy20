@@ -96,7 +96,8 @@ exports.validateUserLogin = (token) => {
 };
 
 exports.jwtVerify = (req, res, next) => {
-	const authHeader = req.headers['authorization'];
+	const authHeader = req.body.headers['authorization'];
+	console.log(authHeader)
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
@@ -114,7 +115,7 @@ exports.jwtVerify = (req, res, next) => {
 };
 
 exports.genAccessToken = (user) => {
-	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '20h'});
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '5m'});
 };
 
 exports.genRefreshToken = (accessToken) => {

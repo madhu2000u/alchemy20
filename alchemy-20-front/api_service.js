@@ -8,8 +8,10 @@ export const ApiService = {
 	register: (data, config) => {
 		return axios.default.post(config + '/auth/register', data);
 	},
-	refreshToken: (data, config) => {
-		return axios.default.post(config + '/auth/newAccessToken', data);
+	refreshToken: (headers, config) => {
+		return axios.default.post(config + '/auth/newAccessToken', {
+			headers: headers,
+		});
 	},
 	// send event_id, user_id and jwt authorization
 	eventRegistration: (headers, config) => {

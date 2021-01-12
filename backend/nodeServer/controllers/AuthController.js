@@ -244,13 +244,14 @@ exports.ResendVerify = (req, res) => {
 
 exports.newAccessToken = (req, res) => {
 	//sending request token as body
-	const refreshToken = req.body.token;
+	const refreshToken = req.body.headers['refreshtoken'];
+	console.log(refreshToken);
 
 	UserToken.find()
 		.then((result) => {
 			const hasRefreshToken = result.some((token) => token['refreshToken'] == refreshToken);
 			if (!refreshToken || !hasRefreshToken) {
-				return res.json({message: 'Refresh token not found, login again'});
+				return res.status(404).json({message: 'Refresh token not found, login again'});
 			}
 			// If the refresh token is valid, create a new accessToken and return it.
 			jwt.verify(refreshToken, process.env.SECRET_REFRESH_TOKEN, (err, user) => {

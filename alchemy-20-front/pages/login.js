@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Common from '../components/Common/Common';
@@ -16,6 +16,12 @@ export default function Login({notifs, api_endpoint}) {
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState({});
 
+	useEffect(() => {
+		if (localStorage.getItem('refresh-token')){
+			router.push('/dashboard');
+		}
+	}, []);
+
 	const login = async (e) => {
 		if (errors.email === null && errors.password === null) {
 			addToast('Checking Credentials... Please wait!', {
@@ -30,9 +36,13 @@ export default function Login({notifs, api_endpoint}) {
 			try {
 				let isLoginSuccess = await ApiService.login(data, api_endpoint);
 				if (isLoginSuccess.status === 200) {
-					console.log(isLoginSuccess);
+					var tokenexpiration = new Date();
+					tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
+
 					localStorage.setItem('auth-token', isLoginSuccess.data.auth_token);
-					localStorage.setItem('refersh-token', isLoginSuccess.data.refreshToken);
+					localStorage.setItem('refresh-token', isLoginSuccess.data.refreshToken);
+					localStorage.setItem('expirationdate',tokenexpiration)
+
 					addToast('Login successful!', {
 						appearance: 'success',
 						autoDismiss: true,
