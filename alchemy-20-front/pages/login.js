@@ -52,7 +52,7 @@ export default function Login({notifs}) {
 					}, 1000);
 				}
 			} catch (error) {
-				if(error.response.status===409){router.push(api_endpoint+'/google'); return}
+				if(error.response.status===409){router.push(process.env.endpoint+'/google'); return}
 				addToast(`Cannot login : ${error.response.data.message}`, {
 					appearance: 'error',
 					autoDismiss: true,
