@@ -29,7 +29,7 @@ export default function TeamPerson(props) {
 	}
 	return (
 		<StyledPerson head={props.isHead}>
-			<img src={props.img} alt={props.alt} className="image" />
+			<img src={props.img} alt={props.alt} className="image"/>
 			<p className="name">{props.name}</p>
 			{position}
 			{phone}

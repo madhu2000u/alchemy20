@@ -10,6 +10,7 @@ export const StyledPerson = styled.div`
 		border-radius: 50%;
 		height: ${({head}) => (head ? '145px' : '120px')};
 		width: ${({head}) => (head ? '145px' : '120px')};
+		background: transparent url(/spinner.gif) no-repeat scroll center center;
 	}
 
 	.name {
