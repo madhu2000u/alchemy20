@@ -27,7 +27,7 @@ oauth_router.get('/oauth/google/redirect', passport.authenticate('google', {sess
 	
 	const cookie=`${req.user.auth_token+" "+ req.user.refreshToken}`
 	console.log("c - ", cookie)
-	res.cookie('tokens', cookie, {sameSite:'lax',secure: process.env.app_url.includes('localhost')?false:true}).redirect(process.env.app_url+'/dashboard');
+	res.cookie('tokens', cookie, {sameSite:'lax',secure: process.env.app_url.includes('https')?true:false}).redirect(process.env.app_url+'/dashboard');
 
 	//res.redirect(process.env.app_url + '/login');
 	//res.status(200).json(req.user);
