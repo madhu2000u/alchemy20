@@ -68,6 +68,7 @@ function oauth_signup(profile) {
 						RegisteredEvent.create({user_id: user._id, events: []})
 							.then((res) => {
 								console.log(res);
+								//resolve(user._id)
 								const newTokens = new UserToken({
 									user_id: user._id,
 									refreshToken: '',
@@ -105,6 +106,7 @@ function oauth_signin(profile) {
 			.then((user) => {
 				// console.log('user logged in - ', user);
 				resolve(tokens(user));
+				//resolve(user._id);
 			})
 			.catch((err) => {
 				//No error should occur as checks done in the oauth function, but other types of errors maybe possible
@@ -146,3 +148,12 @@ function tokens(user) {
 		});
 	});
 }
+
+// exports.isLoggedin=(req, res, next)=>{
+// 	if(req.user){
+// 		next()
+// 	}else{
+// 		res.status(401).json({message:"Not logged in"})
+// 	}
+
+// }
