@@ -25,16 +25,16 @@ export default function Menu({open, setOpen}) {
 					</Link>
 				</div>
 				<div>
-						<div className="coming-soon-div">
-							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-							<p>Workshops</p>
-						</div>
+					<div className="coming-soon-div">
+						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+						<p>Workshops</p>
+					</div>
 				</div>
 				<div>
-						<div className="coming-soon-div">
-							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-							<p>Sponsors</p>
-						</div>
+					<div className="coming-soon-div">
+						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+						<p>Sponsors</p>
+					</div>
 				</div>
 				<div className="active-div" onClick={() => setOpen(!open)}>
 					<Link href="/team">

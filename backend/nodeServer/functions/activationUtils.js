@@ -229,8 +229,8 @@ body {font-family: 'Muli', sans-serif;}
 	</center>
   
 
-</body></html>`
-}
+</body></html>`;
+};
 exports.resendVerificationMail = (email) => {
 	console.log('Inside resendVerificationEmail()');
 	return new Promise((resolve, reject) => {
@@ -284,7 +284,7 @@ exports.sendVerificationMail = (user_id, email) => {
 		try {
 			const verification_token = crypto.randomBytes(64).toString('hex');
 			const subject = 'Email Verification';
-			const html = getVerificationMailHtml(process.env.base_url, verification_token)
+			const html = getVerificationMailHtml(process.env.base_url, verification_token);
 
 			const newTempUser = new TempUser({
 				user_id: user_id,

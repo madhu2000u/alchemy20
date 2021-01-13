@@ -17,7 +17,7 @@ export default function Login({notifs}) {
 	const [errors, setErrors] = useState({});
 
 	useEffect(() => {
-		if (localStorage.getItem('refresh-token')){
+		if (localStorage.getItem('refresh-token')) {
 			router.push('/dashboard');
 		}
 	}, []);
@@ -41,7 +41,7 @@ export default function Login({notifs}) {
 
 					localStorage.setItem('auth-token', isLoginSuccess.data.auth_token);
 					localStorage.setItem('refresh-token', isLoginSuccess.data.refreshToken);
-					localStorage.setItem('expirationdate',tokenexpiration)
+					localStorage.setItem('expirationdate', tokenexpiration);
 
 					addToast('Login successful!', {
 						appearance: 'success',
@@ -52,7 +52,10 @@ export default function Login({notifs}) {
 					}, 1000);
 				}
 			} catch (error) {
-				if(error.response.status===409){router.push(process.env.endpoint+'/google'); return}
+				if (error.response.status === 409) {
+					router.push(process.env.endpoint + '/google');
+					return;
+				}
 				addToast(`Cannot login : ${error.response.data.message}`, {
 					appearance: 'error',
 					autoDismiss: true,

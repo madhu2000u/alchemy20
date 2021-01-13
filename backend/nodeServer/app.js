@@ -22,7 +22,7 @@ app.use('/api', require('./routes/notifRoutes'));
 app.use('/api', require('./routes/alcidRoutes'));
 app.use('/api', require('./routes/registerEventRoutes'));
 app.use('/api', require('./routes/oauth'));
-app.use('/api', require('./routes/userDetailsRoutes'))
+app.use('/api', require('./routes/userDetailsRoutes'));
 app.use('/api', require('./routes/dashboardRoutes'));
 
 mongoose

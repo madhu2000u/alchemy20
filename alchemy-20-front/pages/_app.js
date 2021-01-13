@@ -12,28 +12,28 @@ export default function MyApp({Component, pageProps}) {
 	}, []);
 
 	useEffect(() => {
-		console.log("From app js - "+process.env.endpoint);
+		console.log('From app js - ' + process.env.endpoint);
 		const refreshtoken = localStorage.getItem('refresh-token');
 		var currentDate = new Date();
 		var expDate = new Date(localStorage.getItem('expirationdate'));
 
-		if (currentDate > expDate){
+		if (currentDate > expDate) {
 			const Refresh = async () => {
 				try {
 					const headers = {
-						refreshtoken: refreshtoken
+						refreshtoken: refreshtoken,
 					};
 					let Refreshresult = await ApiService.refreshToken(headers);
-					if (Refreshresult.status = 200 && Refreshresult.data.success){
+					if ((Refreshresult.status = 200 && Refreshresult.data.success)) {
 						var tokenexpiration = new Date();
 						tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
 						localStorage.setItem('auth-token', Refreshresult.data.accessToken);
-						localStorage.setItem('expirationdate',tokenexpiration);
-					} 
+						localStorage.setItem('expirationdate', tokenexpiration);
+					}
 				} catch (error) {
-					console.log(error)
+					console.log(error);
 				}
-			}
+			};
 			Refresh();
 		}
 	});

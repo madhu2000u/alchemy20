@@ -3,7 +3,7 @@ const mailer = require('nodemailer');
 const validator = require('email-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const User= require('../models/users');
+const User = require('../models/users');
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
@@ -98,7 +98,7 @@ exports.validateUserLogin = (token) => {
 
 exports.jwtVerify = (req, res, next) => {
 	const authHeader = req.body.headers['authorization'];
-	console.log(authHeader)
+	console.log(authHeader);
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
@@ -106,18 +106,17 @@ exports.jwtVerify = (req, res, next) => {
 				console.log('jwtVerify error: ' + err);
 				return res.status(403).json({message: 'User not allowed to perform this action'});
 			}
-			User.findOne({_id:user.id}).then((user_id)=>{
-				if(!user_id){
-					return res.status(403).json({message: 'Auth token valid but user account not found. Please contact Admin'})	//Suppose user account was deleted by the admin maybe but the auth token was that was given is still active. Rarly happens but server will be more stable if at all it should encounter such issue.
-				}
-				else{
+			User.findOne({_id: user.id}).then((user_id) => {
+				if (!user_id) {
+					return res
+						.status(403)
+						.json({message: 'Auth token valid but user account not found. Please contact Admin'}); //Suppose user account was deleted by the admin maybe but the auth token was that was given is still active. Rarly happens but server will be more stable if at all it should encounter such issue.
+				} else {
 					req.user = user;
 					console.log('inside jwtVerify, req - ', req.user);
-					next();					
-
+					next();
 				}
-			})
-
+			});
 		});
 	} else {
 		res.sendStatus(401).json({message: 'No access token sent'});
@@ -129,5 +128,5 @@ exports.genAccessToken = (user) => {
 };
 
 exports.genRefreshToken = (accessToken) => {
-	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN, {expiresIn:'60d'});
+	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN, {expiresIn: '60d'});
 };

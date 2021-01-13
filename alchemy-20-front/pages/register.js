@@ -15,9 +15,9 @@ export default function Register({notifs}) {
 	const [password, setPassword] = useState('');
 	const [confirm_password, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState({});
-	
+
 	useEffect(() => {
-		if (localStorage.getItem('refresh-token')){
+		if (localStorage.getItem('refresh-token')) {
 			router.push('/dashboard');
 		}
 	}, []);
