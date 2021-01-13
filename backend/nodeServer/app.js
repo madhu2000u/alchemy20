@@ -13,7 +13,7 @@ const app = express();
 const default_port = 4700;
 
 app.use(cors());
-app.use(cookieParser)
+app.use(cookieParser())
 app.use(express.json());
 // app.use(cookieSession({
 // 	name: "secret name bro",

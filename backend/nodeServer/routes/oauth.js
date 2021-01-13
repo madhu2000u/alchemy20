@@ -24,10 +24,10 @@ oauth_router.get('/google', passport.authenticate('google', {scope: ['profile', 
 oauth_router.get('/oauth/google/redirect', passport.authenticate('google', {session: false}), (req, res) => {
 	console.log('inside oauth_router -', req);
 	const cookie={
-		authToken: rea.authToken,
-		refreshToken: refreshToken
+		authToken: req.authToken,
+		refreshToken: req.refreshToken
 	}
-	res.cookie('tokens', cookie, {sameSite: true}).redirect(process.env.app_url+'/dashboard');
+	res.cookie('tokens', cookie, {secure: false, sameSite: 'lax'}).redirect(process.env.app_url+'/dashboard');
 	//res.redirect(process.env.app_url + '/login');
 	//res.status(200).json(req.user);
 });
