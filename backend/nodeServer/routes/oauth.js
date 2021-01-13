@@ -23,11 +23,11 @@ oauth_router.get('/google', passport.authenticate('google', {scope: ['profile', 
 //callback to handle google redirect
 oauth_router.get('/oauth/google/redirect', passport.authenticate('google', {session: false}), (req, res) => {
 	console.log('inside oauth_router -', req);
-	const cookie={
+	const cookie = {
 		authToken: req.authToken,
-		refreshToken: req.refreshToken
-	}
-	res.cookie('tokens', cookie, {secure: false, sameSite: 'lax'}).redirect(process.env.app_url+'/dashboard');
+		refreshToken: req.refreshToken,
+	};
+	res.cookie('tokens', cookie, {secure: false, sameSite: 'lax'}).redirect(process.env.app_url + '/dashboard');
 	//res.redirect(process.env.app_url + '/login');
 	//res.status(200).json(req.user);
 });

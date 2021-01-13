@@ -256,7 +256,7 @@ exports.newAccessToken = (req, res) => {
 			// If the refresh token is valid, create a new accessToken and return it.
 			jwt.verify(refreshToken, process.env.SECRET_REFRESH_TOKEN, (err, user) => {
 				if (!err) {
-					const accessToken = utils.genAccessToken({id: user.id})
+					const accessToken = utils.genAccessToken({id: user.id});
 					return res.json({success: true, accessToken});
 				} else {
 					return res.json({

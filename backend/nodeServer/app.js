@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 dotenv.config({path: __dirname + '/.env'});
 const passport = require('passport');
@@ -13,7 +13,7 @@ const app = express();
 const default_port = 4700;
 
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.json());
 // app.use(cookieSession({
 // 	name: "secret name bro",
