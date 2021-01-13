@@ -124,7 +124,7 @@ exports.jwtVerify = (req, res, next) => {
 };
 
 exports.genAccessToken = (user) => {
-	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '5m'});
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '10m'});
 };
 
 exports.genRefreshToken = (accessToken) => {
