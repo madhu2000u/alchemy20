@@ -22,12 +22,14 @@ oauth_router.get('/google', passport.authenticate('google', {scope: ['profile', 
 
 //callback to handle google redirect
 oauth_router.get('/oauth/google/redirect', passport.authenticate('google', {session: false}), (req, res) => {
-	console.log('inside oauth_router -', req);
 	const cookie = {
-		authToken: req.authToken,
-		refreshToken: req.refreshToken,
+		authToken: req.user.auth_token,
+		refreshToken: req.user.refreshToken,
 	};
-	res.cookie('tokens', cookie, {secure: false, sameSite: 'lax'}).redirect(process.env.app_url + '/dashboard');
+	res.cookie('tokens', cookie, {
+		secure: process.env.app_url.includes('https') ? true : false,
+		sameSite: 'lax',
+	}).redirect(process.env.app_url + '/dashboard');
 	//res.redirect(process.env.app_url + '/login');
 	//res.status(200).json(req.user);
 });
