@@ -9,6 +9,7 @@ const eventsSchema = new mongoose.Schema({
 	event_img: String,
 	event_date: String,
 	event_cost: String,
+	is_active: Boolean,
 	event_contacts: [String],
 });
 
