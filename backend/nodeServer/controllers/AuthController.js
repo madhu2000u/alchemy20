@@ -5,6 +5,7 @@ const User = require('../models/users');
 const UserToken = require('../models/user_tokens');
 const TempUser = require('../models/tempActivationUser');
 const RegisteredEvent = require('../models/registered_students');
+const RefreshToken = require('../models/refreshtoken');
 const jwt = require('jsonwebtoken');
 
 exports.signUp = (req, res) => {
@@ -142,23 +143,19 @@ exports.signIn = (req, res) => {
 						const auth_token = utils.genAccessToken(payload);
 						const refreshToken = utils.genRefreshToken(payload);
 
-						if (refreshToken) {
-							UserToken.updateOne(
-								{user_id: user_tokens_result.user_id},
-								{$set: {refreshToken: refreshToken}},
-								(err, res) => {
-									console.log(res);
-								}
-							);
-						}
-
-						res.status(200).json({
-							auth_token: auth_token,
-							refreshToken: refreshToken,
-							name: result.name,
-							profile_pic: result.profile_pic,
+						RefreshToken.create({refreshToken: refreshToken}, (err, result) => {
+							if (err) {
+								res.status(500).json({message: 'Internal server error'});
+							} else {
+								res.status(200).json({
+									auth_token: auth_token,
+									refreshToken: refreshToken,
+									name: result.name,
+									profile_pic: result.profile_pic,
+								});
+								return;
+							}
 						});
-						return;
 					}
 				}
 			});
@@ -173,7 +170,7 @@ exports.logout = (req, res) => {
 		res.sendStatus(401);
 	}
 
-	UserToken.deleteOne({refreshToken: refreshToken}).then((result) => {
+	RefreshToken.deleteOne({refreshToken: refreshToken}).then((result) => {
 		console.log(result);
 		res.redirect(process.env.app_url);
 	});
@@ -247,7 +244,7 @@ exports.newAccessToken = (req, res) => {
 	const refreshToken = req.body.headers['refreshtoken'];
 	console.log(refreshToken);
 
-	UserToken.find()
+	RefreshToken.find()
 		.then((result) => {
 			const hasRefreshToken = result.some((token) => token['refreshToken'] == refreshToken);
 			if (!refreshToken || !hasRefreshToken) {
@@ -256,7 +253,9 @@ exports.newAccessToken = (req, res) => {
 			// If the refresh token is valid, create a new accessToken and return it.
 			jwt.verify(refreshToken, process.env.SECRET_REFRESH_TOKEN, (err, user) => {
 				if (!err) {
-					const accessToken = utils.genAccessToken({id: user.id});
+					const accessToken = jwt.sign({id: user.id}, process.env.SECRET_ACCESS_TOKEN, {
+						expiresIn: '5m',
+					});
 					return res.json({success: true, accessToken});
 				} else {
 					return res.json({

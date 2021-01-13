@@ -97,7 +97,7 @@ exports.validateUserLogin = (token) => {
 };
 
 exports.jwtVerify = (req, res, next) => {
-	const authHeader = req.body.headers['authorization'];
+	const authHeader = req.body.headers['Authorization'];
 	console.log(authHeader);
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
@@ -124,7 +124,7 @@ exports.jwtVerify = (req, res, next) => {
 };
 
 exports.genAccessToken = (user) => {
-	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '10m'});
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '6m'});
 };
 
 exports.genRefreshToken = (accessToken) => {
