@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {useRouter} from 'next/router';
+import React from 'react';
 import Common from '../components/Common/Common';
 import Subpage from '../components/Subpage Template/Subpage';
 import styles from '../styles/Events.module.css';
@@ -8,16 +7,7 @@ import {useToasts} from 'react-toast-notifications';
 
 export default function Events({notifs, events}) {
 	const {addToast} = useToasts();
-	const [render, setRender] = useState(false);
-	const router = useRouter();
 
-	useEffect(() => {
-		if (!localStorage.getItem('auth-token') || !localStorage.getItem('refresh-token')){
-			router.push('/login');
-		} else {
-			setRender(true)
-		}
-	}, []);
 	const showToastInPage = (message, type) => {
 		addToast(`${message}`, {
 			appearance: type,
@@ -26,7 +16,6 @@ export default function Events({notifs, events}) {
 	};
 
 	return (
-		render ?
 		<main className={styles.main}>
 			<Subpage notifs={notifs} showNot={true} />
 			<div className={styles.heading}>
@@ -45,7 +34,7 @@ export default function Events({notifs, events}) {
 					/>
 				))}
 			</div>
-		</main> : null
+		</main>
 	);
 }
 

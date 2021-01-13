@@ -1,11 +1,23 @@
 import styles from './EventItem.module.css';
 import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
+import {useState, useEffect} from 'react'
 
 export default function EventItem(props) {
 	const router = useRouter();
+	const [isLoggedin, setIsLoggedin] = useState(false);
+
+	useEffect(() => {
+		if (!localStorage.getItem('auth-token') || !localStorage.getItem('refresh-token')){
+			setIsLoggedin(false)
+		} else {
+			setIsLoggedin(true)
+		}
+	}, []);
+
 	const registerEvent = async (e) => {
-		props.showToast('Registering...', 'success');
+		if(isLoggedin) {
+			props.showToast('Registering...', 'success');
 		// I am not sure if this is the right way to access localstorage from child components
 		const auth_token = localStorage.getItem('auth-token');
 		if (auth_token === 'null') {
@@ -28,6 +40,13 @@ export default function EventItem(props) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 			}
 		}
+		} else {
+			props.showToast("You need to log in first. Redirecting...", "error")
+			setTimeout(() => {
+				router.push('/login');
+			}, 2000);
+		}
+		
 	};
 
 	return (

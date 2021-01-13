@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMenu = styled.div`
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -106,6 +107,6 @@ export const StyledMenu = styled.div`
     }
 
     .nav-links {
-      margin-left: 1.5rem;
+      align-items: center;
     }
   }`;
