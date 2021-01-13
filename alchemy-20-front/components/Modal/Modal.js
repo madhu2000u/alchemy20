@@ -8,6 +8,7 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import {useRouter} from 'next/router';
 
 const theme = createMuiTheme({
 	palette: {
@@ -83,6 +84,7 @@ const DialogContent = withStyles(styles)(MuiDialogContent);
 const DialogActions = withStyles(styles)(MuiDialogActions);
 
 export const Modal = (props) => {
+	const router = useRouter();
 	const [name, setName] = useState('');
 	const [mobile, setMobile] = useState('');
 	const [college, setCollege] = useState('');
@@ -109,7 +111,9 @@ export const Modal = (props) => {
 				let isUpdateSuccess = await ApiService.profileUpdate(data, process.env.endpoint);
 				if (isUpdateSuccess.status === 200) {
 					addToast('Updated successfully!', {appearance: 'success', autoDismiss: true});
-					history.push('/login');
+					setTimeout(() => {
+						location.reload();
+					}, 2000);
 				}
 			} catch (error) {
 				addToast(`${error}`, {appearance: 'error', autoDismiss: true});
