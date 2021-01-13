@@ -1,43 +1,44 @@
 import React, {useState} from 'react';
-import Link from 'next/link';
-import {useRouter} from 'next/router';
 import Common from '../components/Common/Common';
 import Subpage from '../components/Subpage Template/Subpage';
-import styles from '../styles/Dashboard.module.css';
+import style from '../styles/Dashboard.module.css';
 import Footer from '../components/Footer/Footer';
 import fetch from 'node-fetch';
-import {ApiService} from '../api_service';
-import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
-import DashboardEvents from '../components/DashboardEvents/DashboardEvents';
+import {Modal} from '../components/Modal/Modal';
+export default function Dashboard({notifs}) {
+	const [open, setOpen] = useState(false);
 
-export default function Dashboard({notifs, api_endpoint}) {
-	const router = useRouter();
-	const {addToast} = useToasts();
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [errors, setErrors] = useState({});
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
 
 	return (
-		<div className={styles.dashboard_container}>
-			<div className={styles.nav}>
+		<div className={style.dashboard_container}>
+			<div className={style.nav}>
 				<Subpage notifs={notifs} showNot={true} />
 			</div>
-			<div className={styles.profile_container}>
+			<div className={style.profile_container}>
 				<img src="https://i.imgur.com/HiNJNAv.png"></img>
 				<p>Hello, {'Loren Ipsum'}</p>
-				<div className={styles.get_id_div}>Get ID</div>
+				<div onClick={handleClickOpen} className={style.get_id_div}>
+					Get ID
+				</div>
 			</div>
-			<div className={styles.events_workshops_container}>
-				<div className={styles.eve_wor_backdrop}>REGISTERED EVENTS</div>
-				<div className={styles.events_workshops_list}>{}</div>
+			<div className={style.events_workshops_container}>
+				<div className={style.eve_wor_backdrop}>REGISTERED EVENTS</div>
+				<div className={style.events_workshops_list}>{}</div>
 			</div>
 
-			<div className={styles.events_workshops_container}>
-				<div className={styles.eve_wor_backdrop}>REGISTERED WORKSHOPS</div>
-				<div className={styles.events_workshops_list}>{}</div>
+			<div className={style.events_workshops_container}>
+				<div className={style.eve_wor_backdrop}>REGISTERED WORKSHOPS</div>
+				<div className={style.events_workshops_list}>{}</div>
 			</div>
 			<Footer />
+			<Modal open={open} handleClose={handleClose} />
 		</div>
 	);
 }
