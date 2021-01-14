@@ -1,9 +1,14 @@
 import styles from './DashboardEventItem.module.css';
+import {useRouter} from 'next/router';
 
 export default function DashboardEventItem(props) {
 	// TODO: Add green-tick overlay for registered events
+	const router = useRouter();
+	const handleClick = () => {
+		router.push('/events');
+	};
 	return (
-		<div className={props.active ? styles.card2 : styles.card}>
+		<div className={props.active ? styles.card2 : styles.card} onClick={handleClick}>
 			<center>
 				<img className={styles.image} src={props.event_img}></img>
 			</center>

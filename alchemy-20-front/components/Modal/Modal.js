@@ -113,7 +113,7 @@ export const Modal = (props) => {
 					addToast('Updated successfully!', {appearance: 'success', autoDismiss: true});
 					setTimeout(() => {
 						location.reload();
-					}, 2000);
+					}, 1000);
 				}
 			} catch (error) {
 				addToast(`${error}`, {appearance: 'error', autoDismiss: true});
