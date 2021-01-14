@@ -98,17 +98,6 @@
     text-decoration: underline;
   }
 
-  .links2 {
-    text-decoration: none;
-    font-size: 0.95rem;
-    color:  whitesmoke;
-  }
-
-  .links2:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
  .separator {
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */

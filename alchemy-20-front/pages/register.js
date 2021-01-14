@@ -7,6 +7,7 @@ import fetch from 'node-fetch';
 import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
+import Link from 'next/link';
 
 export default function Register({notifs}) {
 	const router = useRouter();
@@ -53,10 +54,12 @@ export default function Register({notifs}) {
 		}
 	};
 
-	const OauthRegister = async (e) => {
-		e.preventDefault();
-		window.open(process.env.endpoint + '/google', '_blank');
-	};
+	// NOT USING OAuth AS OF NOW
+
+	// const OauthRegister = async (e) => {
+	// 	e.preventDefault();
+	// 	window.open(process.env.endpoint + '/google', '_blank');
+	// };
 
 	const validatePassword = (value) => {
 		if (value !== '') {
@@ -150,7 +153,7 @@ export default function Register({notifs}) {
 					</button>
 				</div>
 
-				<div className="separator" className={styles.separator}>
+				{/* <div className="separator" className={styles.separator}>
 					OR
 				</div>
 
@@ -158,6 +161,11 @@ export default function Register({notifs}) {
 					<button className={styles.card2} onClick={OauthRegister} style={{fontWeight: 100}} type="submit">
 						Sign-up with <i style={{paddingLeft: 5}} className="fa fa-google" aria-hidden="true"></i>
 					</button>
+				</div> */}
+				<div className={styles.main}>
+					<Link href="/login" aria-label="Login">
+						<a className={styles.links}>Already have an account?</a>
+					</Link>
 				</div>
 			</div>
 		</div>

@@ -70,10 +70,12 @@ export default function Login({notifs}) {
 		}
 	};
 
-	const OauthLogin = async (e) => {
-		e.preventDefault();
-		window.open(process.env.endpoint + '/google', '_blank');
-	};
+	// NOT USING OAuth AS OF NOW
+
+	// const OauthLogin = async (e) => {
+	// 	e.preventDefault();
+	// 	window.open(process.env.endpoint + '/google', '_blank');
+	// };
 
 	const validatePassword = (value) => {
 		if (value !== '') {
@@ -136,18 +138,18 @@ export default function Login({notifs}) {
 				</div>
 
 				<div className={styles.main}>
-					<Link href="#" passHref>
+					<Link href="#">
 						<a className={styles.links}>Forgot Password?</a>
 					</Link>
 				</div>
 
 				<div>
 					<Link href="/register" passHref>
-						<a className={styles.links2}>Sign up?</a>
+						<a className={styles.links}>Sign up?</a>
 					</Link>
 				</div>
 				<FormDialog />
-				<div className="separator" className={styles.separator}>
+				{/* <div className="separator" className={styles.separator}>
 					OR
 				</div>
 
@@ -155,7 +157,7 @@ export default function Login({notifs}) {
 					<button className={styles.card3} onClick={OauthLogin} type="submit">
 						Continue with <i style={{paddingLeft: 5}} className="fa fa-google" aria-hidden="true"></i>
 					</button>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

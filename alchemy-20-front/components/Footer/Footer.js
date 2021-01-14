@@ -4,8 +4,12 @@ import Link from 'next/link';
 export default function Footer() {
 	return (
 		<div className={styles.footer_container}>
+			<a href="#">
+				<div className={styles.newsletter}>Checkout our Magazine</div>
+			</a>
+			<br></br>
 			<a href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf">
-				<div className={styles.newsletter}>View our Newsletter</div>
+				<div className={styles.newsletter}>Checkout our Newsletter</div>
 			</a>
 			<div className={styles.connect_text}>
 				<p>Connect with us</p>
