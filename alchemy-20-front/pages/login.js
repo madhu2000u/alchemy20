@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
-import FormDialog from '../components/ResendVerificationDialog/ResendVerificationDialog';
+import ResendVerificationDialog from '../components/ResendVerificationDialog/ResendVerificationDialog';
 
 export default function Login({notifs}) {
 	const router = useRouter();
@@ -16,6 +16,7 @@ export default function Login({notifs}) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState({});
+	const [resendVisible, setResendVisible] = useState(false);
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh-token')) {
@@ -61,6 +62,7 @@ export default function Login({notifs}) {
 					appearance: 'error',
 					autoDismiss: true,
 				});
+				if (error.response.data.message === 'Account not activated') setResendVisible(true);
 			}
 		} else {
 			addToast('Please enter email and passwords correctly!!', {
@@ -148,7 +150,7 @@ export default function Login({notifs}) {
 						<a className={styles.links}>Sign up?</a>
 					</Link>
 				</div>
-				<FormDialog />
+				{resendVisible ? <ResendVerificationDialog /> : null}
 				{/* <div className="separator" className={styles.separator}>
 					OR
 				</div>

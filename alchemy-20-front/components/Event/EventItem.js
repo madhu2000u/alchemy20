@@ -49,6 +49,11 @@ export default function EventItem(props) {
 				props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
 			} catch (error) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
+				if (error.response.data.message === 'Fill details before event/workshop registration') {
+					setTimeout(() => {
+						router.push('/dashboard');
+					}, 2000);
+				}
 			}
 		} else {
 			props.showToast('You need to log in first. Redirecting...', 'error');
@@ -58,12 +63,19 @@ export default function EventItem(props) {
 		}
 	};
 
+	const parseDateToReadable = (dateString) => {
+		const dateParts = dateString.split('-');
+		const dateObject = new Date(dateParts[2], dateParts[1] - 1, +dateParts[0]);
+		const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+		return dateObject.getDate() + ' ' + monthNames[dateObject.getMonth()] + ', ' + dateObject.getFullYear();
+	};
+
 	return (
 		<div className={styles.event_item_container}>
 			<img src={props.img}></img>
 			<h2>{props.name}</h2>
 			<p>{props.description}</p>
-			<h3>{props.date}</h3>
+			<h3>{parseDateToReadable(props.date)}</h3>
 			<p>
 				Event Cost : <a>{props.cost === '0' ? 'free' : props.cost}</a>
 			</p>
