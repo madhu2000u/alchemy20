@@ -9,7 +9,8 @@
     "deploy": "start npm run db && start npm run start",
     "deploy1": "npm-run-all -p db start",
     "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\"",
-    "precommit-msg": "echo 'Pre-commit formatting...' && exit 0"
+    "precommit-msg": "echo 'Pre-commit formatting...' && exit 0",
+    "quick": "node ./backend/nodeServer/app.js & (cd ./alchemy-20-front && npm run dev)"
   },
   "pre-commit": [
     "precommit-msg",
