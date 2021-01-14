@@ -176,7 +176,7 @@ export const Modal = (props) => {
 				<DialogContent dividers>
 					<center>
 						<TextField
-							label="Name"
+							label="Full Name"
 							style={{margin: 7}}
 							value={name}
 							error={!!errors?.name}

@@ -14,27 +14,29 @@ export default function MyApp({Component, pageProps}) {
 	useEffect(() => {
 		console.log('From app js - ' + process.env.endpoint);
 		const refreshtoken = localStorage.getItem('refresh-token');
-		var currentDate = new Date();
-		var expDate = new Date(localStorage.getItem('expirationdate'));
+		if (refreshtoken != null) {
+			var currentDate = new Date();
+			var expDate = new Date(localStorage.getItem('expirationdate'));
 
-		if (currentDate > expDate) {
-			const Refresh = async () => {
-				try {
-					const headers = {
-						refreshtoken: refreshtoken,
-					};
-					let Refreshresult = await ApiService.refreshToken(headers);
-					if ((Refreshresult.status = 200 && Refreshresult.data.success)) {
-						var tokenexpiration = new Date();
-						tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
-						localStorage.setItem('auth-token', Refreshresult.data.accessToken);
-						localStorage.setItem('expirationdate', tokenexpiration);
+			if (currentDate > expDate) {
+				const Refresh = async () => {
+					try {
+						const headers = {
+							refreshtoken: refreshtoken,
+						};
+						let Refreshresult = await ApiService.refreshToken(headers);
+						if ((Refreshresult.status = 200 && Refreshresult.data.success)) {
+							var tokenexpiration = new Date();
+							tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
+							localStorage.setItem('auth-token', Refreshresult.data.accessToken);
+							localStorage.setItem('expirationdate', tokenexpiration);
+						}
+					} catch (error) {
+						console.log(error);
 					}
-				} catch (error) {
-					console.log(error);
-				}
-			};
-			Refresh();
+				};
+				Refresh();
+			}
 		}
 	});
 

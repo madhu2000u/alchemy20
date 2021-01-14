@@ -9,11 +9,14 @@ import {ApiService} from '../api_service';
 import 'font-awesome/css/font-awesome.min.css';
 import {Modal} from '../components/Modal/Modal';
 import {StylesProvider} from '@material-ui/core';
+import DashboardEventItem from '../components/DashboardEvents/DashboardEventItem';
+
 export default function Dashboard({notifs}) {
 	const router = useRouter();
 	const [open, setOpen] = useState(false);
 	const [dashboardData, setDashboardData] = useState([]);
 	const [render, setRender] = useState(false);
+	const [hideFillDetailBtn, setFillDetailBtn] = useState(false);
 
 	useEffect(() => {
 		const refreshtoken = localStorage.getItem('refresh-token');
@@ -52,6 +55,7 @@ export default function Dashboard({notifs}) {
 				let DashboardData = await ApiService.Dashboard(headers);
 				if (DashboardData.status === 200) {
 					setDashboardData(DashboardData.data.data);
+					setFillDetailBtn(true);
 				}
 			} catch (error) {
 				console.log(error);
@@ -67,6 +71,13 @@ export default function Dashboard({notifs}) {
 		setOpen(false);
 	};
 
+	const handleLogout = () => {
+		localStorage.removeItem('auth-token');
+		localStorage.removeItem('expirationdate');
+		localStorage.removeItem('refresh-token');
+		router.push('/');
+	};
+
 	return render ? (
 		<div className={style.dashboard_container}>
 			<div className={style.nav}>
@@ -75,8 +86,11 @@ export default function Dashboard({notifs}) {
 			<div className={style.profile_container}>
 				<img src="https://i.imgur.com/HiNJNAv.png"></img>
 				<p>Hello {dashboardData.name ?? ''}</p>
-				<div onClick={handleClickOpen} className={style.get_id_div}>
-					Get ID
+				<div onClick={handleClickOpen} className={style.get_id_div} hidden={hideFillDetailBtn}>
+					Fill Details
+				</div>
+				<div onClick={handleLogout} className={style.get_id_div}>
+					Log out
 				</div>
 			</div>
 			<div className={style.events_workshops_container}>
@@ -84,17 +98,12 @@ export default function Dashboard({notifs}) {
 				<div className={style.events_workshops_list}>
 					{dashboardData.length != 0
 						? dashboardData.event.map((elem) => (
-								<div className={style.card}>
-									<div className={elem.active ? style.container : style.container2}>
-										<center>
-											<img className={style.image} src={elem.event_img}></img>
-										</center>
-										<h4>
-											<b>{elem.event_name}</b>
-										</h4>
-										<p>{elem.event_description}</p>
-									</div>
-								</div>
+								<DashboardEventItem
+									active={elem.active}
+									event_img={elem.event_img}
+									event_name={elem.event_name}
+									event_description={elem.event_description}
+								/>
 						  ))
 						: null}
 				</div>
@@ -105,17 +114,12 @@ export default function Dashboard({notifs}) {
 				<div className={style.events_workshops_list}>
 					{dashboardData.length != 0
 						? dashboardData.workshop.map((elem) => (
-								<div className={style.card}>
-									<div className={elem.active ? style.container : style.container2}>
-										<center>
-											<img className={style.image} src={elem.event_img}></img>
-										</center>
-										<h4>
-											<b>{elem.event_name}</b>
-										</h4>
-										<p>{elem.event_description}</p>
-									</div>
-								</div>
+								<DashboardEventItem
+									active={elem.active}
+									event_img={elem.event_img}
+									event_name={elem.event_name}
+									event_description={elem.event_description}
+								/>
 						  ))
 						: null}
 				</div>

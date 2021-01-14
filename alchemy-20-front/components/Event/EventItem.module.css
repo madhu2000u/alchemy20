@@ -1,11 +1,11 @@
 .event_item_container {
-  display: flex;
-  flex-direction: column;
   background-color: #303030;
   padding: 10px;
   margin: 0 40px 40px 40px;
   border: #ecc82c solid;
-  width: 25em;
+  width: 400px;
+  overflow-wrap: break-word;
+  position: relative;
 }
 
 .event_item_container p {
@@ -38,7 +38,10 @@
   border-radius: 5px;
   margin: 10px 0 0 0;
   align-self: flex-end;
-
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
@@ -50,4 +53,10 @@
   border: #ecc82c solid 1px;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .event_item_container {
+    width: 300px;
+  }
 }

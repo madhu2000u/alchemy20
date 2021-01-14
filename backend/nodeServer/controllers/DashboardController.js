@@ -46,6 +46,7 @@ exports.dashboard = (req, res) => {
 									alcId: result.alc_id,
 									name: result.name,
 									profile_pic: result.profile_pic,
+									mobile: result.mobile,
 								},
 							});
 						}
