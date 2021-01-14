@@ -116,7 +116,7 @@ export const Modal = (props) => {
 					}, 1000);
 				}
 			} catch (error) {
-				addToast(`${error}`, {appearance: 'error', autoDismiss: true});
+				addToast(`${error.message}`, {appearance: 'error', autoDismiss: true});
 			}
 		};
 		update();
@@ -132,7 +132,7 @@ export const Modal = (props) => {
 	};
 
 	const validateMobileNumber = (value) => {
-		if (/^[0]?[789]\d{9}$/.test(value)) {
+		if (/^[0]?[6789]\d{9}$/.test(value)) {
 			errors.mobile_number = null;
 		} else {
 			errors.mobile_number = ['Enter a valid mobile number'];
