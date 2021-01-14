@@ -5,56 +5,50 @@ import {useState, useEffect} from 'react';
 
 export default function EventItem(props) {
 	const router = useRouter();
-	const [isLoggedin, setIsLoggedin] = useState(false);
-
-	useEffect(() => {
-		if (!localStorage.getItem('auth-token') || !localStorage.getItem('refresh-token')) {
-			setIsLoggedin(false);
-		} else {
-			setIsLoggedin(true);
-		}
-	}, []);
 
 	const registerEvent = async (e) => {
-		if (isLoggedin) {
-			props.showToast('Registering...', 'info');
-			// I am not sure if this is the right way to access localstorage from child components
-			const auth_token = localStorage.getItem('auth-token');
-			if (auth_token === 'null') {
-				props.showToast('Please login and try again', 'error');
-				setTimeout(() => {
-					router.push('/login');
-				}, 1000);
-				return;
-			} else {
-				const headers = {
-					event_id: props.id,
-					Authorization: 'Bearer '.concat(auth_token),
-				};
-				try {
-					let isRegistrationSuccess = await ApiService.eventRegistration(headers);
-					props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
-					setTimeout(() => {
-						router.push('/dashboard');
-					}, 1000);
-				} catch (error) {
-					props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
-					if (error.response.data.message === 'User not allowed to perform this action') {
-						props.showToast(`Retrying.. Pls hold on..`, 'info');
-						try {
-							const refreshHeader = {
-								refreshtoken: localStorage.getItem('refresh-token'),
-							};
-							console.log('Sending refresh - ' + refreshHeader['refreshtoken']);
-							let isRefreshToken = await ApiService.refreshToken(refreshHeader);
-							console.log(isRefreshToken.data.accessToken);
-							localStorage.setItem('auth-token', isRefreshToken.data.accessToken);
-							registerEvent();
-						} catch (e) {
-							console.log('Event item - refresh token error' + e);
+		const refreshtoken = localStorage.getItem('refresh-token');
+		if (refreshtoken) {
+			var currentDate = new Date();
+			var expDate = new Date(localStorage.getItem('expirationdate'));
+
+			if (currentDate > expDate) {
+				const Refresh = async () => {
+					try {
+						const headers = {
+							refreshtoken: refreshtoken,
+						};
+						let Refreshresult = await ApiService.refreshToken(headers);
+						if ((Refreshresult.status = 200 && Refreshresult.data.success)) {
+							var tokenexpiration = new Date();
+							tokenexpiration.setSeconds(new Date().getSeconds() + parseInt(300));
+							localStorage.setItem('auth-token', Refreshresult.data.accessToken);
+							localStorage.setItem('expirationdate', tokenexpiration);
 						}
+					} catch (error) {
+						console.log(error);
+						props.showToast('Try loggin in again. Redirecting...', 'error');
+						setTimeout(() => {
+							router.push('/login');
+						}, 2000);
 					}
-				}
+				};
+				Refresh();
+			}
+
+			props.showToast('Registering...', 'info');
+
+			const auth_token = localStorage.getItem('auth-token');
+
+			const headers = {
+				event_id: props.id,
+				Authorization: 'Bearer '.concat(auth_token),
+			};
+			try {
+				let isRegistrationSuccess = await ApiService.eventRegistration(headers);
+				props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
+			} catch (error) {
+				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 			}
 		} else {
 			props.showToast('You need to log in first. Redirecting...', 'error');
