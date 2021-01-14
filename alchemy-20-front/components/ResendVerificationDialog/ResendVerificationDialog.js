@@ -14,7 +14,7 @@ import {useToasts} from 'react-toast-notifications';
 
 export default function ResendVerificationDialog() {
 	const [open, setOpen] = React.useState(false);
-	const [errors, setErrors] = useState({});
+	const [errors, setError] = useState('Please enter your mail ID');
 	const [email, setEmail] = useState('');
 	const {addToast} = useToasts();
 
@@ -40,9 +40,10 @@ export default function ResendVerificationDialog() {
 				value
 			)
 		) {
-			errors.email = null;
+			setError('');
 		} else {
-			errors.email = ['Enter a valid email'];
+			if (value != '') setError('Enter a valid email');
+			else setError('Please enter your email ID');
 		}
 		setEmail(value);
 	};
@@ -92,14 +93,14 @@ export default function ResendVerificationDialog() {
 						<TextField
 							value={email}
 							autoFocus
-							error={!!errors?.email}
+							error={!!errors}
 							onChange={(e) => validateEmail(e.target.value)}
 							margin="dense"
 							label="Email Address"
 							type="email"
 							fullWidth
 							style={{margin: 7}}
-							helperText={errors?.email?.join(' ')}
+							helperText={errors}
 							variant="filled"
 						/>
 					</DialogContent>
@@ -107,7 +108,7 @@ export default function ResendVerificationDialog() {
 						<Button onClick={handleClose} color="500">
 							Cancel
 						</Button>
-						<Button onClick={handleResendMail} color="primary" disabled={errors.email}>
+						<Button onClick={handleResendMail} color="primary" disabled={errors}>
 							Resend
 						</Button>
 					</DialogActions>
