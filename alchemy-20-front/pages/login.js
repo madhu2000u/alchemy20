@@ -8,6 +8,7 @@ import fetch from 'node-fetch';
 import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
+import FormDialog from '../components/ResendVerificationDialog/ResendVerificationDialog';
 
 export default function Login({notifs}) {
 	const router = useRouter();
@@ -145,6 +146,7 @@ export default function Login({notifs}) {
 						<a className={styles.links2}>Sign up?</a>
 					</Link>
 				</div>
+				<FormDialog />
 				<div className="separator" className={styles.separator}>
 					OR
 				</div>

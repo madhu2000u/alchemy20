@@ -2,7 +2,13 @@ import styled from 'styled-components';
 
 export const StyledMenu = styled.div`
   width: 280px;
-  display: flex;
+  
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
@@ -20,7 +26,12 @@ export const StyledMenu = styled.div`
   overflow: auto;
 
   .menu_header {
-    display: flex;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
@@ -50,14 +61,25 @@ export const StyledMenu = styled.div`
 
   .nav-links {
     height: 100%;
-    display: flex;
+    
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 20px;
   }
 
   .coming-soon-div {
-    display: flex;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  
     flex-direction: column;
     justify-content: start; 
   }

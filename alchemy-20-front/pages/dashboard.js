@@ -55,6 +55,7 @@ export default function Dashboard({notifs}) {
 				let DashboardData = await ApiService.Dashboard(headers);
 				if (DashboardData.status === 200) {
 					setDashboardData(DashboardData.data.data);
+					console.log(JSON.stringify(DashboardData.data.data));
 					if (JSON.stringify(DashboardData.data.data.mobile) != JSON.stringify(DashboardData.data.data.name))
 						setFillDetailBtn(true);
 				}

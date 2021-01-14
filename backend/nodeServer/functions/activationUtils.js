@@ -249,9 +249,10 @@ exports.resendVerificationMail = (email) => {
 							console.log('verification token ', tempUser_result.verification_token);
 							//verification_token=tempUser_result.verification_token
 							const subject = 'Email Verification';
-							const html = `<h4>Welcome for Alchemy'20,<br><br>\
-                    Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link( if you don't see a link, copy paste the following url in your address bar and press enter ) : ${process.env.base_url}/api/confirm/${tempUser_result.verification_token}</h3>`; //+ verification_token
+							const html = getVerificationMailHtml(
+								process.env.base_url,
+								tempUser_result.verification_token
+							);
 
 							utils
 								.mailer(email, subject, html)

@@ -218,15 +218,15 @@ exports.Verify = (req, res) => {
 };
 
 exports.ResendVerify = (req, res) => {
-	if (!utils.validateEmail(req.headers['email'])) {
+	if (!utils.validateEmail(req.body.headers['email'])) {
 		res.status(400).json({message: 'Invalid email'});
 	} else {
-		User.findOne({email: req.headers['email']}).then((user_result) => {
+		User.findOne({email: req.body.headers['email']}).then((user_result) => {
 			if (user_result == null) {
 				res.status(404).json({message: 'Email not registered'});
 			} else {
 				acc_verify
-					.resendVerificationMail(req.headers['email'])
+					.resendVerificationMail(req.body.headers['email'])
 					.then((result) => {
 						res.status(200).json({message: result.message});
 					})

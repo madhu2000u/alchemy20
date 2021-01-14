@@ -1,7 +1,7 @@
 import Common from '../components/Common/Common';
 import Subpage from '../components/Subpage Template/Subpage';
 import Gallery from 'react-photo-gallery';
-import styles from '../styles/GalleryPage.module.css';
+import styles from '../styles/Gallery.module.css';
 import {images} from '../data/GalleryImages';
 export default function GalleryPage({pics}) {
 	return (

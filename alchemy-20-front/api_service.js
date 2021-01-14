@@ -27,4 +27,9 @@ export const ApiService = {
 			headers: headers,
 		});
 	},
+	verificationMailResend: (headers) => {
+		return axios.default.post(config + '/verify_mail_resend', {
+			headers: headers,
+		});
+	},
 };

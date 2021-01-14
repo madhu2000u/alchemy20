@@ -64,9 +64,14 @@ export default function EventItem(props) {
 			<h2>{props.name}</h2>
 			<p>{props.description}</p>
 			<h3>{props.date}</h3>
-			<p>Event Cost : {props.cost === '0' ? 'free' : props.cost}</p>
-			<div className={styles.reg_button} onClick={() => registerEvent()}>
-				Register
+			<p>
+				Event Cost : <a>{props.cost === '0' ? 'free' : props.cost}</a>
+			</p>
+			<p>Event Managers : {props.contacts}</p>
+			<div className={styles.reg_btn_container}>
+				<div className={styles.reg_button} onClick={() => registerEvent()}>
+					Register
+				</div>
 			</div>
 		</div>
 	);

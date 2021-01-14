@@ -5,13 +5,17 @@
   border: #ecc82c solid;
   width: 400px;
   overflow-wrap: break-word;
-  position: relative;
 }
 
 .event_item_container p {
   color: white;
   margin: 0;
   margin: 8px 0 0 0;
+}
+
+.event_item_container a {
+  color: #ecc82c;
+  font-weight: bold;
 }
 
 .event_item_container h2 {
@@ -37,15 +41,25 @@
   line-height: 30px;
   border-radius: 5px;
   margin: 10px 0 0 0;
-  align-self: flex-end;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
+  align-self: center;
+  
   
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
+}
+
+.reg_btn_container {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .reg_button:hover {
