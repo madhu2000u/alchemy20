@@ -194,7 +194,7 @@ body {font-family: 'Muli', sans-serif;}
 	<tr>
 	  <td style="padding:50px 30px 10px 30px; line-height:22px; text-align:inherit; background-color:#303030;" height="100%" valign="top" bgcolor="#303030" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #ffffff; font-size: 18px"><strong>Here’s what you can do next:</strong></span></div>
 <div style="font-family: inherit; text-align: center"><br></div>
-<div style="font-family: inherit; text-align: center"><span style="color: #ffffff; font-size: 18px">1. Go login at <a href="alchemy.nitt.edu/login">Alchemy</a></span></div>
+<div style="font-family: inherit; text-align: center"><span style="color: #ffffff; font-size: 18px">1. Go login at <a href="https://alchemy.nitt.edu/login">Alchemy</a></span></div>
 <div style="font-family: inherit; text-align: center"><br></div>
 <div style="font-family: inherit; text-align: center"><span style="color: #ffffff; font-size: 18px">2. Enter your details</span></div>
 <div style="font-family: inherit; text-align: center"><br></div>
