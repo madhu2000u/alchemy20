@@ -98,6 +98,8 @@ export default function Login({notifs}) {
 		setEmail(value);
 	};
 
+	const handleForgotPassword = async (e) => {};
+
 	return (
 		<div className={styles.loginContainer}>
 			<div>
@@ -139,18 +141,27 @@ export default function Login({notifs}) {
 					</button>
 				</div>
 
-				<div className={styles.main}>
-					<Link href="#">
-						<a className={styles.links}>Forgot Password?</a>
-					</Link>
-				</div>
+				<ResendVerificationDialog
+					dp_link="Forgot password?"
+					purpose="forgot"
+					message="Send password reset link"
+					longMessage="Enter your email to get a link to reset your password. Make sure to check your spam too."
+				/>
 
 				<div>
 					<Link href="/register" passHref>
 						<a className={styles.links}>Sign up?</a>
 					</Link>
 				</div>
-				{resendVisible ? <ResendVerificationDialog /> : null}
+				{resendVisible ? (
+					<ResendVerificationDialog
+						dp_link="Resend verification link?"
+						purpose="activation"
+						message="Resend confirmation link"
+						longMessage="Are you sure you checked your inboxes and spam? Enter your email address again to get a new
+							mail. Comeback here after clicking the verification link!"
+					/>
+				) : null}
 				{/* <div className="separator" className={styles.separator}>
 					OR
 				</div>

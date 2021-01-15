@@ -6,7 +6,7 @@ const UserToken = require('../models/user_tokens');
 const TempUser = require('../models/tempActivationUser');
 const RegisteredEvent = require('../models/registered_students');
 const RefreshToken = require('../models/refreshtoken');
-const passwordChange= require('../models/password_change')
+const passwordChange = require('../models/password_change');
 const jwt = require('jsonwebtoken');
 
 exports.signUp = (req, res) => {
@@ -272,71 +272,91 @@ exports.newAccessToken = (req, res) => {
 		});
 };
 
-
 exports.ForgotPassword = (req, res) => {
-	const email = req.headers['email']
-	if(!email){return res.status(400).json({message: 'Email field missing'});}
+	const email = req.headers['email'];
+	if (!email) {
+		return res.status(400).json({message: 'Email field missing'});
+	}
 	User.findOne({email: email}).then((user) => {
-		if(!user){return res.status(404).json({message: 'No account registered with this email'})}
-		
-		const un_hashed_token=crypto.randomBytes(64).toString('hex')
-		const hash=utils.gen_pass_hash(un_hashed_token)		//this is the token_hash
-
-		const passChange=new passwordChange({
-			id:hash.hashed_password,		//token_hash is used as the ID of the table
-			token:un_hashed_token,
-			salt:hash.salt,
-			user_id:user._id,
-			time: new Date()
-
-		})
-
-		const sub="Alchemy password reset request"
-		const html=`<h1>Click <a href="${process.env.app_url}/changePass?id=${un_hashed_token}">here</a> to reset your password</h1>`		
-		passwordChange.create(passChange).then(result => {
-			utils.mailer(email, sub, html).then(result => {
-				console.log("Password reset request mail sent", result)
-				res.status(200).json({success:"Password reset link has been sent to the registered mail id"})
-			}).catch(err => {console.log("forgot password email sending error", err)})
-		}).catch((err)=>{console.log("forgot password passChange error", err)})
-		
-		
-	})
-}
-
-exports.ResetPassword= (req, res) => {
-	const id=req.headers['id']					//this is the same is the un_hashed_token in the ForgotPassword function
-	const newPass=req.headers['new_pass']
-	if(!id){return res.status(400).json({message: "id field missing"})}
-	if(!newPass){return res.status(400).json({message: "newPass not provided"})}
-	passwordChange.findOne({token:id}).then(result=>{
-		if(!result){
-			return res.status(403).json({message: "Invlaid reset ID"})
+		if (!user) {
+			return res.status(404).json({message: 'No account registered with this email'});
 		}
-		else if((new Date()-result.time)>900000){
-			passwordChange.deleteOne({token:id}).then(result=>{
-				return res.status(403).json({message: "Link has expired"})
-			}).catch(err=>{console.log(err)})
-			
-		}
-		if(utils.compare_pass(result.id, id, result.salt)){
 
-			const newPassHash=utils.gen_pass_hash(newPass)
+		const un_hashed_token = crypto.randomBytes(64).toString('hex');
+		const hash = utils.gen_pass_hash(un_hashed_token); //this is the token_hash
+
+		const passChange = new passwordChange({
+			id: hash.hashed_password, //token_hash is used as the ID of the table
+			token: un_hashed_token,
+			salt: hash.salt,
+			user_id: user._id,
+			time: new Date(),
+		});
+
+		const sub = 'Alchemy password reset request';
+		const html = `<h1>Click <a href="${process.env.app_url}/changePass?id=${un_hashed_token}">here</a> to reset your password</h1>`;
+		passwordChange
+			.create(passChange)
+			.then((result) => {
+				utils
+					.mailer(email, sub, html)
+					.then((result) => {
+						console.log('Password reset request mail sent', result);
+						res.status(200).json({success: 'Password reset link has been sent to the registered mail id'});
+					})
+					.catch((err) => {
+						console.log('forgot password email sending error', err);
+					});
+			})
+			.catch((err) => {
+				console.log('forgot password passChange error', err);
+			});
+	});
+};
+
+exports.ResetPassword = (req, res) => {
+	const id = req.headers['id']; //this is the same is the un_hashed_token in the ForgotPassword function
+	const newPass = req.headers['new_pass'];
+	if (!id) {
+		return res.status(400).json({message: 'id field missing'});
+	}
+	if (!newPass) {
+		return res.status(400).json({message: 'newPass not provided'});
+	}
+	passwordChange.findOne({token: id}).then((result) => {
+		if (!result) {
+			return res.status(403).json({message: 'Invlaid reset ID'});
+		} else if (new Date() - result.time > 900000) {
+			passwordChange
+				.deleteOne({token: id})
+				.then((result) => {
+					return res.status(403).json({message: 'Link has expired'});
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+		if (utils.compare_pass(result.id, id, result.salt)) {
+			const newPassHash = utils.gen_pass_hash(newPass);
 			// console.log(newPassHash.hashed_password)
 			// console.log(newPassHash.salt)
 
-			User.update({_id:result.user_id}, {hashed_password: newPassHash.hashed_password}).then(user_result=>{
-
-				UserToken.update({user_id:result.user_id},{salt:newPassHash.salt}).then((user_tokens_result)=>{
-					res.status(200).json({message:"Your Password has been updated"})
-					passwordChange.deleteOne({token:id}, (err)=>{console.log("error in deleting passwordChange - ", err)})
-
-				}).catch((err)=>{console.log("reset password user token error - ", error)})
-				
-			}).catch((err)=>{console.log("reset password user error - ", err)})
-
-
+			User.update({_id: result.user_id}, {hashed_password: newPassHash.hashed_password})
+				.then((user_result) => {
+					UserToken.update({user_id: result.user_id}, {salt: newPassHash.salt})
+						.then((user_tokens_result) => {
+							res.status(200).json({message: 'Your Password has been updated'});
+							passwordChange.deleteOne({token: id}, (err) => {
+								console.log('error in deleting passwordChange - ', err);
+							});
+						})
+						.catch((err) => {
+							console.log('reset password user token error - ', error);
+						});
+				})
+				.catch((err) => {
+					console.log('reset password user error - ', err);
+				});
 		}
-	})
-	
-}
+	});
+};

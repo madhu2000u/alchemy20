@@ -32,4 +32,22 @@ export const ApiService = {
 			headers: headers,
 		});
 	},
+	forgotPassword: (headers) => {
+		return axios.default.post(
+			config + '/forgotPassword',
+			{},
+			{
+				headers: headers,
+			}
+		);
+	},
+	resetPassword: (headers) => {
+		return axios.default.post(
+			config + '/resetPassword',
+			{},
+			{
+				headers: headers,
+			}
+		);
+	},
 };

@@ -12,7 +12,7 @@ import styles from './ResendVerificationDialog.module.css';
 import {ApiService} from '../../api_service';
 import {useToasts} from 'react-toast-notifications';
 
-export default function ResendVerificationDialog() {
+export default function ResendVerificationDialog(props) {
 	const [open, setOpen] = React.useState(false);
 	const [errors, setError] = useState('Please enter your mail ID');
 	const [email, setEmail] = useState('');
@@ -56,17 +56,19 @@ export default function ResendVerificationDialog() {
 		setOpen(false);
 	};
 
-	const handleResendMail = async (e) => {
+	const handleSendMail = async (purpose) => {
 		const headers = {
 			email: email,
 		};
 		try {
 			handleClose();
-			let isResendMailSuccess = await ApiService.verificationMailResend(headers);
-			if (isResendMailSuccess.status === 200) {
+			let isSendMailSuccess;
+			if (purpose === 'activation') isSendMailSuccess = await ApiService.verificationMailResend(headers);
+			else isSendMailSuccess = await ApiService.forgotPassword(headers);
+			if (isSendMailSuccess.status === 200) {
 				addToast(`Mail sent to ${email}`, {appearance: 'success', autoDismiss: true});
 			} else {
-				addToast(`Error: ${JSON.stringify(isResendMailSuccess).message}`, {
+				addToast(`Error: ${JSON.stringify(isSendMailSuccess).message}`, {
 					appearance: 'error',
 					autoDismiss: true,
 				});
@@ -80,16 +82,13 @@ export default function ResendVerificationDialog() {
 		<div className={styles.container}>
 			<ThemeProvider theme={theme}>
 				<a className={styles.resend_link} onClick={handleClickOpen}>
-					Resend Verification mail?
+					{props.dp_link}
 				</a>
 
 				<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-					<DialogTitle id="form-dialog-title">Resend verification mail</DialogTitle>
+					<DialogTitle id="form-dialog-title">{props.message}</DialogTitle>
 					<DialogContent>
-						<DialogContentText>
-							Are you sure you checked your inboxes and spam? Enter your email address again to get a new
-							mail. Comeback here after clicking the verification link!
-						</DialogContentText>
+						<DialogContentText>{props.longMessage}</DialogContentText>
 						<TextField
 							value={email}
 							autoFocus
@@ -108,7 +107,7 @@ export default function ResendVerificationDialog() {
 						<Button onClick={handleClose} color="500">
 							Cancel
 						</Button>
-						<Button onClick={handleResendMail} color="primary" disabled={errors}>
+						<Button onClick={() => handleSendMail(props.purpose)} color="primary" disabled={errors}>
 							Resend
 						</Button>
 					</DialogActions>
