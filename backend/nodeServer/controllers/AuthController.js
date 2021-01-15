@@ -8,6 +8,7 @@ const RegisteredEvent = require('../models/registered_students');
 const RefreshToken = require('../models/refreshtoken');
 const passwordChange = require('../models/password_change');
 const jwt = require('jsonwebtoken');
+const EmailTemplates = require('../functions/emailTemplates');
 
 exports.signUp = (req, res) => {
 	const body = req.body;
@@ -294,7 +295,7 @@ exports.ForgotPassword = (req, res) => {
 		});
 
 		const sub = 'Alchemy password reset request';
-		const html = `<h1>Click <a href="${process.env.app_url}/changePass?id=${un_hashed_token}">here</a> to reset your password</h1>`;
+		const html = EmailTemplates.getForgotPasswordEmail(process.env.app_url, un_hashed_token);
 		passwordChange
 			.create(passChange)
 			.then((result) => {

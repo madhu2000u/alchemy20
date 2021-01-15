@@ -108,7 +108,7 @@ export default function ResendVerificationDialog(props) {
 							Cancel
 						</Button>
 						<Button onClick={() => handleSendMail(props.purpose)} color="primary" disabled={errors}>
-							Resend
+							Send
 						</Button>
 					</DialogActions>
 				</Dialog>
