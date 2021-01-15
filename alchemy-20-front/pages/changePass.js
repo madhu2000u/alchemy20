@@ -35,6 +35,7 @@ export default function ChangePass() {
 		password_val: 'Atleast 8 characters, one letter and one number',
 		password_confirmation: 'Passwords should match',
 	});
+	const [url_id, setUrlId] = useState('');
 	const {addToast} = useToasts();
 
 	var url_string, id;
@@ -46,7 +47,8 @@ export default function ChangePass() {
 		url_string = window.location.href;
 		var url = new URL(url_string);
 		id = url.searchParams.get('id');
-		console.log('ID is - ' + id);
+		if (id != null) setUrlId(id);
+		else router.push('/login');
 	}, []);
 
 	const validatePassword = (value) => {
@@ -84,7 +86,7 @@ export default function ChangePass() {
 	const handleChangePass = async (e) => {
 		if (errors.password === null && errors.password_val === null && errors.password_confirmation === null) {
 			const headers = {
-				id: id,
+				id: url_id,
 				new_pass: confirm_password,
 			};
 			try {
