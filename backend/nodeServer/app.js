@@ -7,6 +7,8 @@ const cors = require('cors');
 dotenv.config({path: __dirname + '/.env'});
 const passport = require('passport');
 const passportCofig = require('./config/passport_config');
+var expressWinston = require('express-winston');
+var winston = require('winston');
 
 // const key=require('./models/api_keys')
 const app = express();
@@ -21,6 +23,17 @@ app.use(express.json());
 // }))
 app.use(passport.initialize());
 //app.use(passport.session());
+app.use(
+	expressWinston.logger({
+		transports: [
+			new winston.transports.File({
+				filename: './logs/combined.log',
+				level: 'info',
+			}),
+		],
+		format: winston.format.combine(winston.format.colorize(), winston.format.json()),
+	})
+);
 
 //Routes
 app.use('/api', require('./routes/authRoutes'));
@@ -32,6 +45,18 @@ app.use('/api', require('./routes/registerEventRoutes'));
 app.use('/api', require('./routes/oauth'));
 app.use('/api', require('./routes/userDetailsRoutes'));
 app.use('/api', require('./routes/dashboardRoutes'));
+
+app.use(
+	expressWinston.errorLogger({
+		transports: [
+			new winston.transports.File({
+				filename: './logs/errors.log',
+				level: 'error',
+			}),
+		],
+		format: winston.format.combine(winston.format.colorize(), winston.format.json()),
+	})
+);
 
 mongoose
 	.connect(process.env.db_url, {

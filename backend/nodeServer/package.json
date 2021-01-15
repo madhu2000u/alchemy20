@@ -18,11 +18,13 @@
     "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
+    "express-winston": "^4.0.5",
     "mongoose": "^5.10.7",
     "nodemailer": "^6.4.12",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "winston": "^3.3.3"
   },
   "engines": {
     "node": ">=8"
