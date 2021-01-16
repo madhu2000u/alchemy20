@@ -27,12 +27,15 @@ export default function Home({sliding_images, notifs}) {
 						</div>
 					</Link>
 					<Link href="/register" aria-label="Register">
-						<div className={styles.card2}>Create an account</div>
+						<div className={styles.card2}>Register</div>
 					</Link>
 					<Link href="/login" aria-label="Login">
 						<div className={styles.card2}>LOGIN</div>
 					</Link>
 				</div>
+				<p>
+					<b>Create an account by clicking on register to participate in events</b>
+				</p>
 			</div>
 			<Footer />
 		</div>

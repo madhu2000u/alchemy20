@@ -21,7 +21,7 @@
 
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .grid {
@@ -97,6 +97,14 @@
 .card2:active {
   background: #303030;
   color: #ecc82c;
+}
+
+.main p {
+  color: #ecc82c;
+  margin-top: 0;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 10px;
 }
 
 @media (max-width: 600px) {

@@ -26,12 +26,14 @@
 
   .profile_container img {
     width: 158px;
+    margin-bottom: 10px;
   }
 
   .profile_container p {
     color: #ecc82c;
     font-size: 1.3rem;
     text-align: center;
+    margin: 0 0 0 0;
   }
 
   .get_id_div {

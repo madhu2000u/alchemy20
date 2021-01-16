@@ -8,7 +8,6 @@ import fetch from 'node-fetch';
 import {ApiService} from '../api_service';
 import 'font-awesome/css/font-awesome.min.css';
 import {Modal} from '../components/Modal/Modal';
-import {StylesProvider} from '@material-ui/core';
 import DashboardEventItem from '../components/DashboardEvents/DashboardEventItem';
 
 export default function Dashboard({notifs}) {
@@ -88,6 +87,9 @@ export default function Dashboard({notifs}) {
 			<div className={style.profile_container}>
 				<img src="https://i.imgur.com/HiNJNAv.png"></img>
 				<p>Hello {dashboardData.name ?? ''}</p>
+				<p>
+					Your Alchemy ID is <b>{dashboardData.alcId}</b>
+				</p>
 				<div onClick={handleClickOpen} className={style.get_id_div} hidden={hideFillDetailBtn}>
 					Fill Details
 				</div>
@@ -105,6 +107,7 @@ export default function Dashboard({notifs}) {
 									event_img={elem.event_img}
 									event_name={elem.event_name}
 									event_description={elem.event_description}
+									gform={elem.event_gform}
 								/>
 						  ))
 						: null}

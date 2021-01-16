@@ -13,12 +13,12 @@ export default function DashboardEventItem(props) {
 			<center>
 				<img className={styles.image} src={props.event_img}></img>
 			</center>
-			<h4>
+			<h4 className={styles.h4} onClick={handleClick}>
 				<b>{props.event_name}</b>
 			</h4>
 			<p>{props.event_description}</p>
 			{props.active ? (
-				<a href={props.gform}>
+				<a className={styles.gform_tag} href={props.gform} target="_blank">
 					<div className={styles.work_button}>Submit your work</div>
 				</a>
 			) : null}

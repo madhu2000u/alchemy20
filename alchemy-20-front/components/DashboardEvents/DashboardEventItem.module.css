@@ -30,6 +30,12 @@
     text-align: center;
     margin-top: 6px;
   }
+
+  .h4:hover {
+    color: #ecc82c;
+    text-decoration: underline;
+    cursor: pointer;
+  }
   
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(243, 222, 37, 0.808);
@@ -45,7 +51,7 @@
   }
 
   .work_button {
-    width: 200px;
+    width: 170px;
     height: 30px;
     background-color: #ecc82c;
     border: #ecc82c solid 1px;
@@ -54,6 +60,7 @@
     border-radius: 5px;
     margin: 10px 0 10px 0;
     align-self: center;
+    font-size: 0.85em;
     
     
     -webkit-transition: all 0.15s ease-in-out;
@@ -67,4 +74,9 @@
     border: #ecc82c solid 1px;
     color: white;
     cursor: pointer;
+  }
+
+  .gform_tag {
+    text-decoration: none;
+    color: whitesmoke;
   }

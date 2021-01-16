@@ -3,7 +3,7 @@ import Subpage from '../components/Subpage Template/Subpage';
 import Gallery from 'react-photo-gallery';
 import styles from '../styles/Gallery.module.css';
 import {images} from '../data/GalleryImages';
-export default function GalleryPage({pics}) {
+export default function GalleryPage() {
 	return (
 		<main className={styles.main}>
 			<Subpage showNot={false} />

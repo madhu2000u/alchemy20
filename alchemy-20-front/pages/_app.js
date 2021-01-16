@@ -12,7 +12,6 @@ export default function MyApp({Component, pageProps}) {
 	}, []);
 
 	useEffect(() => {
-		console.log('From app js - ' + process.env.endpoint);
 		const refreshtoken = localStorage.getItem('refresh-token');
 		if (refreshtoken != null) {
 			var currentDate = new Date();
