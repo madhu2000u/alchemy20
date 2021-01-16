@@ -121,6 +121,7 @@ export default function Dashboard({notifs}) {
 									event_img={elem.event_img}
 									event_name={elem.event_name}
 									event_description={elem.event_description}
+									gform={elem.event_gform}
 								/>
 						  ))
 						: null}

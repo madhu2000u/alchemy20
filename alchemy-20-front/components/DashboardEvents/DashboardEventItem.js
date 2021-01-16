@@ -8,7 +8,7 @@ export default function DashboardEventItem(props) {
 		router.push('/events');
 	};
 	return (
-		<div className={props.active ? styles.card2 : styles.card} onClick={handleClick}>
+		<div className={props.active ? styles.card2 : styles.card}>
 			{props.active ? <img src="https://i.imgur.com/WiDM4SP.png" className={styles.gtick}></img> : null}
 			<center>
 				<img className={styles.image} src={props.event_img}></img>
@@ -17,6 +17,11 @@ export default function DashboardEventItem(props) {
 				<b>{props.event_name}</b>
 			</h4>
 			<p>{props.event_description}</p>
+			{props.active ? (
+				<a href={props.gform}>
+					<div className={styles.work_button}>Submit your work</div>
+				</a>
+			) : null}
 		</div>
 	);
 }

@@ -50,10 +50,9 @@ exports.updateEvent = (req, res) => {
 			.updateOne({_id: req.headers['event_id']}, req.body)
 			.then((event_update_result) => {
 				console.log('Inside events PUT .then - ', event_update_result);
-				if(event_update_result.n==0) {
+				if (event_update_result.n == 0) {
 					return res.status(404).json({message: 'No event with this id was found'});
-				}
-				else if (event_update_result != null) {
+				} else if (event_update_result != null) {
 					res.status(200).json({message: 'Event updated'});
 				}
 			})
@@ -74,8 +73,8 @@ exports.deleteEvent = (req, res) => {
 		events
 			.deleteOne({_id: req.headers['event_id']})
 			.then((event_delete_result) => {
-				if(event_delete_result.n==0){
-					return res.status(404).json({message: 'No such event found'})
+				if (event_delete_result.n == 0) {
+					return res.status(404).json({message: 'No such event found'});
 				}
 				console.log('Event delete result - ', event_delete_result);
 				res.status(200).json({message: 'Event deleted'});

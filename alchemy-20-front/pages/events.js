@@ -31,6 +31,7 @@ export default function Events({notifs, events}) {
 						date={event.event_date}
 						cost={event.event_cost}
 						contacts={event.event_contacts}
+						details={event.event_details}
 						showToast={(msg, type) => showToastInPage(msg, type)}
 					/>
 				))}

@@ -50,16 +50,17 @@
   transition: all 0.15s ease-in-out;
 }
 
-.reg_btn_container {
+.btn_container {
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
   display: -ms-flexbox;      /* TWEENER - IE 10 */
   display: -webkit-flex;     /* NEW - Chrome */
   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
   
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .reg_button:hover {
@@ -69,8 +70,14 @@
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .event_item_container {
     width: 300px;
+  }
+}
+
+@media (max-width: 340px) {
+  .event_item_container {
+    width: 280px;
   }
 }

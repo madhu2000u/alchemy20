@@ -36,3 +36,5 @@ alchemy-20-front/.env.production.local
 alchemy-20-front/.vercel
 
 alchemy-20-front/.env.local
+
+logs/

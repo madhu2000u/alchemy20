@@ -150,7 +150,7 @@ export default function Login({notifs}) {
 
 				<div>
 					<Link href="/register" passHref>
-						<a className={styles.links}>Sign up?</a>
+						<a className={styles.links}>Create an alchemy account</a>
 					</Link>
 				</div>
 				{resendVisible ? (

@@ -2,9 +2,11 @@ import styles from './EventItem.module.css';
 import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
 import {useState, useEffect} from 'react';
+import EventPage from './EventPage';
 
 export default function EventItem(props) {
 	const router = useRouter();
+	const [open, setOpen] = useState(false);
 
 	const registerEvent = async (e) => {
 		const refreshtoken = localStorage.getItem('refresh-token');
@@ -63,6 +65,14 @@ export default function EventItem(props) {
 		}
 	};
 
+	const handleOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	const parseDateToReadable = (dateString) => {
 		const dateParts = dateString.split('-');
 		const dateObject = new Date(dateParts[2], dateParts[1] - 1, +dateParts[0]);
@@ -80,11 +90,15 @@ export default function EventItem(props) {
 				Event Cost : <a>{props.cost === '0' ? 'free' : props.cost}</a>
 			</p>
 			<p>Event Managers : {props.contacts}</p>
-			<div className={styles.reg_btn_container}>
+			<div className={styles.btn_container}>
 				<div className={styles.reg_button} onClick={() => registerEvent()}>
 					Register
 				</div>
+				<div className={styles.reg_button} onClick={() => handleOpen()}>
+					Learn more
+				</div>
 			</div>
+			<EventPage open={open} onClose={handleClose} event_name={props.name} event_details={props.details} />
 		</div>
 	);
 }
