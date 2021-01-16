@@ -68,11 +68,11 @@ export default function Register({notifs}) {
 			errors.password = ['Empty password is not allowed'];
 		}
 
-		if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)) {
+		if (value.length >= 8) {
 			errors.password_val = null;
 		} else {
 			errors.password_val = [
-				'Password needs to be minimum eight characters with at least one letter and one number',
+				'Password needs to be minimum eight characters',
 			];
 		}
 		setPassword(value);
