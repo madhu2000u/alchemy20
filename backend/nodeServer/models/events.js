@@ -6,6 +6,8 @@ const eventsSchema = new mongoose.Schema({
 	event_type: String,
 	event_name: String,
 	event_description: String,
+	event_details: String,
+	event_gform: String,
 	event_img: String,
 	event_date: String,
 	event_cost: String,
