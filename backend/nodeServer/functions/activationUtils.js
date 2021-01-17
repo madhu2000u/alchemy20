@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const User = require('../models/users');
 const TempUser = require('../models/tempActivationUser');
 const utils = require('./authUtils');
+const EmailTemplates = require('./emailTemplates');
 
 exports.resendVerificationMail = (email) => {
 	console.log('Inside resendVerificationEmail()');
@@ -21,9 +22,10 @@ exports.resendVerificationMail = (email) => {
 							console.log('verification token ', tempUser_result.verification_token);
 							//verification_token=tempUser_result.verification_token
 							const subject = 'Email Verification';
-							const html = `<h4>Welcome for Alchemy'20,<br><br>\
-                    Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-                    events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link( if you don't see a link, copy paste the following url in your address bar and press enter ) : ${process.env.base_url}/api/confirm/${tempUser_result.verification_token}</h3>`; //+ verification_token
+							const html = EmailTemplates.getVerificationMailHtml(
+								process.env.base_url,
+								tempUser_result.verification_token
+							);
 
 							utils
 								.mailer(email, subject, html)
@@ -55,17 +57,8 @@ exports.sendVerificationMail = (user_id, email) => {
 	return new Promise((resolve, reject) => {
 		try {
 			const verification_token = crypto.randomBytes(64).toString('hex');
-			const subject = 'Email Verification';
-			const html = `<h4>Welcome for Alchemy'20,<br><br>\
-            Thank you for registering with Alchemy'20 and we are pleased to tell that there are a whole lot of\
-            events and workshops waiting for you. <br>But before we continue please verify your email by clicking this link( if you don't see a link, copy paste the following url in your address bar and press enter ) : ${process.env.base_url}/api/confirm/${verification_token}</h3>`; //+ verification_token
-			// let t=mailer.createTransport({
-			//     service: 'gmail',
-			//     auth:{
-			//         user: 'nitt.chea@gmail.com',
-			//         pass: process.env.alchemy_gmail_pass
-			//     }
-			// })
+			const subject = 'Verify you alchemy account';
+			const html = EmailTemplates.getVerificationMailHtml(process.env.base_url, verification_token);
 
 			const newTempUser = new TempUser({
 				user_id: user_id,
@@ -119,10 +112,8 @@ exports.sendVerificationMail = (user_id, email) => {
 exports.sendConfirmationMail = (email) => {
 	return new Promise((resolve, reject) => {
 		try {
-			const subject = 'Account Verification Confirmation';
-			const html =
-				"<h3>Welcome from Alchemy'20,<br><br>\
-            Your Alchemy account has been verified. Please visit https://alchemy.nitt.edu for more info.<br><br> Thank you<br> Alchemy Team</h3>";
+			const subject = 'Account Verified';
+			const html = EmailTemplates.verifiedThanks();
 			// let t=mailer.createTransport({
 			//     service: 'gmail',
 			//     auth:{

@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+node_modules/
+
 # dependencies
 alchemy-20-front/node_modules
 alchemy-20-front/.pnp
@@ -34,3 +36,5 @@ alchemy-20-front/.env.production.local
 alchemy-20-front/.vercel
 
 alchemy-20-front/.env.local
+
+logs/

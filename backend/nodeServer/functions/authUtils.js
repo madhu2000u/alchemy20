@@ -2,6 +2,8 @@
 const mailer = require('nodemailer');
 const validator = require('email-validator');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const User = require('../models/users');
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
@@ -9,7 +11,7 @@ exports.mailer = (to_email, sub, html) => {
 			let t = mailer.createTransport({
 				service: 'gmail',
 				auth: {
-					user: 'nitt.chea@gmail.com',
+					user: 'donotreply.nittchea@gmail.com',
 					pass: process.env.alchemy_gmail_pass,
 				},
 			});
@@ -87,4 +89,44 @@ exports.gen_pass_hash = (password) => {
 
 exports.compare_pass = (hashed_pass, password, salt) => {
 	return hashed_pass == crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512');
+};
+
+exports.validateUserLogin = (token) => {
+	//send token for verificaiont to the respective function
+	//return boolean
+};
+
+exports.jwtVerify = (req, res, next) => {
+	const authHeader = req.body.headers['Authorization'];
+	console.log(authHeader);
+	if (authHeader) {
+		const token = authHeader.split(' ')[1];
+		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
+			if (err) {
+				console.log('jwtVerify error: ' + err);
+				return res.status(403).json({message: 'User not allowed to perform this action'});
+			}
+			User.findOne({_id: user.id}).then((user_id) => {
+				if (!user_id) {
+					return res
+						.status(403)
+						.json({message: 'Auth token valid but user account not found. Please contact Admin'}); //Suppose user account was deleted by the admin maybe but the auth token was that was given is still active. Rarly happens but server will be more stable if at all it should encounter such issue.
+				} else {
+					req.user = user;
+					console.log('inside jwtVerify, req - ', req.user);
+					next();
+				}
+			});
+		});
+	} else {
+		res.sendStatus(401).json({message: 'No access token sent'});
+	}
+};
+
+exports.genAccessToken = (user) => {
+	return jwt.sign(user, process.env.SECRET_ACCESS_TOKEN, {expiresIn: '6m'});
+};
+
+exports.genRefreshToken = (accessToken) => {
+	return jwt.sign(accessToken, process.env.SECRET_REFRESH_TOKEN, {expiresIn: '60d'});
 };

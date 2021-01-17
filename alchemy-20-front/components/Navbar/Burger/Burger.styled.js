@@ -3,7 +3,13 @@ export const StyledBurger = styled.button`
 	position: fixed;
 	top: 3%;
 	left: 2rem;
-	display: flex;
+
+	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox; /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Chrome */
+	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
 	flex-direction: column;
 	justify-content: space-around;
 	width: 2rem;

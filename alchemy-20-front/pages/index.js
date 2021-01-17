@@ -16,7 +16,7 @@ export default function Home({sliding_images, notifs}) {
 			<div className={styles.main}>
 				<ImageSlider images={sliding_images} />
 				<div className={styles.grid}>
-					<Link href="/coming-soon">
+					<Link href="/events">
 						<div className={styles.card} aria-label="Events">
 							EVENTS
 						</div>
@@ -26,13 +26,16 @@ export default function Home({sliding_images, notifs}) {
 							WORKSHOPS
 						</div>
 					</Link>
-					<Link href="/coming-soon" aria-label="Register">
-						<div className={styles.card2}>REGISTER</div>
+					<Link href="/register" aria-label="Register">
+						<div className={styles.card2}>Register</div>
 					</Link>
-					<Link href="/coming-soon" aria-label="Login">
+					<Link href="/login" aria-label="Login">
 						<div className={styles.card2}>LOGIN</div>
 					</Link>
 				</div>
+				<p>
+					<b>Create an account by clicking on register to participate in events</b>
+				</p>
 			</div>
 			<Footer />
 		</div>

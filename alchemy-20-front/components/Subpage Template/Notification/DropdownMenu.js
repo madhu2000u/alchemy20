@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import {StyledDropdownMenu} from './DropdownMenu.styled';
 
 export default function DropdownMenu({isOpen, notifs}) {
@@ -5,7 +6,7 @@ export default function DropdownMenu({isOpen, notifs}) {
 		return (
 			<div>
 				<p className="notification_head">{props.heading}</p>
-				<p className="notification_desc">{props.text}</p>
+				<ReactMarkdown className="notification_desc">{props.text}</ReactMarkdown>
 				<p className="notification_date">{props.date}</p>
 				<hr className="notif_divider"></hr>
 			</div>

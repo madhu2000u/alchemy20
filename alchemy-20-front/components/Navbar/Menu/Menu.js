@@ -19,29 +19,22 @@ export default function Menu({open, setOpen}) {
 						<p>About</p>
 					</Link>
 				</div>
-				<div>
-					<Link href="/">
-						<div className="coming-soon-div">
-							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-							<p>Accommodation</p>
-						</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/events">
+						<p>Events</p>
 					</Link>
 				</div>
 				<div>
-					<Link href="/">
-						<div className="coming-soon-div">
-							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-							<p>Schedule</p>
-						</div>
-					</Link>
+					<div className="coming-soon-div">
+						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+						<p>Workshops</p>
+					</div>
 				</div>
 				<div>
-					<Link href="/">
-						<div className="coming-soon-div">
-							<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-							<p>Sponsors</p>
-						</div>
-					</Link>
+					<div className="coming-soon-div">
+						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+						<p>Sponsors</p>
+					</div>
 				</div>
 				<div className="active-div" onClick={() => setOpen(!open)}>
 					<Link href="/team">

@@ -1,0 +1,83 @@
+.event_item_container {
+  background-color: #303030;
+  padding: 10px;
+  margin: 0 40px 40px 40px;
+  border: #ecc82c solid;
+  width: 400px;
+  overflow-wrap: break-word;
+}
+
+.event_item_container p {
+  color: white;
+  margin: 0;
+  margin: 8px 0 0 0;
+}
+
+.event_item_container a {
+  color: #ecc82c;
+  font-weight: bold;
+}
+
+.event_item_container h2 {
+  color: white;
+  margin: 12px 0 0 0;
+}
+
+.event_item_container h3 {
+  color: white;
+  margin: 12px 0 0 0;
+}
+
+.event_item_container img {
+    width: 100%;
+}
+
+.reg_button {
+  width: 100px;
+  height: 30px;
+  background-color: #ecc82c;
+  border: #ecc82c solid 1px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  align-self: center;
+  
+  
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn_container {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.reg_button:hover {
+  background-color: #303030;
+  border: #ecc82c solid 1px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .event_item_container {
+    width: 300px;
+  }
+}
+
+@media (max-width: 340px) {
+  .event_item_container {
+    width: 280px;
+  }
+}

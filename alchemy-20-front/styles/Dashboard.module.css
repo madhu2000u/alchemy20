@@ -1,0 +1,94 @@
+.dashboard_container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .nav {
+    height: 70px;
+  }
+
+  .profile_container {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .profile_container img {
+    width: 158px;
+    margin-bottom: 10px;
+  }
+
+  .profile_container p {
+    color: #ecc82c;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0 0 0 0;
+  }
+
+  .get_id_div {
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+  
+    background: #ecc82c;
+    border: #303030 solid 1px;
+  
+    color: #303030;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+  
+    margin-top: 5px;
+    margin: 0.5rem;
+  
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    border-radius: 7px;
+  }
+  
+  .get_id_div:hover,
+  .get_id_div:focus,
+  .get_id_div:active {
+    background: #303030;
+    color: #ecc82c;
+    border: #ecc82c solid 1px;
+  }
+
+  .events_workshops_container {
+    
+  }
+
+  .eve_wor_backdrop {
+    text-align: center;
+    background-color: rgb(26, 26, 26, 0.4);
+    color: #ecc82c;
+    font-size: 1.5rem;
+    padding: 12px 0 12px 0;
+  }
+
+  .events_workshops_list {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 15px 0 0 0;
+  }
