@@ -87,7 +87,7 @@ export default function Dashboard({notifs}) {
 			<div className={style.profile_container}>
 				<img src="https://i.imgur.com/HiNJNAv.png"></img>
 				<p>Hello {dashboardData.name ?? ''}</p>
-				<p>
+				<p hidden={!hideFillDetailBtn}>
 					Your Alchemy ID is <b>{dashboardData.alcId}</b>
 				</p>
 				<div onClick={handleClickOpen} className={style.get_id_div} hidden={hideFillDetailBtn}>
@@ -108,6 +108,7 @@ export default function Dashboard({notifs}) {
 									event_name={elem.event_name}
 									event_description={elem.event_description}
 									gform={elem.event_gform}
+									team_reg_gform={elem.team_registration}
 								/>
 						  ))
 						: null}

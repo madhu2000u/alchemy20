@@ -23,4 +23,6 @@ router.delete(
 	registerEventController.removeRegisteredEvent
 );
 
+//router.post('/registerTeamEvent', /*utils.jwtVerify,*/ userDetailsController.checkTeamDetails)
+
 module.exports = router;

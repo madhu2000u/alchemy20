@@ -3,11 +3,11 @@ import styles from './Footer.module.css';
 export default function Footer() {
 	return (
 		<div className={styles.footer_container}>
-			<a href="#">
+			<a href="https://pdfhost.io/v/c2NmfZmZq_Magazinepdf.pdf" target="_blank">
 				<div className={styles.newsletter}>Checkout our Magazine</div>
 			</a>
 			<br></br>
-			<a href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf">
+			<a href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf" target="_blank">
 				<div className={styles.newsletter}>Checkout our Newsletter</div>
 			</a>
 			<div className={styles.connect_text}>

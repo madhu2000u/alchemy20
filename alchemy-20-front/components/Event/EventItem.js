@@ -3,11 +3,25 @@ import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
 import {useState} from 'react';
 import EventPage from './EventPage';
+import AlertDialog from '../AlertDialog/AlertDialog';
 
 export default function EventItem(props) {
 	const router = useRouter();
 	const [open, setOpen] = useState(false);
 
+	const [openAlert, setAlertOpen] = React.useState(false);
+
+	const handleAlertOpen = () => {
+		setAlertOpen(true);
+	};
+
+	const handleAlertClose = () => {
+		setAlertOpen(false);
+		setTimeout(() => {
+			router.push('/dashboard');
+		}, 2000);
+	};
+  
 	const registerEvent = async (e) => {
 		const refreshtoken = localStorage.getItem('refresh-token');
 		if (refreshtoken) {
@@ -49,6 +63,12 @@ export default function EventItem(props) {
 			try {
 				let isRegistrationSuccess = await ApiService.eventRegistration(headers);
 				props.showToast(`Registration successfull : ${isRegistrationSuccess.data.message}`, 'success');
+				if (props.is_team_event) handleAlertOpen();
+				else {
+					setTimeout(() => {
+						router.push('/dashboard');
+					}, 2000);
+				}
 			} catch (error) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 				if (error.response.data.message === 'Fill details before event/workshop registration') {
@@ -98,6 +118,14 @@ export default function EventItem(props) {
 					Learn more
 				</div>
 			</div>
+			{props.is_team_event ? (
+				<AlertDialog
+					open={openAlert}
+					onClose={handleAlertClose}
+					heading="This is a team event"
+					body="You can form teams to participate in this event. You will be redirected to dashboard, please fill in the details of your team members by clicking the **Enter Team details!** button under your registered event"
+				/>
+			) : null}
 			<EventPage open={open} onClose={handleClose} event_name={props.name} event_details={props.details} />
 		</div>
 	);

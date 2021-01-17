@@ -33,8 +33,41 @@ exports.getRegisteredEvents = (req, res) => {
 exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
 	const event_id = req.body.headers['event_id'];
-	const _id = req.user.id;
 
+	const _id = req.user.id; //this id comes form the jwtVerify when it verifies it returns the user object which contains the _id which is then set to the req.user and next() is called
+
+	// console.log('length of - ', req.body.team_members.length);
+
+	// if(req.body.team_members){
+	// 	Event.exists({id: event_id}).then((result)=>{
+	// 		if(result){
+	// 			RegisteredEvent.findOne({user_id: _id}, (err, result) => {
+	// 				if (err) {
+	// 					res.status(500).json({message: 'Internal server error'});
+	// 				} else {
+	// 					const validation=validateEventRegistration(event_id, result.event_reg)
+	// 					console.log("validation - ", validation);
+	// 					if (validation==409) {
+	// 						res.status(409).json({message: 'Already registered for the Event'});
+	// 					} else {
+	// 						RegisteredEvent.updateOne({user_id: _id}, {$push:{event_reg: {event_id: event_id, team_members: alc_ids}}}, (err, raw) => {
+	// 							if (err) {
+	// 								console.log(err);
+	// 								res.status(500).json({message: 'Internal server error'});
+	// 							} else {
+	// 								res.status(200).json({message: 'Sucessfully registered for the Event !'});
+	// 							}
+	// 						});
+	// 					}
+	// 				}
+	// 			});
+
+	// 		}
+
+	// 	}).catch((err)=>{console.log(err)})
+
+	// }
+	// else{
 	Event.exists({_id: event_id})
 		.then((result) => {
 			if (result) {
@@ -61,7 +94,7 @@ exports.pushRegisteredEvents = (req, res) => {
 					});
 				}
 			} else {
-				res.status(400).json({message: 'Event not present'});
+				res.status(400).json({message: 'Event does not exist'});
 			}
 		})
 		.catch((err) => {
@@ -96,3 +129,7 @@ exports.removeRegisteredEvent = (req, res) => {
 		});
 	}
 };
+
+// function validateEventRegistration(result){
+
+// }
