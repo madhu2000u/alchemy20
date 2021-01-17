@@ -28,7 +28,6 @@ export default function EventPage(props) {
 	function Image(props) {
 		return <img {...props} style={{maxWidth: '100%'}} />;
 	}
-
 	return (
 		<div>
 			<ThemeProvider theme={theme}>

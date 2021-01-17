@@ -33,6 +33,7 @@ exports.getRegisteredEvents = (req, res) => {
 exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
 	const event_id = req.body.headers['event_id'];
+
 	const _id = req.user.id; //this id comes form the jwtVerify when it verifies it returns the user object which contains the _id which is then set to the req.user and next() is called
 
 	// console.log('length of - ', req.body.team_members.length);

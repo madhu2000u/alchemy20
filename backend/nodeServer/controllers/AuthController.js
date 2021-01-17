@@ -46,6 +46,7 @@ exports.signUp = (req, res) => {
 						User.create(newUser)
 							.then((result) => {
 								RegisteredEvent.create({user_id: result._id, event_reg: []})
+
 									.then((res) => {
 										console.log(res);
 									})
@@ -284,7 +285,6 @@ exports.ForgotPassword = (req, res) => {
 		if (!user) {
 			return res.status(404).json({message: 'No account registered with this email'});
 		}
-
 		passwordChange.findOne({user_id: user._id}).then((result) => {
 			console.log(result);
 			const un_hashed_token = crypto.randomBytes(64).toString('hex');
