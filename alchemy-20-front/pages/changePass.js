@@ -32,7 +32,7 @@ export default function ChangePass() {
 	const [confirm_password, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState({
 		password: 'Enter password',
-		password_val: 'Atleast 8 characters, one letter and one number',
+		password_val: 'Atleast 8 characters',
 		password_confirmation: 'Passwords should match',
 	});
 	const [url_id, setUrlId] = useState('');
@@ -58,10 +58,10 @@ export default function ChangePass() {
 			errors.password = ['Empty password is not allowed'];
 		}
 
-		if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)) {
+		if (value.length >= 8) {
 			errors.password_val = null;
 		} else {
-			errors.password_val = ['Atleast 8 characters, one letter and one number'];
+			errors.password_val = ['Atleast 8 characters'];
 		}
 		setPassword(value);
 	};
