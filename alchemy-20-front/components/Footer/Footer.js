@@ -7,7 +7,10 @@ export default function Footer() {
 				<div className={styles.newsletter}>Checkout our Magazine</div>
 			</a>
 			<br></br>
-			<a href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf" target="_blank">
+			<a
+				href="https://pdfhost.io/v/.vg7Xs2MD_Untitled1_newsletter_final_compressedpdf.pdf"
+				target="_blank"
+				rel="noopener">
 				<div className={styles.newsletter}>Checkout our Newsletter</div>
 			</a>
 			<div className={styles.connect_text}>
