@@ -1,5 +1,6 @@
 import styles from './ImageSlider.module.css';
 import Carousel from 'react-multi-carousel';
+import Image from 'next/image';
 
 export default function ImageSlider({images}) {
 	const responsive = {
@@ -51,7 +52,7 @@ export default function ImageSlider({images}) {
 			containerClass={styles.slider}>
 			{images.map((image) => (
 				<div key={image._id}>
-					<img key={image._id} src={image.image_url} alt={image.image_desc} />
+					<Image key={image._id} src={image.image_url} alt={image.image_desc} width={400} height={220} />
 				</div>
 			))}
 		</Carousel>

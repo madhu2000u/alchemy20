@@ -1,4 +1,5 @@
 import {StyledPerson} from './TeamPerson.styled.js';
+import Image from 'next/image';
 
 export default function TeamPerson(props) {
 	let position, phone;
@@ -29,7 +30,13 @@ export default function TeamPerson(props) {
 	}
 	return (
 		<StyledPerson head={props.isHead}>
-			<img src={props.img} alt={props.alt} className="image" />
+			<Image
+				src={props.img}
+				alt={props.alt}
+				className="image"
+				width={props.isHead ? 145 : 120}
+				height={props.isHead ? 145 : 120}
+			/>
 			<p className="name">{props.name}</p>
 			{position}
 			{phone}
