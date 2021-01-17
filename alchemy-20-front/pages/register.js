@@ -71,9 +71,7 @@ export default function Register({notifs}) {
 		if (value.length >= 8) {
 			errors.password_val = null;
 		} else {
-			errors.password_val = [
-				'Password needs to be minimum eight characters',
-			];
+			errors.password_val = ['Password needs to be minimum eight characters'];
 		}
 		setPassword(value);
 	};

@@ -20,6 +20,13 @@ export const AtomSvg = (props) => {
 					fill="#ecc82c"
 					className="color000 svgShape"
 				/>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					dur="3.5s"
+					values="0 10 10;360 10 10"
+					repeatCount="indefinite"
+				/>
 			</g>
 			<g id="XMLID_2057_" fill="#ecc82c" className="color000 svgShape">
 				<path
@@ -28,6 +35,13 @@ export const AtomSvg = (props) => {
 					fill="#ecc82c"
 					className="color000 svgShape"
 				/>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					dur="3.5s"
+					values="0 10 10;360 10 10"
+					repeatCount="indefinite"
+				/>
 			</g>
 			<g id="XMLID_2062_" fill="#ecc82c" className="color000 svgShape">
 				<path
@@ -35,6 +49,13 @@ export const AtomSvg = (props) => {
 					d="M5.9,15c-1.5,0-2.6-0.5-3-1.3c-1-1.9,1.4-4.9,5.4-7c1.8-0.9,3.7-1.5,5.4-1.6c1.8-0.1,3,0.4,3.5,1.3   c1,1.9-1.4,4.9-5.4,7c-1.8,0.9-3.7,1.5-5.4,1.6C6.2,15,6,15,5.9,15z M14.1,6c-0.1,0-0.3,0-0.4,0c-1.5,0.1-3.2,0.6-5,1.5   c-3.7,1.9-5.6,4.5-5,5.6C4,13.7,5,14,6.3,13.9c1.5-0.1,3.2-0.6,5-1.5c3.7-1.9,5.6-4.5,5-5.6C16,6.3,15.2,6,14.1,6z"
 					fill="#ecc82c"
 					className="color000 svgShape"
+				/>
+				<animateTransform
+					attributeName="transform"
+					type="rotate"
+					dur="3.5s"
+					values="0 10 10;360 10 10"
+					repeatCount="indefinite"
 				/>
 			</g>
 			<g id="XMLID_1914_" fill="#ecc82c" className="color000 svgShape">
