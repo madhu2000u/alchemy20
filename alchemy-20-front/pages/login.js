@@ -62,7 +62,7 @@ export default function Login({notifs}) {
 					appearance: 'error',
 					autoDismiss: true,
 				});
-				if (error.response.data.message === 'Account not activated') setResendVisible(true);
+				if (error.response.status === 403) setResendVisible(true);
 			}
 		} else {
 			addToast('Please enter email and passwords correctly!!', {

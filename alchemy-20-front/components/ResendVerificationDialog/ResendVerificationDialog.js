@@ -74,7 +74,7 @@ export default function ResendVerificationDialog(props) {
 				});
 			}
 		} catch (e) {
-			addToast(`${e}`, {appearance: 'error', autoDismiss: true});
+			addToast(`${e.response.data.message}`, {appearance: 'error', autoDismiss: true});
 		}
 	};
 

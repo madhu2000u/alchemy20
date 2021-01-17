@@ -39,3 +39,16 @@ exports.checkUserDetails = (req, res, next) => {
 		}
 	});
 };
+
+// exports.checkTeamDetails = (req,res) => {
+// 	const body = req.body
+// 	if(!body){return res.status(400).json({message: 'Missing requred fields'})}
+// 	if(!req.headers['event_id']){return res.status(400).json({message: 'Missing event_id field'})}
+// 	User.findOne({_id: req.user.id}).then((result) => {
+// 		if (!result) {
+// 			return res.status(403).json({message: "Invalid auth token or user doesn't exist. Please login again"});
+// 		}
+// 		next();
+// 	});
+
+// }

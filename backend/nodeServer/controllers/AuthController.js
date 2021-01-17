@@ -45,7 +45,7 @@ exports.signUp = (req, res) => {
 
 						User.create(newUser)
 							.then((result) => {
-								RegisteredEvent.create({user_id: result._id, events: []})
+								RegisteredEvent.create({user_id: result._id, event_reg: []})
 									.then((res) => {
 										console.log(res);
 									})
@@ -136,7 +136,7 @@ exports.signIn = (req, res) => {
 						res.status(401).json({message: 'Invalid password'});
 						return;
 					} else if (!result.acc_active) {
-						res.status(403).json({message: 'Account not activated'});
+						res.status(403).json({message: 'Account not activated. Please check you registered email for verification link'});
 						return;
 					} else if (result.acc_active & password_compare) {
 						const payload = {
@@ -283,35 +283,61 @@ exports.ForgotPassword = (req, res) => {
 			return res.status(404).json({message: 'No account registered with this email'});
 		}
 
-		const un_hashed_token = crypto.randomBytes(64).toString('hex');
-		const hash = utils.gen_pass_hash(un_hashed_token); //this is the token_hash
+		passwordChange.findOne({user_id: user._id}).then((result) => {
+			console.log(result);
+			const un_hashed_token = crypto.randomBytes(64).toString('hex');
+			const hash = utils.gen_pass_hash(un_hashed_token); //this is the token_hash
+	
+			const passChange = {
+				id: hash.hashed_password, //token_hash is used as the ID of the table
+				token: un_hashed_token,
+				salt: hash.salt,
+				user_id: user._id,
+				time: new Date(),
+			}
+	
+			const sub = 'Alchemy password reset request';
+			const html = EmailTemplates.getForgotPasswordEmail(process.env.app_url, un_hashed_token);
 
-		const passChange = new passwordChange({
-			id: hash.hashed_password, //token_hash is used as the ID of the table
-			token: un_hashed_token,
-			salt: hash.salt,
-			user_id: user._id,
-			time: new Date(),
-		});
+			if(result){
+				passwordChange.updateOne({user_id:result.user_id}, passChange).then((result) => {
+					utils
+						.mailer(email, sub, html)
+						.then((result) => {
+							console.log('Password reset request mail sent', result);
+							res.status(200).json({success: 'Password reset link has been sent to the registered mail id'});
+						})
+						.catch((err) => {
+							console.log('forgot password email sending error', err);
+						});
+				})
+				.catch((err) => {
+					console.log('forgot password passChange error', err);
+				});
+			}else{
+				passwordChange
+				.create(passChange)
+				.then((result) => {
+					utils
+						.mailer(email, sub, html)
+						.then((result) => {
+							console.log('Password reset request mail sent', result);
+							res.status(200).json({success: 'Password reset link has been sent to the registered mail id'});
+						})
+						.catch((err) => {
+							console.log('forgot password email sending error', err);
+						});
+				})
+				.catch((err) => {
+					console.log('forgot password passChange error', err);
+				});
 
-		const sub = 'Alchemy password reset request';
-		const html = EmailTemplates.getForgotPasswordEmail(process.env.app_url, un_hashed_token);
-		passwordChange
-			.create(passChange)
-			.then((result) => {
-				utils
-					.mailer(email, sub, html)
-					.then((result) => {
-						console.log('Password reset request mail sent', result);
-						res.status(200).json({success: 'Password reset link has been sent to the registered mail id'});
-					})
-					.catch((err) => {
-						console.log('forgot password email sending error', err);
-					});
-			})
-			.catch((err) => {
-				console.log('forgot password passChange error', err);
-			});
+			}
+
+		})
+
+
+		
 	});
 };
 
@@ -326,7 +352,7 @@ exports.ResetPassword = (req, res) => {
 	}
 	passwordChange.findOne({token: id}).then((result) => {
 		if (!result) {
-			return res.status(403).json({message: 'Invlaid reset ID'});
+			return res.status(403).json({message: 'Invlaid reset ID / link'});
 		} else if (new Date() - result.time > 900000) {
 			passwordChange
 				.deleteOne({token: id})

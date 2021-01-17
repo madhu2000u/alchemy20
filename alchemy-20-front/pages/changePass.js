@@ -99,7 +99,7 @@ export default function ChangePass() {
 				}
 			} catch (error) {
 				console.log(error);
-				addToast(`Cannot register : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
+				addToast(`Cannot reset : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
 			}
 		} else {
 			addToast('Check pass', {appearance: 'error', autoDismiss: true});
