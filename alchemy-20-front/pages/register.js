@@ -8,6 +8,7 @@ import {ApiService} from '../api_service';
 import {useToasts} from 'react-toast-notifications';
 import 'font-awesome/css/font-awesome.min.css';
 import Link from 'next/link';
+import AlertDialog from '../components/AlertDialog/AlertDialog';
 
 export default function Register({notifs}) {
 	const router = useRouter();
@@ -16,6 +17,19 @@ export default function Register({notifs}) {
 	const [password, setPassword] = useState('');
 	const [confirm_password, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState({});
+
+	const [open, setOpen] = React.useState(false);
+
+	const handleDialogOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+		setTimeout(() => {
+			router.push('/login');
+		}, 2000);
+	};
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh-token')) {
@@ -30,7 +44,10 @@ export default function Register({notifs}) {
 			errors.password_confirmation === null &&
 			errors.password_val === null
 		) {
-			addToast('Checking Credentials... Please wait!', {appearance: 'success', autoDismiss: true});
+			addToast('Checking Credentials... Please wait!', {
+				appearance: 'info',
+				autoDismiss: true,
+			});
 			e.preventDefault();
 			let data = {
 				email: email,
@@ -40,17 +57,24 @@ export default function Register({notifs}) {
 				let isRegisterSuccess = await ApiService.register(data);
 				console.log('isRegisterSuccess');
 				if (isRegisterSuccess.status === 201) {
-					addToast('Registration successful!', {appearance: 'success', autoDismiss: true});
-					setTimeout(() => {
-						router.push('/login');
-					}, 1000);
+					addToast('Registration successful!', {
+						appearance: 'success',
+						autoDismiss: true,
+					});
+					handleDialogOpen();
 				}
 			} catch (error) {
 				console.log(error);
-				addToast(`Cannot register : ${error.response.data.message}`, {appearance: 'error', autoDismiss: true});
+				addToast(`Cannot register : ${error.response.data.message}`, {
+					appearance: 'error',
+					autoDismiss: true,
+				});
 			}
 		} else {
-			addToast('PLease enter email and passwords correctly!!', {appearance: 'error', autoDismiss: true});
+			addToast('PLease enter email and passwords correctly!!', {
+				appearance: 'error',
+				autoDismiss: true,
+			});
 		}
 	};
 
@@ -166,6 +190,12 @@ export default function Register({notifs}) {
 					</Link>
 				</div>
 			</div>
+			<AlertDialog
+				heading="Please read this"
+				body="We have sent a verification mail to your registered email ID. Please check your inbox and click on the verify button. **Also be sure to check your spam folder if its not in your inbox.** You can only login after you verify your email."
+				open={open}
+				onClose={handleClose}
+			/>
 		</div>
 	);
 }

@@ -18,6 +18,11 @@ export default function DashboardEventItem(props) {
 			</h4>
 			<p>{props.event_description}</p>
 			{props.active ? (
+				<a className={styles.gform_tag} href={props.team_reg_gform} target="_blank">
+					<div className={styles.work_button}>Enter Team details!</div>
+				</a>
+			) : null}
+			{props.active ? (
 				<a className={styles.gform_tag} href={props.gform} target="_blank">
 					<div className={styles.work_button}>Submit your work</div>
 				</a>

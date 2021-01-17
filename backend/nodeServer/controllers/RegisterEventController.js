@@ -33,8 +33,8 @@ exports.getRegisteredEvents = (req, res) => {
 exports.pushRegisteredEvents = (req, res) => {
 	//expecting client to send the string event id and user_id as a header
 	const event_id = req.body.headers['event_id'];
-	const _id = req.user.id;			//this id comes form the jwtVerify when it verifies it returns the user object which contains the _id which is then set to the req.user and next() is called
-	
+	const _id = req.user.id; //this id comes form the jwtVerify when it verifies it returns the user object which contains the _id which is then set to the req.user and next() is called
+
 	// console.log('length of - ', req.body.team_members.length);
 
 	// if(req.body.team_members){
@@ -63,13 +63,11 @@ exports.pushRegisteredEvents = (req, res) => {
 
 	// 		}
 
-
-
-	// 	}).catch((err)=>{console.log(err)})		
+	// 	}).catch((err)=>{console.log(err)})
 
 	// }
 	// else{
-		Event.exists({_id: event_id})
+	Event.exists({_id: event_id})
 		.then((result) => {
 			if (result) {
 				if (!_id) {
@@ -131,13 +129,6 @@ exports.removeRegisteredEvent = (req, res) => {
 	}
 };
 
-
-
-
 // function validateEventRegistration(result){
 
-
-
 // }
-
-
