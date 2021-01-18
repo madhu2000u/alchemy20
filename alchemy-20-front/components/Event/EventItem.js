@@ -22,7 +22,6 @@ export default function EventItem(props) {
 		}, 2000);
 	};
 
-
 	const registerEvent = async (e) => {
 		const refreshtoken = localStorage.getItem('refresh-token');
 		if (refreshtoken) {
