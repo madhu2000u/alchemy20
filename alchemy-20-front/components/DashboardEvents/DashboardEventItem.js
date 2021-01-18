@@ -1,5 +1,6 @@
 import styles from './DashboardEventItem.module.css';
 import {useRouter} from 'next/router';
+import ReactMarkdown from 'react-markdown';
 
 export default function DashboardEventItem(props) {
 	// TODO: Add green-tick overlay for registered events
@@ -16,7 +17,7 @@ export default function DashboardEventItem(props) {
 			<h4 className={styles.h4} onClick={handleClick}>
 				<b>{props.event_name}</b>
 			</h4>
-			<p>{props.event_description}</p>
+			<ReactMarkdown>{props.event_description}</ReactMarkdown>
 			{props.active ? (
 				<a className={styles.gform_tag} href={props.team_reg_gform} target="_blank">
 					<div className={styles.work_button}>Enter Team details!</div>
