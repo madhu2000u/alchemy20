@@ -6,14 +6,15 @@ const eventsSchema = new mongoose.Schema({
 	event_type: String,
 	event_name: String,
 	event_description: String,
-	event_details: String,
-	event_gform: String, //gform link to submit work
+	event_details: String,		//rules and guidelines of event
+	event_gform: String,		//gform link to submit work
 	event_img: String,
 	event_date: String,
 	event_cost: String,
 	is_active: Boolean,
-	is_team_event: Boolean,
-	team_registration: String, //gform link to register the team
+	is_team_event:Boolean,
+	team_registration: String,		//gform link to register the team
+	problem_statement:String,
 	event_contacts: [String],
 });
 
