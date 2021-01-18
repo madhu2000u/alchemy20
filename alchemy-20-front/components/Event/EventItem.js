@@ -4,6 +4,7 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 import EventPage from './EventPage';
 import AlertDialog from '../AlertDialog/AlertDialog';
+import ReactMarkdown from 'react-markdown';
 
 export default function EventItem(props) {
 	const router = useRouter();
@@ -21,7 +22,6 @@ export default function EventItem(props) {
 			router.push('/dashboard');
 		}, 2000);
 	};
-
 
 	const registerEvent = async (e) => {
 		const refreshtoken = localStorage.getItem('refresh-token');
@@ -105,7 +105,7 @@ export default function EventItem(props) {
 		<div className={styles.event_item_container}>
 			<img src={props.img}></img>
 			<h2>{props.name}</h2>
-			<p>{props.description}</p>
+			<ReactMarkdown>{props.description}</ReactMarkdown>
 			<h3>{parseDateToReadable(props.date)}</h3>
 			<p>
 				Event Cost : <a>{props.cost === '0' ? 'free' : props.cost}</a>
