@@ -32,7 +32,7 @@ export default function Login({notifs}) {
 			});
 			e.preventDefault();
 			let data = {
-				email: email,
+				email: email.toLowerCase(),
 				password: password,
 			};
 			try {

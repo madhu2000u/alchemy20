@@ -58,7 +58,7 @@ export default function ResendVerificationDialog(props) {
 
 	const handleSendMail = async (purpose) => {
 		const headers = {
-			email: email,
+			email: email.toLowerCase(),
 		};
 		try {
 			handleClose();

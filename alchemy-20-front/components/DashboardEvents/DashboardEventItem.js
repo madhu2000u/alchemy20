@@ -12,7 +12,7 @@ export default function DashboardEventItem(props) {
 		<div className={props.active ? styles.card2 : styles.card}>
 			{props.active ? <img src="https://i.imgur.com/WiDM4SP.png" className={styles.gtick}></img> : null}
 			<center>
-				<img className={styles.image} src={props.event_img}></img>
+				<img className={styles.image} src={props.event_img} onClick={handleClick}></img>
 			</center>
 			<h4 className={styles.h4} onClick={handleClick}>
 				<b>{props.event_name}</b>
