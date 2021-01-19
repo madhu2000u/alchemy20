@@ -50,7 +50,7 @@ export default function Register({notifs}) {
 			});
 			e.preventDefault();
 			let data = {
-				email: email,
+				email: email.toLowerCase(),
 				password: password,
 			};
 			try {

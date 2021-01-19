@@ -31,6 +31,10 @@
     margin-top: 6px;
   }
 
+  .h4 {
+    text-decoration: underline;
+  }
+
   .h4:hover {
     color: #ecc82c;
     text-decoration: underline;
