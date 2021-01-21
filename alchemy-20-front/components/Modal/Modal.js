@@ -132,7 +132,7 @@ export const Modal = (props) => {
 	};
 
 	const validateMobileNumber = (value) => {
-		if (/^[0]?[6789]\d{9}$/.test(value)) {
+		if (/^[^a-zA-Z]+$/.test(value) && value.length > 5) {
 			errors.mobile_number = null;
 		} else {
 			errors.mobile_number = ['Enter a valid mobile number'];

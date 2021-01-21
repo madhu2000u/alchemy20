@@ -73,10 +73,23 @@ export default function Dashboard({notifs}) {
 	};
 
 	const handleLogout = () => {
-		localStorage.removeItem('auth-token');
-		localStorage.removeItem('expirationdate');
-		localStorage.removeItem('refresh-token');
-		router.push('/');
+		const logout = async () => {
+			try {
+				const headers = {
+					refreshToken: localStorage.getItem('refresh-token'),
+				};
+				let logoutData = await ApiService.Logout(headers);
+				if (logoutData.status === 200) {
+					localStorage.removeItem('auth-token');
+					localStorage.removeItem('expirationdate');
+					localStorage.removeItem('refresh-token');
+					router.push('/');
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		logout();
 	};
 
 	return render ? (
