@@ -170,14 +170,13 @@ exports.signIn = (req, res) => {
 };
 
 exports.logout = (req, res) => {
-	const refreshToken = req.headers['refreshToken'];
-	if (!token) {
+	const refreshToken = req.body.headers['refreshToken'];
+	if (!refreshToken) {
 		res.sendStatus(401);
 	}
 
 	RefreshToken.deleteOne({refreshToken: refreshToken}).then((result) => {
-		console.log(result);
-		res.redirect(process.env.app_url);
+		res.sendStatus(200);
 	});
 };
 

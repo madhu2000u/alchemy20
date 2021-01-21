@@ -27,6 +27,11 @@ export const ApiService = {
 			headers: headers,
 		});
 	},
+	Logout: (headers) => {
+		return axios.default.post(config + '/auth/logout', {
+			headers: headers,
+		});
+	},
 	verificationMailResend: (headers) => {
 		return axios.default.post(config + '/verify_mail_resend', {
 			headers: headers,
