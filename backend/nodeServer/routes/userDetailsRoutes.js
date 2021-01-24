@@ -4,5 +4,6 @@ const utils = require('../functions/authUtils');
 const userDetailsController = require('../controllers/UserDetailsController');
 
 router.post('/userdetails', utils.jwtVerify, userDetailsController.AddUserDetails);
+router.get('/allUsers', utils.validateGetapi, userDetailsController.getAllUsers);
 
 module.exports = router;
