@@ -74,15 +74,13 @@ exports.pushRegisteredEvents = (req, res) => {
 				// console.log("event result - ", result);
 				if (!_id) {
 					res.status(400).json({message: '* User ID not provided'});
-				
-				} else if(result.reg_over) {res.status(403).json({message: 'Registration deadline is over'})}
-				 else {
+				} else if (result.reg_over) {
+					res.status(403).json({message: 'Registration deadline is over'});
+				} else {
 					RegisteredEvent.findOne({user_id: _id}, (err, result) => {
-						
 						if (err) {
 							res.status(500).json({message: 'Internal server error'});
-						}
-						 else {
+						} else {
 							if (result.events.includes(event_id)) {
 								res.status(409).json({message: 'Already registered for the Event'});
 							} else {

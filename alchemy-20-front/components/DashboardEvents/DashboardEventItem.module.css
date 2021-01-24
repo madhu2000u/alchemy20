@@ -1,86 +1,83 @@
+.card {
+	color: whitesmoke;
+	background-color: #3a3838ee;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 18em;
+	overflow-wrap: break-word;
+	border-radius: 5px;
+	margin: 1%;
+	padding: 2px 16px;
+}
 
-  .card {
-    color: whitesmoke;
-    background-color: #3a3838ee;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 18em;
-    overflow-wrap: break-word;
-    border-radius: 5px;
-    margin: 1%;
-    padding: 2px 16px;
-  }
+.card2 {
+	color: whitesmoke;
+	background-color: #3a3838ee;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 18em;
+	overflow-wrap: break-word;
+	border-radius: 5px;
+	margin: 1%;
+	padding: 2px 16px;
+	border: #56e443 solid;
+	position: relative;
+}
 
-  .card2 {
-    color: whitesmoke;
-    background-color: #3a3838ee;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 18em;
-    overflow-wrap: break-word;
-    border-radius: 5px;
-    margin: 1%;
-    padding: 2px 16px;
-    border: #56e443 solid;
-    position: relative;
-  }
+.image {
+	width: 100%;
+	text-align: center;
+	margin-top: 6px;
+}
 
-  .image{
-    width: 100%;
-    text-align: center;
-    margin-top: 6px;
-  }
+.h4 {
+	text-decoration: underline;
+}
 
-  .h4 {
-    text-decoration: underline;
-  }
+.h4:hover {
+	color: #ecc82c;
+	text-decoration: underline;
+	cursor: pointer;
+}
 
-  .h4:hover {
-    color: #ecc82c;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(243, 222, 37, 0.808);
-    cursor: pointer;
-  }
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(243, 222, 37, 0.808);
+	cursor: pointer;
+}
 
-  .gtick {
-    float: right;
-    position: absolute;
-    right: -10px;
-    top: -10px;
+.gtick {
+	float: right;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+}
 
-  }
+.work_button {
+	width: 170px;
+	height: 30px;
+	background-color: #ecc82c;
+	border: #ecc82c solid 1px;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 5px;
+	margin: 10px 0 10px 0;
+	align-self: center;
+	font-size: 0.85em;
 
-  .work_button {
-    width: 170px;
-    height: 30px;
-    background-color: #ecc82c;
-    border: #ecc82c solid 1px;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 5px;
-    margin: 10px 0 10px 0;
-    align-self: center;
-    font-size: 0.85em;
-    
-    
-    -webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-  }
-  
-  .work_button:hover {
-    background-color: #303030;
-    border: #ecc82c solid 1px;
-    color: white;
-    cursor: pointer;
-  }
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
 
-  .gform_tag {
-    text-decoration: none;
-    color: whitesmoke;
-  }
+.work_button:hover {
+	background-color: #303030;
+	border: #ecc82c solid 1px;
+	color: white;
+	cursor: pointer;
+}
+
+.gform_tag {
+	text-decoration: none;
+	color: whitesmoke;
+}

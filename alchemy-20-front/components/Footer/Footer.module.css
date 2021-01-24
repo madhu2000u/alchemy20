@@ -1,73 +1,73 @@
 .footer_container {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: rgb(26, 26, 26, 0.4);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  position: relative;
+	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox; /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Chrome */
+	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: rgb(26, 26, 26, 0.4);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	position: relative;
 }
 
 .newsletter {
-  width: 15rem;
-  color: #ecc82c;
-  font-size: 1em;
-  border: #ecc82c solid 1px;
-  padding: 0.3rem;
-  border-radius: 7px;
-  text-align: center;
-  cursor: pointer;
+	width: 15rem;
+	color: #ecc82c;
+	font-size: 1em;
+	border: #ecc82c solid 1px;
+	padding: 0.3rem;
+	border-radius: 7px;
+	text-align: center;
+	cursor: pointer;
 }
 
 .footer_container a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .connect_text p {
-  color: white;
-  text-align: center;
-  font-size: 1em;
-  margin-top: 10px;
+	color: white;
+	text-align: center;
+	font-size: 1em;
+	margin-top: 10px;
 }
 
 .connect_text p:before,
 .connect_text p:after {
-  background-color: white;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  position: relative;
-  vertical-align: middle;
-  width: 40%;
+	background-color: white;
+	content: '';
+	display: inline-block;
+	height: 1px;
+	position: relative;
+	vertical-align: middle;
+	width: 40%;
 }
 .connect_text p:before {
-  right: 0.5em;
-  margin-left: -50%;
+	right: 0.5em;
+	margin-left: -50%;
 }
 .connect_text p:after {
-  left: 0.5em;
-  margin-right: -50%;
+	left: 0.5em;
+	margin-right: -50%;
 }
 
 .social_container {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .social_container svg {
-  width: 30px;
-  height: 30px;
-  fill: rgba(255, 255, 255, 0.4);
-  margin-left: 15px;
-  margin-right: 15px;
+	width: 30px;
+	height: 30px;
+	fill: rgba(255, 255, 255, 0.4);
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .social_container svg:hover {
-  fill: #ecc82c;
+	fill: #ecc82c;
 }

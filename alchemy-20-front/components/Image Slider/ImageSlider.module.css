@@ -1,24 +1,23 @@
 .slider {
-  width: 100vw;
+	width: 100vw;
 }
 
 .img_container img {
-  width: 420px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 7%;
+	width: 420px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 7%;
 }
 
 .img_container {
-  display: block;
-  text-align: center;
+	display: block;
+	text-align: center;
 }
 
 @media (max-width: 1024px) {
-
-  .img_container img {
-    width: 360px;
-    height: 210px;
-    object-fit: cover;
-  }
+	.img_container img {
+		width: 360px;
+		height: 210px;
+		object-fit: cover;
+	}
 }
