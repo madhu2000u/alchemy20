@@ -1,4 +1,4 @@
-import styles from './EventItem.module.css';
+import {StyledEventItem} from './EventItem.styled.js';
 import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
 import {useState} from 'react';
@@ -102,20 +102,23 @@ export default function EventItem(props) {
 	};
 
 	return (
-		<div className={styles.event_item_container}>
-			<img src={props.img}></img>
-			<h2>{props.name}</h2>
-			<ReactMarkdown>{props.description}</ReactMarkdown>
-			<h3>{parseDateToReadable(props.date)}</h3>
-			<p>
-				Event Cost : <a>{props.cost === '0' ? 'free' : props.cost}</a>
+		<StyledEventItem is_active={props.is_active}>
+			<img src={props.img} className="event_item_container_img"></img>
+			{props.is_active ? null : <h4 className="event_item_container_h4">&#9888; This event is over</h4>}
+			<h2 className="event_item_container_h2">{props.name}</h2>
+			<ReactMarkdown className="event_item_container_p">{props.description}</ReactMarkdown>
+			<h3 className="event_item_container_h3">{parseDateToReadable(props.date)}</h3>
+			<p className="event_item_container_p">
+				Event Cost : <a className="event_item_container_a">{props.cost === '0' ? 'free' : props.cost}</a>
 			</p>
-			<p>Event Managers : {props.contacts}</p>
-			<div className={styles.btn_container}>
-				<div className={styles.reg_button} onClick={() => registerEvent()}>
-					Register
-				</div>
-				<div className={styles.reg_button} onClick={() => handleOpen()}>
+			<p className="event_item_container_p">Event Managers : {props.contacts}</p>
+			<div className="btn_container">
+				{!props.reg_over ? (
+					<div className="reg_button" onClick={() => registerEvent()}>
+						Register
+					</div>
+				) : null}
+				<div className="reg_button" onClick={() => handleOpen()}>
 					Learn more
 				</div>
 			</div>
@@ -128,6 +131,6 @@ export default function EventItem(props) {
 				/>
 			) : null}
 			<EventPage open={open} onClose={handleClose} event_name={props.name} event_details={props.details} />
-		</div>
+		</StyledEventItem>
 	);
 }

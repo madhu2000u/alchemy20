@@ -1,13 +1,13 @@
 .container {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .resend_link {
-    color: white;
-    font-size: 0.95rem;
+	color: white;
+	font-size: 0.95rem;
 }
 
 .resend_link:hover {
-    cursor: pointer;
-    text-decoration: underline;
+	cursor: pointer;
+	text-decoration: underline;
 }

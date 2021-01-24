@@ -40,13 +40,15 @@ exports.checkUserDetails = (req, res, next) => {
 	});
 };
 
-exports.getAllUsers= (req, res) => {
-	User.find({}, "-hashed_password -_id -__v").then(users=>{
-        res.send(users)
-    }).catch((err)=>{
-        console.log(err)
-    })
-}
+exports.getAllUsers = (req, res) => {
+	User.find({}, '-hashed_password -_id -__v')
+		.then((users) => {
+			res.send(users);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
 
 // exports.checkTeamDetails = (req,res) => {
 // 	const body = req.body
