@@ -32,8 +32,8 @@ export default function Menu({open, setOpen}) {
 				</div>
 				<div>
 					<div className="active-div" onClick={() => setOpen(!open)}>
-						<Link href="/sponsers">
-							<p>Sponsers</p>
+						<Link href="/sponsors">
+							<p>Sponsors</p>
 						</Link>
 					</div>
 				</div>
