@@ -31,9 +31,10 @@ export default function Menu({open, setOpen}) {
 					</div>
 				</div>
 				<div>
-					<div className="coming-soon-div">
-						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
-						<p>Sponsors</p>
+					<div className="active-div" onClick={() => setOpen(!open)}>
+						<Link href="/sponsers">
+							<p>Sponsers</p>
+						</Link>
 					</div>
 				</div>
 				<div className="active-div" onClick={() => setOpen(!open)}>
