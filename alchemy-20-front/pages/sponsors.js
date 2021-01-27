@@ -32,6 +32,16 @@ export default function SponsersPage() {
 						<a className={styles.link}>Badelog.in</a>
 					</Link>
 				</card>
+				<card className={styles.card_items}>
+					<div className={styles.heading2}>
+						<p> Platform Partner</p>
+					</div>
+					<br />
+					<Image src="https://i.imgur.com/QfmsiVP.jpg" alt="General Sponsor" width={250} height={220} />
+					<Link href="https://dare2compete.com/" className={styles.link}>
+						<a className={styles.link}>dare2compete.com</a>
+					</Link>
+				</card>
 			</div>
 		</main>
 	);
