@@ -105,6 +105,9 @@ export default function EventItem(props) {
 		<StyledEventItem is_active={props.is_active}>
 			<img src={props.img} className="event_item_container_img"></img>
 			{props.is_active ? null : <h4 className="event_item_container_h4">&#9888; This event is over</h4>}
+			{props.reg_over && props.is_active ? (
+				<h4 className="event_item_container_h4">&#9888; Registration over</h4>
+			) : null}
 			<h2 className="event_item_container_h2">{props.name}</h2>
 			<ReactMarkdown className="event_item_container_p">{props.description}</ReactMarkdown>
 			<h3 className="event_item_container_h3">{parseDateToReadable(props.date)}</h3>

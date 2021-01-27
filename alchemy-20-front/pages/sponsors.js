@@ -32,6 +32,7 @@ export default function SponsersPage() {
 						<a className={styles.link}>Badelog.in</a>
 					</Link>
 				</card>
+
 				<card className={styles.card_items}>
 					<div className={styles.heading2}>
 						<p> Platform Partner</p>
