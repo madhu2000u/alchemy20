@@ -73,6 +73,9 @@ exports.updateImages = (req, res) => {
 		gallery
 			.updateOne({_id: req.headers['image_id']}, req.body)
 			.then((gallery_result) => {
+				if(gallery_result.n==0){
+					return res.status(404).json({message:"Specified image not found"});
+				}
 				res.status(200).json({message: 'Updated'});
 				console.log('Gallery PUT .then - ', gallery_result);
 			})

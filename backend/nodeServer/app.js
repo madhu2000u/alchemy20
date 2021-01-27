@@ -40,6 +40,7 @@ app.use('/api', require('./routes/authRoutes'));
 app.use('/api', require('./routes/eventRoutes'));
 app.use('/api', require('./routes/galleryRoutes'));
 app.use('/api', require('./routes/notifRoutes'));
+app.use('/api', require('./routes/sponsorsRoute'))
 app.use('/api', require('./routes/alcidRoutes'));
 app.use('/api', require('./routes/registerEventRoutes'));
 app.use('/api', require('./routes/oauth'));
