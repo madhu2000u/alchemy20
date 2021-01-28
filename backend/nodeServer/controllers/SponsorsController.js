@@ -20,20 +20,19 @@ exports.postSponsors = (req, res) =>{
         return res.status(403).json({message: 'Required fields missing'})
     }
     sponsors.find({}).then((result)=>{
-		console.log("this is the result", result)
 		if(result.length==0){
 			sponsors.create({sponsors:[req.body]}).then((sponsor)=>{				
-				console.log("i am now awake")
+				return res.status(201).json({message:"Sponsor added"})
 			}).catch((err)=>{console.log(err)})
 		}else{
-			console.log("Inside else")
-			sponsors.update(result._id, {$push:{sponsors:{
+			sponsors.findByIdAndUpdate(result[0]._id, {$push:{sponsors:{
 				$each:[req.body],
 				$position:req.headers['index']
-			}}}).then((result)=>{return res.status(201).json({message:"Sponsor added"})})
+			}}}).then(()=>{
+                return res.status(201).json({message:"Sponsor added"})
+            })
 			.catch((err)=>{return res.status(500).json(err)})
 		}
-		console.log("this is exectuing")
 	})
 }
 
@@ -43,7 +42,7 @@ exports.updateSponsor=(req, res)=>{
     }
     else if(!req.body){return res.status(403).json({message: 'Update data missing in body'})}
     sponsors.find({}).then((result)=>{
-        if(result.length==0){return res.status(404).json({message: 'No sponsors found to update them'})}
+        if(result.sponsors.length==0){return res.status(404).json({message: 'No sponsors found to update them'})}
 
         sponsors.updateOne({_id:result._id, "sponsors._id":req.headers['sponsor_id']}, {$set:{"sponsors.$":req.body}}) //https://docs.mongodb.com/manual/reference/operator/update/positional/ (To update embedded objects in a list inside a document)
             .then(result=>{
@@ -61,7 +60,7 @@ exports.deleteSponsor= (req, res) =>{
         return res.status(403).json({message: 'Sponsor ID missing'})
     }
     sponsors.findOne({}).then(result =>{
-        if(result.length==0){return res.status(403).json({message: 'No sponsors found to delete them'})}
+        if(result.sponsors.length==0){return res.status(403).json({message: 'No sponsors found to delete them'})}
 
         sponsors.update({_id:result._id}, {$pull:{"sponsors":{_id:req.headers['sponsor_id']}}})
             .then(result=>{
