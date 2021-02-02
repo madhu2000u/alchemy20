@@ -2,7 +2,7 @@ import {StyledEventItem} from './EventItem.styled.js';
 import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
 import {useState} from 'react';
-import EventPage from './EventPage';
+import DetailsModal from './DetailsModal';
 import AlertDialog from '../AlertDialog/AlertDialog';
 import ReactMarkdown from 'react-markdown';
 
@@ -133,7 +133,7 @@ export default function EventItem(props) {
 					body="You can form teams to participate in this event. You will be redirected to dashboard, please fill in the details of your team members by clicking the **Enter Team details!** button under your registered event"
 				/>
 			) : null}
-			<EventPage open={open} onClose={handleClose} event_name={props.name} event_details={props.details} />
+			<DetailsModal open={open} onClose={handleClose} modal_name={props.name} modal_details={props.details} />
 		</StyledEventItem>
 	);
 }

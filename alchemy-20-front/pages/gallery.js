@@ -8,7 +8,7 @@ export default function GalleryPage() {
 		<main className={styles.main}>
 			<Subpage showNot={false} />
 			<div className={styles.heading}>
-				<p>Archives</p>
+				<p>Alchemy Archives</p>
 			</div>
 			<div className={styles.gallery_container}>
 				<Gallery photos={images} direction="column" />

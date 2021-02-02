@@ -4,7 +4,7 @@ module.exports = {
 		get_api_key: process.env.get_api_key,
 	},
 	images: {
-		domains: ['i.imgur.com', 'imgur.com'],
+		domains: ['i.imgur.com', 'imgur.com', 'images.pexels.com'],
 	},
 	async redirects() {
 		return [

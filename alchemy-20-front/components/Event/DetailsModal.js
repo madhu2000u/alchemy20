@@ -8,7 +8,7 @@ import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
 import ReactMarkdown from 'react-markdown';
 
-export default function EventPage(props) {
+export default function DetailsModal(props) {
 	const theme = createMuiTheme({
 		palette: {
 			type: 'dark',
@@ -37,10 +37,10 @@ export default function EventPage(props) {
 					scroll={'paper'}
 					aria-labelledby="scroll-dialog-title"
 					aria-describedby="scroll-dialog-description">
-					<DialogTitle id="scroll-dialog-title">{props.event_name}</DialogTitle>
+					<DialogTitle id="scroll-dialog-title">{props.modal_name}</DialogTitle>
 					<DialogContent dividers={true}>
 						<DialogContentText id="scroll-dialog-description" tabIndex={-1}>
-							<ReactMarkdown renderers={{image: Image}}>{props.event_details}</ReactMarkdown>
+							<ReactMarkdown renderers={{image: Image}}>{props.modal_details}</ReactMarkdown>
 						</DialogContentText>
 					</DialogContent>
 					<DialogActions>

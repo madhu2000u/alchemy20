@@ -30,12 +30,15 @@ export default function Menu({open, setOpen}) {
 						<p>Workshops</p>
 					</div>
 				</div>
-				<div>
-					<div className="active-div" onClick={() => setOpen(!open)}>
-						<Link href="/sponsors">
-							<p>Sponsors</p>
-						</Link>
-					</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/sponsors">
+						<p>Sponsors</p>
+					</Link>
+				</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/posters_archive">
+						<p>Industry Disasters</p>
+					</Link>
 				</div>
 				<div className="active-div" onClick={() => setOpen(!open)}>
 					<Link href="/team">

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMenu = styled.div`
-  width: 280px;
+  width: 330px;
   
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
