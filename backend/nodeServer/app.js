@@ -46,6 +46,7 @@ app.use('/api', require('./routes/registerEventRoutes'));
 app.use('/api', require('./routes/oauth'));
 app.use('/api', require('./routes/userDetailsRoutes'));
 app.use('/api', require('./routes/dashboardRoutes'));
+app.use('/api', require('./routes/posterRoutes'));
 
 app.use(
 	expressWinston.errorLogger({
