@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
 import ImageSlider from '../components/Image Slider/ImageSlider';
 import fetch from 'node-fetch';
+import {slidingImages} from '../data/SlidingImages';
 
 export default function Home({sliding_images, notifs}) {
 	return (
@@ -45,22 +46,12 @@ export default function Home({sliding_images, notifs}) {
 Home.Layout = Common;
 
 export async function getServerSideProps() {
-	const img_res = await fetch(process.env.endpoint + '/gallery', {
-		method: 'GET',
-		headers: {
-			get_api: process.env.get_api_key,
-		},
-	});
-
+	const sliding_images = slidingImages;
 	const not_res = await fetch(process.env.endpoint + '/allNotific', {
 		method: 'GET',
 		headers: {
 			get_api: process.env.get_api_key,
 		},
-	});
-	const images = await img_res.json();
-	const sliding_images = await images.filter(function filterSliding(image) {
-		if (image.is_sliding) return image;
 	});
 	const notifs = await not_res.json();
 	return {

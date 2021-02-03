@@ -2,7 +2,7 @@ import {StyledEventItem} from './EventItem.styled.js';
 import {ApiService} from '../../api_service';
 import {useRouter} from 'next/router';
 import {useState} from 'react';
-import EventPage from './EventPage';
+import DetailsModal from './DetailsModal';
 import AlertDialog from '../AlertDialog/AlertDialog';
 import ReactMarkdown from 'react-markdown';
 
@@ -105,6 +105,9 @@ export default function EventItem(props) {
 		<StyledEventItem is_active={props.is_active}>
 			<img src={props.img} className="event_item_container_img"></img>
 			{props.is_active ? null : <h4 className="event_item_container_h4">&#9888; This event is over</h4>}
+			{props.reg_over && props.is_active ? (
+				<h4 className="event_item_container_h4">&#9888; Registration over</h4>
+			) : null}
 			<h2 className="event_item_container_h2">{props.name}</h2>
 			<ReactMarkdown className="event_item_container_p">{props.description}</ReactMarkdown>
 			<h3 className="event_item_container_h3">{parseDateToReadable(props.date)}</h3>
@@ -130,7 +133,7 @@ export default function EventItem(props) {
 					body="You can form teams to participate in this event. You will be redirected to dashboard, please fill in the details of your team members by clicking the **Enter Team details!** button under your registered event"
 				/>
 			) : null}
-			<EventPage open={open} onClose={handleClose} event_name={props.name} event_details={props.details} />
+			<DetailsModal open={open} onClose={handleClose} modal_name={props.name} modal_details={props.details} />
 		</StyledEventItem>
 	);
 }
