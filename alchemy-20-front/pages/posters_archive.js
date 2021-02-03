@@ -21,7 +21,7 @@ export default function PostersArchivePage({posters}) {
 
 PostersArchivePage.Layout = Common;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const posters_res = await fetch(process.env.endpoint + '/posters', {
 		method: 'GET',
 		headers: {
