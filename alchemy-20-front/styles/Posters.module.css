@@ -45,5 +45,5 @@
 	margin: 0px 10vw 0px 10vw;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: center;
 }

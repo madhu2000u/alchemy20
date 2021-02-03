@@ -12,7 +12,7 @@ export default function PostersArchivePage({posters}) {
 			</div>
 			<div className={styles.archives_container}>
 				{posters.map((poster) => (
-					<PosterArchiveItem image={poster.image} alt={poster.alt} report={poster.report} />
+					<PosterArchiveItem key={poster._id} image={poster.image} alt={poster.alt} report={poster.report} />
 				))}
 			</div>
 		</main>
