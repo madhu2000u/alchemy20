@@ -38,7 +38,7 @@ app.use(
 //Routes
 app.use('/api', require('./routes/authRoutes'));
 app.use('/api', require('./routes/eventRoutes'));
-app.use('/api', require('./routes/galleryRoutes'));
+//app.use('/api', require('./routes/galleryRoutes')); Blocked for now as we have planned not to use this route to improve site load performance (lighthouse stats) since very less frequently the images are updated.
 app.use('/api', require('./routes/notifRoutes'));
 app.use('/api', require('./routes/sponsorsRoute'));
 app.use('/api', require('./routes/alcidRoutes'));

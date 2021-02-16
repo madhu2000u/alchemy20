@@ -37,8 +37,10 @@ exports.updatePoster = (req, res) => {
 		return res.status(403).json({message: 'Poster ID missing'});
 	}
 
-	Poster.findByIdAndUpdate(id, {$set: {image: req.body.image, alt: req.body.alt, report: req.body.report}})
-		.then(() => {
+	Poster.findByIdAndUpdate(id, req.body)
+		.then((result) => {
+			//console.log("Poster update - ", result)
+			if(result==null)return res.status(404).json({message:"No poster found with this ID"})
 			return res.status(200).json({message: 'Poster Updated'});
 		})
 		.catch((err) => {
