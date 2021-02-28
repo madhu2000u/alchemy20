@@ -18,6 +18,11 @@ module.exports = {
 				destination: 'https://pdfhost.io/v/c2NmfZmZq_Magazinepdf.pdf',
 				permanent: true,
 			},
+			{
+				source: '/magazine2',
+				destination: 'https://pdfhost.io/v/K512X6kBv_mag_febpdf.pdf',
+				permanent: true,
+			},
 		];
 	},
 };
