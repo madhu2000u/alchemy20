@@ -3,8 +3,8 @@ import styles from './Footer.module.css';
 export default function Footer() {
 	return (
 		<div className={styles.footer_container}>
-			<a href="https://pdfhost.io/v/c2NmfZmZq_Magazinepdf.pdf" target="_blank" rel="noopener">
-				<div className={styles.newsletter}>Checkout our Magazine</div>
+			<a href="https://pdfhost.io/v/K512X6kBv_mag_febpdf.pdf" target="_blank" rel="noopener">
+				<div className={styles.newsletter}>Checkout our latest Magazine</div>
 			</a>
 			<br></br>
 			<a

@@ -40,7 +40,7 @@ exports.updatePoster = (req, res) => {
 	Poster.findByIdAndUpdate(id, req.body)
 		.then((result) => {
 			//console.log("Poster update - ", result)
-			if(result==null)return res.status(404).json({message:"No poster found with this ID"})
+			if (result == null) return res.status(404).json({message: 'No poster found with this ID'});
 			return res.status(200).json({message: 'Poster Updated'});
 		})
 		.catch((err) => {
