@@ -11,7 +11,7 @@ exports.mailer = (to_email, sub, html) => {
 			let t = mailer.createTransport({
 				service: 'gmail',
 				auth: {
-					user: 'donotreply.nittchea@gmail.com',
+					user: process.env.alchemy_gmail,
 					pass: process.env.alchemy_gmail_pass,
 				},
 			});
@@ -26,7 +26,12 @@ exports.mailer = (to_email, sub, html) => {
 
 			t.sendMail(opt, (err, info) => {
 				if (err) {
-					reject(err);
+					if(err.message.includes("Username and Password not accepted")){
+						err.message=`Could not send verification mail. Please contact support at ${process.env.alchemy_gmail}.`
+						reject(err)
+					}
+					reject(err)
+					
 				} else {
 					resolve(info);
 				}
