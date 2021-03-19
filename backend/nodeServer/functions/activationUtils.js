@@ -77,7 +77,6 @@ exports.sendVerificationMail = (user_id, email) => {
 				.mailer(email, subject, html)
 				.then((info) => {
 					console.log('mail sent - ', info);
-
 					resolve({status: 200, message: 'Verification mail sent'});
 				})
 				.catch((err) => {
