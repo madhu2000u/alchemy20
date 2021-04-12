@@ -65,19 +65,19 @@ exports.sendVerificationMail = (user_id, email) => {
 				verification_token: verification_token,
 			});
 			TempUser.create(newTempUser)
-						.then((result) => {
-							console.log('Acc verificatoin temp user created');
-						})
-						.catch((err) => {
-							console.log('ERROR creating Acc verification temp user');
-							reject(err);
-						});
+				.then((result) => {
+					console.log('Acc verificatoin temp user created');
+				})
+				.catch((err) => {
+					console.log('ERROR creating Acc verification temp user');
+					reject(err);
+				});
 
 			utils
 				.mailer(email, subject, html)
 				.then((info) => {
 					console.log('mail sent - ', info);
-					
+
 					resolve({status: 200, message: 'Verification mail sent'});
 				})
 				.catch((err) => {

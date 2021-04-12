@@ -74,7 +74,7 @@ exports.signUp = (req, res) => {
 												console.log(verif_mail);
 											})
 											.catch((err) => {
-												res.status(500).json({message:err.message});
+												res.status(500).json({message: err.message});
 												console.log('sendVerificationMail() error - ', err.message);
 											});
 									})
@@ -228,9 +228,8 @@ exports.ResendVerify = (req, res) => {
 		User.findOne({email: req.body.headers['email']}).then((user_result) => {
 			if (user_result == null) {
 				res.status(404).json({message: 'Email not registered'});
-
-			}else if(user_result.acc_active){
-				res.status(403).json({message:"Your account is already active"})
+			} else if (user_result.acc_active) {
+				res.status(403).json({message: 'Your account is already active'});
 			} else {
 				acc_verify
 					.resendVerificationMail(req.body.headers['email'])

@@ -26,12 +26,11 @@ exports.mailer = (to_email, sub, html) => {
 
 			t.sendMail(opt, (err, info) => {
 				if (err) {
-					if(err.message.includes("Username and Password not accepted")){
-						err.message=`Could not send verification mail. Please contact support at ${process.env.alchemy_gmail}.`
-						reject(err)
+					if (err.message.includes('Username and Password not accepted')) {
+						err.message = `Could not send verification mail. Please contact support at ${process.env.alchemy_gmail}.`;
+						reject(err);
 					}
-					reject(err)
-					
+					reject(err);
 				} else {
 					resolve(info);
 				}
