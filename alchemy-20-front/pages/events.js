@@ -22,22 +22,25 @@ export default function Events({notifs, events}) {
 				<p>Events</p>
 			</div>
 			<div className={styles.events_container}>
-				{events.map((event) => (
-					<EventItem
-						id={event._id}
-						name={event.event_name}
-						description={event.event_description}
-						img={event.event_img}
-						date={event.event_date}
-						cost={event.event_cost}
-						contacts={event.event_contacts}
-						details={event.event_details}
-						is_team_event={event.is_team_event}
-						is_active={event.is_active}
-						reg_over={event.reg_over}
-						showToast={(msg, type) => showToastInPage(msg, type)}
-					/>
-				))}
+				{events
+					.slice(0)
+					.reverse()
+					.map((event) => (
+						<EventItem
+							id={event._id}
+							name={event.event_name}
+							description={event.event_description}
+							img={event.event_img}
+							date={event.event_date}
+							cost={event.event_cost}
+							contacts={event.event_contacts}
+							details={event.event_details}
+							is_team_event={event.is_team_event}
+							is_active={event.is_active}
+							reg_over={event.reg_over}
+							showToast={(msg, type) => showToastInPage(msg, type)}
+						/>
+					))}
 			</div>
 		</main>
 	);

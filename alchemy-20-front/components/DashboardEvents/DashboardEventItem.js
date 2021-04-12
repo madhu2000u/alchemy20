@@ -19,14 +19,19 @@ export default function DashboardEventItem(props) {
 			</h4>
 			<ReactMarkdown>{props.event_description}</ReactMarkdown>
 			{props.active ? (
-				<a className={styles.gform_tag} href={props.team_reg_gform} target="_blank">
-					<div className={styles.work_button}>Enter Team details!</div>
-				</a>
+				props.gform != '/notfound' ? (
+					<a className={styles.gform_tag} href={props.gform} target="_blank">
+						<div className={styles.work_button}>Register Here</div>
+					</a>
+				) : null
 			) : null}
+
 			{props.active ? (
-				<a className={styles.gform_tag} href={props.gform} target="_blank">
-					<div className={styles.work_button}>Submit your work</div>
-				</a>
+				props.team_reg_gform != '/notfound' ? (
+					<a className={styles.gform_tag} href={props.team_reg_gform} target="_blank">
+						<div className={styles.work_button}>Enter Team details!</div>
+					</a>
+				) : null
 			) : null}
 		</div>
 	);

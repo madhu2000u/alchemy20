@@ -114,16 +114,19 @@ export default function Dashboard({notifs}) {
 				{dashboardData.length != 0 ? <div className={style.eve_wor_backdrop}> EVENTS </div> : null}
 				<div className={style.events_workshops_list}>
 					{dashboardData.length != 0
-						? dashboardData.event.map((elem) => (
-								<DashboardEventItem
-									active={elem.active}
-									event_img={elem.event_img}
-									event_name={elem.event_name}
-									event_description={elem.event_description}
-									gform={elem.event_gform}
-									team_reg_gform={elem.team_registration}
-								/>
-						  ))
+						? dashboardData.event
+								.slice(0)
+								.reverse()
+								.map((elem) => (
+									<DashboardEventItem
+										active={elem.active}
+										event_img={elem.event_img}
+										event_name={elem.event_name}
+										event_description={elem.event_description}
+										gform={elem.event_gform}
+										team_reg_gform={elem.team_registration}
+									/>
+								))
 						: null}
 				</div>
 			</div>
