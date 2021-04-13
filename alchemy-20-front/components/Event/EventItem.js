@@ -114,7 +114,17 @@ export default function EventItem(props) {
 			<p className="event_item_container_p">
 				Event Cost : <a className="event_item_container_a">{props.cost === '0' ? 'free' : props.cost}</a>
 			</p>
-			<p className="event_item_container_p">Event Managers : {props.contacts}</p>
+			<p className="event_item_container_p">
+				Event Managers :{' '}
+				{props.contacts.map((contact) => (
+					<>
+						<a style={{color: '#ecc82c'}} href={`tel:${contact}`}>
+							{contact}
+						</a>
+						<br></br>
+					</>
+				))}
+			</p>
 			<div className="btn_container">
 				{!props.reg_over ? (
 					<div className="reg_button" onClick={() => registerEvent()}>
