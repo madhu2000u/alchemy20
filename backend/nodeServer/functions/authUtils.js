@@ -65,6 +65,10 @@ exports.validatePostapi = (req, res, next) => {
 	}
 };
 
+exports.validatePaymentWebhook=(req, res, next)=>{		//Validate with process.env.webhook_secret to confrim callback authenticity
+
+}
+
 exports.gen_alc_id = (curr_cout) => {
 	//curr_count is the value 'len' passed from signup route in auth_route. it is the number of users in the current database. so if there are 10 users the the ALC id will be alloted as per the algorightm
 	let alc_id = 'ALC';
