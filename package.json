@@ -4,7 +4,7 @@
   "description": "API backend for alchemy 20",
   "main": "app.js",
   "scripts": {
-    "nodemon" : "nodemon app.js",
+    "nodemon": "nodemon app.js",
     "start": "node ./backend/nodeServer/app.js",
     "db": "mongod",
     "deploy": "start npm run db && start npm run start",

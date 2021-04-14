@@ -55,4 +55,7 @@ export const ApiService = {
 			}
 		);
 	},
+	workshopOrderId: (headers, body) => {
+		return axios.default.post(config + '/create_order', {headers: body}, {headers: headers});
+	},
 };

@@ -65,9 +65,9 @@ exports.validatePostapi = (req, res, next) => {
 	}
 };
 
-exports.validatePaymentWebhook=(req, res, next)=>{		//Validate with process.env.webhook_secret to confrim callback authenticity
-
-}
+exports.validatePaymentWebhook = (req, res, next) => {
+	//Validate with process.env.webhook_secret to confrim callback authenticity
+};
 
 exports.gen_alc_id = (curr_cout) => {
 	//curr_count is the value 'len' passed from signup route in auth_route. it is the number of users in the current database. so if there are 10 users the the ALC id will be alloted as per the algorightm
@@ -106,7 +106,6 @@ exports.validateUserLogin = (token) => {
 
 exports.jwtVerify = (req, res, next) => {
 	const authHeader = req.body.headers['Authorization'];
-	console.log(authHeader);
 	if (authHeader) {
 		const token = authHeader.split(' ')[1];
 		jwt.verify(token, process.env.SECRET_ACCESS_TOKEN, (err, user) => {
@@ -120,8 +119,8 @@ exports.jwtVerify = (req, res, next) => {
 						.status(403)
 						.json({message: 'Auth token valid but user account not found. Please contact Admin'}); //Suppose user account was deleted by the admin maybe but the auth token was that was given is still active. Rarly happens but server will be more stable if at all it should encounter such issue.
 				} else {
-					req.user = user;
 					console.log('inside jwtVerify, req - ', req.user);
+					req.user = user;
 					next();
 				}
 			});
