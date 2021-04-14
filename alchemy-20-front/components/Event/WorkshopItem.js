@@ -61,7 +61,7 @@ export default function WorkshopItem(props) {
 					setTimeout(() => {
 						router.push('/dashboard');
 					}, 2000);
-				} else if (error.response.data.message === 'Already registered for the Event') {
+				} else if(error.response.data.message === 'Already registered for the Event') {
 					setTimeout(() => {
 						router.push('/dashboard');
 					}, 2000);
