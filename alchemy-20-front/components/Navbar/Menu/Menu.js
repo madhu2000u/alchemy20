@@ -24,11 +24,10 @@ export default function Menu({open, setOpen}) {
 						<p>Events</p>
 					</Link>
 				</div>
-				<div>
-					<div className="coming-soon-div">
-						<img src="/coming_soon_badge.svg" alt="Coming soon"></img>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/workshops">
 						<p>Workshops</p>
-					</div>
+					</Link>
 				</div>
 				<div className="active-div" onClick={() => setOpen(!open)}>
 					<Link href="/sponsors">

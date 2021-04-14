@@ -1,12 +1,22 @@
 import styles from './DashboardEventItem.module.css';
 import {useRouter} from 'next/router';
 import ReactMarkdown from 'react-markdown';
+import UpiPayModal from './UpiPayModal'
+import {useState} from 'react';
 
 export default function DashboardEventItem(props) {
-	// TODO: Add green-tick overlay for registered events
 	const router = useRouter();
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => {
+		console.log(props)
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
 	const handleClick = () => {
-		router.push('/events');
+		router.push(props.event_type === 'event' ? '/events' : '/workshops');
 	};
 	return (
 		<div className={props.active ? styles.card2 : styles.card}>
@@ -33,6 +43,14 @@ export default function DashboardEventItem(props) {
 					</a>
 				) : null
 			) : null}
+			{
+				props.active ? (
+					props.event_type === 'workshop' ? (
+						<div className={styles.work_button} onClick={() => handleOpen()}>Complete Payment</div>
+				) : null
+				): null
+			}
+			<UpiPayModal open={open} onClose={handleClose} modal_name={props.event_name} modal_details={props.payment_details}/>
 		</div>
 	);
 }
