@@ -1,14 +1,14 @@
 import styles from './DashboardEventItem.module.css';
 import {useRouter} from 'next/router';
 import ReactMarkdown from 'react-markdown';
-import UpiPayModal from './UpiPayModal'
+import UpiPayModal from './UpiPayModal';
 import {useState} from 'react';
 
 export default function DashboardEventItem(props) {
 	const router = useRouter();
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => {
-		console.log(props)
+		console.log(props);
 		setOpen(true);
 	};
 
@@ -43,14 +43,19 @@ export default function DashboardEventItem(props) {
 					</a>
 				) : null
 			) : null}
-			{
-				props.active ? (
-					props.event_type === 'workshop' ? (
-						<div className={styles.work_button} onClick={() => handleOpen()}>Complete Payment</div>
+			{props.active ? (
+				props.event_type === 'workshop' ? (
+					<div className={styles.work_button} onClick={() => handleOpen()}>
+						Complete Payment
+					</div>
 				) : null
-				): null
-			}
-			<UpiPayModal open={open} onClose={handleClose} modal_name={props.event_name} modal_details={props.payment_details}/>
+			) : null}
+			<UpiPayModal
+				open={open}
+				onClose={handleClose}
+				modal_name={props.event_name}
+				modal_details={props.payment_details}
+			/>
 		</div>
 	);
 }
