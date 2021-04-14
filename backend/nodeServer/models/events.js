@@ -17,6 +17,7 @@ const eventsSchema = new mongoose.Schema({
 	team_registration: String, //gform link to register the team
 	problem_statement: String,
 	event_contacts: [String],
+	payment_details: String,
 });
 
 //mongoose.connect('mongodb://localhost:27017/alchemy-20-db', ({useNewUrlParser:true, useUnifiedTopology:true})).then(()=>{console.log('Connected to notific alchemy db')}).catch((err)=>{console.log('Error connection to db - ', err)})

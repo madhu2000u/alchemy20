@@ -54,7 +54,6 @@ export default function Dashboard({notifs}) {
 				let DashboardData = await ApiService.Dashboard(headers);
 				if (DashboardData.status === 200) {
 					setDashboardData(DashboardData.data.data);
-					console.log(JSON.stringify(DashboardData.data.data));
 					if (JSON.stringify(DashboardData.data.data.mobile) != JSON.stringify(DashboardData.data.data.name))
 						setFillDetailBtn(true);
 				}
@@ -111,6 +110,26 @@ export default function Dashboard({notifs}) {
 				</div>
 			</div>
 			<div className={style.events_workshops_container}>
+				{dashboardData.length != 0 ? <div className={style.eve_wor_backdrop}> WORKSHOPS </div> : null}
+				<div className={style.events_workshops_list}>
+					{dashboardData.length != 0
+						? dashboardData.workshop.map((elem) => (
+								<DashboardEventItem
+									active={elem.active}
+									event_img={elem.event_img}
+									event_type={elem.event_type}
+									event_name={elem.event_name}
+									event_description={elem.event_description}
+									gform={elem.event_gform}
+									team_reg_gform={elem.team_registration}
+									payment_details={elem.payment_details}
+								/>
+						  ))
+						: null}
+				</div>
+			</div>
+
+			<div className={style.events_workshops_container}>
 				{dashboardData.length != 0 ? <div className={style.eve_wor_backdrop}> EVENTS </div> : null}
 				<div className={style.events_workshops_list}>
 					{dashboardData.length != 0
@@ -121,29 +140,13 @@ export default function Dashboard({notifs}) {
 									<DashboardEventItem
 										active={elem.active}
 										event_img={elem.event_img}
+										event_type={elem.event_type}
 										event_name={elem.event_name}
 										event_description={elem.event_description}
 										gform={elem.event_gform}
 										team_reg_gform={elem.team_registration}
 									/>
 								))
-						: null}
-				</div>
-			</div>
-
-			<div className={style.events_workshops_container}>
-				{dashboardData.length != 0 ? <div className={style.eve_wor_backdrop}> WORKSHOPS </div> : null}
-				<div className={style.events_workshops_list}>
-					{dashboardData.length != 0
-						? dashboardData.workshop.map((elem) => (
-								<DashboardEventItem
-									active={elem.active}
-									event_img={elem.event_img}
-									event_name={elem.event_name}
-									event_description={elem.event_description}
-									gform={elem.event_gform}
-								/>
-						  ))
 						: null}
 				</div>
 			</div>
