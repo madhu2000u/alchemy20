@@ -22,7 +22,7 @@ export default function Home({sliding_images, notifs}) {
 							EVENTS
 						</div>
 					</Link>
-					<Link href="/coming-soon" aria-label="Workshops">
+					<Link href="/workshops" aria-label="Workshops">
 						<div className={styles.card} aria-label="Workshops">
 							WORKSHOPS
 						</div>
