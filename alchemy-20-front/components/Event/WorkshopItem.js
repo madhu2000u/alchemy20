@@ -23,7 +23,7 @@ export default function WorkshopItem(props) {
 		});
 	};
 
-	const displayRazorpay = async (amount, name, order_id, user_name, email, mobile) => {
+	const displayRazorpay = async (amount, name, order_id, prefill) => {
 		const res = await loadRazorpay();
 
 		if (!res) {
@@ -43,8 +43,9 @@ export default function WorkshopItem(props) {
 				paymentHandler(response);
 			},
 			prefill: {
-				name: user_name,
-				email: email,
+				name: prefill.name,
+				email: prefill.email,
+				contact: prefill.contact
 			},
 			theme: {
 				color: '#ecc82c',
@@ -116,9 +117,7 @@ export default function WorkshopItem(props) {
 					isWorkshopOrderIdSuccess.data.amount,
 					props.name,
 					isWorkshopOrderIdSuccess.data.id,
-					isWorkshopOrderIdSuccess.data.user_name,
-					isWorkshopOrderIdSuccess.data.user_email,
-					isWorkshopOrderIdSuccess.data.mobile
+					isWorkshopOrderIdSuccess.data.prefill
 				);
 
 				// Check status code
