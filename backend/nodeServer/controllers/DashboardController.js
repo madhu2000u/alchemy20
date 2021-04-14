@@ -34,7 +34,7 @@ exports.dashboard = (req, res) => {
 						Object.assign({}, element._doc, {active: reg_event.events.includes(element._id)})
 					);
 
-					console.log(JSON.stringify(filtered_workshop));
+					console.log(JSON.stringify(filtered_workshop))
 
 					User.findOne({_id: _id}).then((result) => {
 						if (err) {

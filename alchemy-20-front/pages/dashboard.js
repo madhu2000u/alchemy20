@@ -128,7 +128,7 @@ export default function Dashboard({notifs}) {
 						: null}
 				</div>
 			</div>
-
+			
 			<div className={style.events_workshops_container}>
 				{dashboardData.length != 0 ? <div className={style.eve_wor_backdrop}> EVENTS </div> : null}
 				<div className={style.events_workshops_list}>
