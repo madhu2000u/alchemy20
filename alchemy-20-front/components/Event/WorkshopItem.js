@@ -23,7 +23,7 @@ export default function WorkshopItem(props) {
 		});
 	};
 
-	const displayRazorpay = async (amount, name, description, order_id) => {
+	const displayRazorpay = async (amount, name, order_id, user_name, email, mobile) => {
 		const res = await loadRazorpay();
 
 		if (!res) {
@@ -36,18 +36,29 @@ export default function WorkshopItem(props) {
 			amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
 			currency: 'INR',
 			name: name,
-			description: description,
+			description: 'Alchemy workshops - ' + name,
 			image: 'https://i.imgur.com/yICWwO1.png',
 			order_id: order_id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 			handler: function (response) {
-				alert(response.razorpay_payment_id);
-				alert(response.razorpay_order_id);
-				alert(response.razorpay_signature);
+				paymentHandler(response);
+			},
+			prefill: {
+				name: user_name,
+				email: email,
 			},
 			theme: {
 				color: '#ecc82c',
 			},
 		};
+
+		const paymentObj = new window.Razorpay(options);
+		paymentObj.open();
+	};
+
+	const paymentHandler = (response) => {
+		alert(response.razorpay_payment_id);
+		alert(response.razorpay_order_id);
+		alert(response.razorpay_signature);
 	};
 
 	const registerEvent = async (e) => {
@@ -99,8 +110,19 @@ export default function WorkshopItem(props) {
 				props.showToast('Enrolling you for this workshop, please wait for payment', 'info');
 
 				let isWorkshopOrderIdSuccess = await ApiService.workshopOrderId(headers, body);
-
 				console.log(JSON.stringify(isWorkshopOrderIdSuccess.data));
+
+				displayRazorpay(
+					isWorkshopOrderIdSuccess.data.amount,
+					props.name,
+					isWorkshopOrderIdSuccess.data.id,
+					isWorkshopOrderIdSuccess.data.user_name,
+					isWorkshopOrderIdSuccess.data.user_email,
+					isWorkshopOrderIdSuccess.data.mobile
+				);
+
+				// Check status code
+				// displayRazorpay(isWorkshopOrderIdSuccess.data)
 			} catch (error) {
 				props.showToast(`Cannot Register : ${error.response.data.message}`, 'error');
 				if (error.response.data.message === 'Fill details before event/workshop registration') {

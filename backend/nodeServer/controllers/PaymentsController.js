@@ -9,6 +9,17 @@ const razorpayInstance = new razorpay({
 });
 
 exports.createOrder = async (req, res) => {
+	let user_details = {};
+	User.findOne({_id: req.user.id}).then((result) => {
+		if (!result) {
+			console.log(err);
+		} else {
+			user_details.name = result.name;
+			user_details.mobile = result.mobile;
+			user_details.email = result.email;
+		}
+	});
+
 	const workshop = await events.findOne({_id: req.headers['event_id']}, (err, result) => {
 		if (err) console.log('createOrder Error - ', err);
 	});
@@ -69,4 +80,51 @@ exports.createOrder = async (req, res) => {
 			
 		
 		
+};
+
+exports.paymentVerification = async (req, res) => {
+	// const received_signature = req.headers['x-razorpay-signature']
+	// req.body.payload gives -
+	// {"payment":
+	// 	{"entity":
+	// 		{"id":"pay_Gylu5Q339WJBGn",
+	// 		"entity":"payment",
+	// 		"amount":30000,
+	// 		"currency":"INR",
+	// 		"status":"captured",
+	// 		"order_id":"order_GylroLV4V1w1r6",
+	// 		"invoice_id":null,
+	// 		"international":false,
+	// 		"method":"upi",
+	// 		"amount_refunded":0,
+	// 		"refund_status":null,
+	// 		"captured":true,
+	// 		"description":"Alchemy workshops - Simulation Workshop on Aspen",
+	// 		"card_id":null,
+	// 		"bank":null,
+	// 		"wallet":null,
+	// 		"vpa":"success@razorpay",
+	// 		"email":"sidharthshambu00@gmail.com",
+	// 		"contact":"+919445737949",
+	// 		"notes":[],
+	// 		"fee":708,
+	// 		"tax":108,
+	// 		"error_code":null,
+	// 		"error_description":null,
+	// 		"error_source":null,
+	// 		"error_step":null,
+	// 		"error_reason":null,
+	// 		"acquirer_data":{
+	// 			"rrn":"333253312354",
+	// 			"upi_transaction_id":"A53B763C476350ED5565DC56200546F4"
+	// 		},
+	// 		"created_at":1618396892
+	// 		}
+	// 	}
+	// }
+
+	// TODO(): Add in payments model
+
+	console.log(JSON.stringify(req.body.payload));
+	res.json({status: 200});
 };

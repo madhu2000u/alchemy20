@@ -66,7 +66,21 @@ exports.validatePostapi = (req, res, next) => {
 };
 
 exports.validatePaymentWebhook = (req, res, next) => {
-	//Validate with process.env.webhook_secret to confrim callback authenticity
+	console.log(req);
+
+	const webhook_secret = process.env.webhook_secret;
+	const received_signature = req.headers['x-razorpay-signature'];
+
+	const shasum = crypto.createHmac('sha256', webhook_secret);
+	shasum.update(JSON.stringify(req.body));
+	const digest = shasum.digest('hex');
+
+	if (digest === received_signature) {
+		console.log('Signature valid - razorpay');
+		next();
+	} else {
+		res.json({status: 401, message: 'Payment signature does not match'});
+	}
 };
 
 exports.gen_alc_id = (curr_cout) => {
