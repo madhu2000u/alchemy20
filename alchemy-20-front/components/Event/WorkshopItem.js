@@ -45,7 +45,7 @@ export default function WorkshopItem(props) {
 			prefill: {
 				name: prefill.name,
 				email: prefill.email,
-				contact: prefill.contact
+				contact: prefill.contact,
 			},
 			theme: {
 				color: '#ecc82c',
