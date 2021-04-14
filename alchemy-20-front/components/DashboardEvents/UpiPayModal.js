@@ -23,7 +23,7 @@ export default function UpiPayModal(props) {
 				secondary: 'rbga(0, 0, 0, 0.85)',
 			},
 		},
-	});
+    });
 
 	function Image(props) {
 		return <img {...props} style={{maxWidth: '100%'}} />;
