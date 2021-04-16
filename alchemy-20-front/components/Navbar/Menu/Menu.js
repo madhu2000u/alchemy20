@@ -49,6 +49,11 @@ export default function Menu({open, setOpen}) {
 						<p>Gallery</p>
 					</Link>
 				</div>
+				<div className="active-div" onClick={() => setOpen(!open)}>
+					<Link href="/magazines">
+						<p>Magazines</p>
+					</Link>
+				</div>
 			</div>
 		</StyledMenu>
 	);
