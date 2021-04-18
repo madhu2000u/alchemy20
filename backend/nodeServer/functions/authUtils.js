@@ -4,37 +4,25 @@ const validator = require('email-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
+const mailgun = require("mailgun-js");
+const DOMAIN = process.env.DOMAIN;
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
 		try {
-			let t = mailer.createTransport({
-				service: 'gmail',
-				auth: {
-					user: process.env.alchemy_gmail,
-					pass: process.env.alchemy_gmail_pass,
-				},
-			});
-
-			const opt = {
-				from: 'Alchemy-20<alchemy20@nitt.edu>',
-				to: to_email,
-				subject: sub,
-				//html: '<h3>Verify your email by clicking the link <a href="localhost:3000/api/confirm/'+verification_token+'">here</a></h3>'
-				html: html, //"Verify your email by clicking this link http://localhost:3000/api/confirm/" + verification_token
-			};
-
-			t.sendMail(opt, (err, info) => {
-				if (err) {
-					if (err.message.includes('Username and Password not accepted')) {
-						err.message = `Could not send verification mail. Please contact support at ${process.env.alchemy_gmail}.`;
-						reject(err);
-					}
-					reject(err);
-				} else {
-					resolve(info);
-				}
-			});
+      const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
+      const data = {
+        from: process.env.APP_BASE_URL,
+        to: to_email,
+        subject: sub,
+        html: html
+      };
+      mg.messages().send(data, function (error, body) {
+        if (error){
+          reject(error);
+        }
+        resolve(body);
+      });
 		} catch (error) {
 			reject(error);
 		}

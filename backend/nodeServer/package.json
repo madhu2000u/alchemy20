@@ -4,7 +4,7 @@
   "description": "API backend for alchemy 20",
   "main": "app.js",
   "scripts": {
-    "nodemon" : "nodemon app.js",
+    "nodemon": "nodemon app.js",
     "start": "node ./backend/nodeServer/app.js",
     "db": "mongod",
     "deploy": "start npm run db && start npm run start",
@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "express-winston": "^4.0.5",
     "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
     "mongoose": "^5.10.7",
     "nodemailer": "^6.4.12",
     "passport": "^0.4.1",
