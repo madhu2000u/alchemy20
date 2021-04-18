@@ -1,4 +1,6 @@
 const events = require('../models/events');
+const registeredStudents = require('../models/registered_students');
+const users = require('../models/users');
 
 exports.getEvent = (req, res) => {
 	events
@@ -83,5 +85,32 @@ exports.deleteEvent = (req, res) => {
 				console.log('Event delete error -  ', event_delete_err);
 				res.status(500).json(event_delete_err);
 			});
+	}
+};
+
+exports.getRegisteredStudents = async (req, res) => {
+	if (req.headers['content-type'] != 'application/json') {
+		res.status(400).json({message: 'content-type header missing'});
+		console.log('content-type param missing- ', req.headers['content-type']);
+	} else if (!req.headers['event_id']) {
+		res.status(400).json({message: 'event id parameter missing'});
+	} else {
+		try {
+			const event_id = req.headers['event_id'];
+			const allRegistrations = await registeredStudents.find();
+			let userInEvent = [];
+			allRegistrations.forEach((element) => {
+				if (element.events.includes(event_id)) {
+					userInEvent.push(element.user_id);
+				}
+			});
+			const reg_users = await users.find(
+				{_id: {$in: userInEvent}},
+				'-hashed_password -_id -__v -registered_events'
+			);
+			res.status(200).json(reg_users);
+		} catch (e) {
+			res.status(500).json(e);
+		}
 	}
 };
