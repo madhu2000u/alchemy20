@@ -4,20 +4,18 @@ const validator = require('email-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
-const mailgun = require('mailgun-js');
-const DOMAIN = process.env.DOMAIN;
+const mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.DOMAIN});
 
 exports.mailer = (to_email, sub, html) => {
 	return new Promise((resolve, reject) => {
 		try {
-			const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
 			const data = {
 				from: `Alchemy 21 <no-reply@${process.env.DOMAIN}>`,
 				to: to_email,
 				subject: sub,
 				html: html,
 			};
-			mg.messages().send(data, function (error, body) {
+			mailgun.messages().send(data, function (error, body) {
 				if (error) {
 					reject(error);
 				}
