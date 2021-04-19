@@ -12,7 +12,7 @@ exports.mailer = (to_email, sub, html) => {
 		try {
 			const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
 			const data = {
-				from: process.env.APP_BASE_URL,
+				from: process.env.from_email,
 				to: to_email,
 				subject: sub,
 				html: html,
