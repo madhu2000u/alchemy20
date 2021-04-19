@@ -12,7 +12,7 @@ exports.mailer = (to_email, sub, html) => {
 		try {
 			const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
 			const data = {
-				from: process.env.from_email,
+				from: `Alchemy 21 <no-reply@${process.env.DOMAIN}>`,
 				to: to_email,
 				subject: sub,
 				html: html,
