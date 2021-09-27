@@ -156,7 +156,7 @@ body {font-family: 'Muli', sans-serif;}
   <tbody>
 	<tr>
 	  <td style="padding:18px 30px 18px 30px; line-height:22px; text-align:inherit; background-color:#ffffff;" height="100%" valign="top" bgcolor="#ffffff" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px">Please verify your email address to</span><span style="color: #000000; font-size: 18px; font-family: arial,helvetica,sans-serif"> register for exciting events and workshops</span><span style="font-size: 18px">.</span></div>
-<div style="font-family: inherit; text-align: center"><span style="color: #ecc82c; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
+<div style="font-family: inherit; text-align: center"><span style="color:#2fb996; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
 	</tr>
   </tbody>
 </table><table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="7770fdab-634a-4f62-a277-1c66b2646d8d">
@@ -173,8 +173,8 @@ body {font-family: 'Muli', sans-serif;}
 		  <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align:center;">
 			<tbody>
 			  <tr>
-			  <td align="center" bgcolor="#ecc82c" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-				<a href="${base_url}/api/confirm/${token}" style="background-color:#ecc82c; border:1px solid #ecc82c; border-color:#ecc82c; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Verify Email Now</a>
+			  <td align="center" bgcolor="#2fb996" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
+				<a href="${base_url}/api/confirm/${token}" style="background-color:#2fb996; border:1px solid#2fb996; border-color:#2fb996; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Verify Email Now</a>
 			  </td>
 			  </tr>
 			</tbody>
@@ -211,8 +211,8 @@ body {font-family: 'Muli', sans-serif;}
 		  <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align:center;">
 			<tbody>
 			  <tr>
-			  <td align="center" bgcolor="#ecc82c" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-				<a href="mailto:nitt.chea@gmail.com" style="background-color:#ecc82c; border:1px solid #ecc82c; border-color:#ecc82c; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
+			  <td align="center" bgcolor="#2fb996" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
+				<a href="mailto:nitt.chea@gmail.com" style="background-color:#2fb996; border:1px solid#2fb996; border-color:#2fb996; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
 			  </td>
 			  </tr>
 			</tbody>
@@ -385,7 +385,7 @@ body {font-family: 'Muli', sans-serif;}
   <tbody>
     <tr>
       <td style="padding:18px 30px 18px 30px; line-height:22px; text-align:inherit; background-color:#ffffff;" height="100%" valign="top" bgcolor="#ffffff" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px">No worries!, Just click the button below and reset your password. Also note that this password reset link expires in 15 mins.</span><span style="font-size: 18px">.</span></div>
-<div style="font-family: inherit; text-align: center"><span style="color: #ecc82c; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
+<div style="font-family: inherit; text-align: center"><span style="color:#2fb996; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
     </tr>
   </tbody>
 </table><table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="7770fdab-634a-4f62-a277-1c66b2646d8d">
@@ -402,8 +402,8 @@ body {font-family: 'Muli', sans-serif;}
           <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align:center;">
             <tbody>
               <tr>
-              <td align="center" bgcolor="#ecc82c" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                <a href="${app_url}/changePass?id=${token}" style="background-color:#ecc82c; border:1px solid #ecc82c; border-color:#ecc82c; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Reset your password</a>
+              <td align="center" bgcolor="#2fb996" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
+                <a href="${app_url}/changePass?id=${token}" style="background-color:#2fb996; border:1px solid#2fb996; border-color:#2fb996; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit;" target="_blank">Reset your password</a>
               </td>
               </tr>
             </tbody>
@@ -440,8 +440,8 @@ body {font-family: 'Muli', sans-serif;}
           <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align:center;">
             <tbody>
               <tr>
-              <td align="center" bgcolor="#ecc82c" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                <a href="mailto:nitt.chea@gmail.com" style="background-color:#ecc82c; border:1px solid #ecc82c; border-color:#ecc82c; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
+              <td align="center" bgcolor="#2fb996" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
+                <a href="mailto:nitt.chea@gmail.com" style="background-color:#2fb996; border:1px solid#2fb996; border-color:#2fb996; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
               </td>
               </tr>
             </tbody>
@@ -614,7 +614,7 @@ body {font-family: 'Muli', sans-serif;}
   <tbody>
     <tr>
       <td style="padding:18px 30px 18px 30px; line-height:22px; text-align:inherit; background-color:#ffffff;" height="100%" valign="top" bgcolor="#ffffff" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px"> Your Alchemy account has been verified. Please visit <a href="https://alchemy.nitt.edu">https://alchemy.nitt.edu</a> to register for events.</span><span style="font-size: 18px"></span></div>
-<div style="font-family: inherit; text-align: center"><span style="color: #ecc82c; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
+<div style="font-family: inherit; text-align: center"><span style="color:#2fb996; font-size: 18px"><strong>Thank you!&nbsp;</strong></span></div><div></div></div></td>
     </tr>
   </tbody>
 </table><table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="7770fdab-634a-4f62-a277-1c66b2646d8d">
@@ -640,8 +640,8 @@ body {font-family: 'Muli', sans-serif;}
           <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align:center; margin-top: 10px;">
             <tbody>
               <tr>
-              <td align="center" bgcolor="#ecc82c" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                <a href="mailto:nitt.chea@gmail.com" style="background-color:#ecc82c; border:1px solid #ecc82c; border-color:#ecc82c; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
+              <td align="center" bgcolor="#2fb996" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
+                <a href="mailto:nitt.chea@gmail.com" style="background-color:#2fb996; border:1px solid#2fb996; border-color:#2fb996; border-radius:0px; border-width:1px; color:#000000; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 40px 12px 40px; text-align:center; text-decoration:none; border-style:solid; font-family:inherit; margin-bottom: 10px;">Contact Support</a>
               </td>
               </tr>
             </tbody>

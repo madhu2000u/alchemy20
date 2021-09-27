@@ -1,8 +1,8 @@
 .event_item_container {
-	background-color: #303030;
+	background-color: #2a2c2d;
 	padding: 10px;
 	margin: 0 40px 40px 40px;
-	border: #ecc82c solid;
+	border: #2fb996 solid;
 	width: 400px;
 	overflow-wrap: break-word;
 }
@@ -14,7 +14,7 @@
 }
 
 .event_item_container a {
-	color: #ecc82c;
+	color: #2fb996;
 	font-weight: bold;
 }
 
@@ -36,8 +36,8 @@
 .reg_button {
 	width: 100px;
 	height: 30px;
-	background-color: #ecc82c;
-	border: #ecc82c solid 1px;
+	background-color: #2fb996;
+	border: #2fb996 solid 1px;
 	text-align: center;
 	line-height: 30px;
 	border-radius: 5px;
@@ -64,15 +64,15 @@
 }
 
 .reg_button:hover {
-	background-color: #303030;
-	border: #ecc82c solid 1px;
+	background-color: #2a2c2d;
+	border: #2fb996 solid 1px;
 	color: white;
 	cursor: pointer;
 }
 
 .event_item_container h4 {
 	margin: 0;
-	color: #ecc82c;
+	color: #2fb996;
 }
 
 @media (max-width: 450px) {

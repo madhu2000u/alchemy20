@@ -8,7 +8,7 @@ export default function TeamPerson(props) {
 			<p
 				style={{
 					fontSize: '0.8em',
-					color: '#ecc82c',
+					color: '#2fb996',
 					margin: '0',
 					textAlign: 'center',
 				}}>
@@ -20,7 +20,7 @@ export default function TeamPerson(props) {
 			<p
 				style={{
 					fontSize: '0.8em',
-					color: '#ecc82c',
+					color: '#2fb996',
 					margin: '0',
 					textAlign: 'center',
 				}}>

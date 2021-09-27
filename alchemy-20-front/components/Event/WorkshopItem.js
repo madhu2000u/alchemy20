@@ -107,7 +107,7 @@ export default function WorkshopItem(props) {
 				Workshop Managers :{' '}
 				{props.contacts.map((contact) => (
 					<>
-						<a style={{color: '#ecc82c'}} href={`tel:${contact}`}>
+						<a style={{color: '#2fb996'}} href={`tel:${contact}`}>
 							{contact}
 						</a>
 						<br></br>

@@ -5,6 +5,6 @@ const userDetailsController = require('../controllers/UserDetailsController');
 
 router.post('/userdetails', utils.jwtVerify, userDetailsController.AddUserDetails);
 router.get('/allUsers', utils.validateGetapi, userDetailsController.getAllUsers);
-router.get('/listOfField', utils.validatePostapi, userDetailsController.getListofField)
+router.get('/listOfField', utils.validatePostapi, userDetailsController.getListofField);
 
 module.exports = router;

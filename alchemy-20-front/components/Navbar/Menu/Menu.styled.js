@@ -15,9 +15,9 @@ export const StyledMenu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  border-right: solid #ecc82c 5px;
+  border-right: solid#2fb996 5px;
   height: 100%;
-  background: #303030;
+  background:#2a2c2d;
   padding-left: 2rem;
   padding-right: 2rem;
   transition: transform 0.3s ease-in-out;
@@ -43,7 +43,7 @@ export const StyledMenu = styled.div`
   }
 
   .menu_header a {
-    color: #ecc82c;
+    color:#2fb996;
     margin-top: 1rem;
     font-weight: bolder;
   }
@@ -96,7 +96,7 @@ export const StyledMenu = styled.div`
     margin: 0;
   
     &:hover {
-      color: #ecc82c;
+      color:#2fb996;
       letter-spacing: 0.2rem;
     // -webkit-transform: scale(1.2);
     // -moz-transform: scale(1.2);

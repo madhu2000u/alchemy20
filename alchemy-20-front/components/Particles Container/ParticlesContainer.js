@@ -8,7 +8,7 @@ export default function ParticlesContainer() {
 				params={{
 					particles: {
 						number: {value: 140, density: {enable: true, value_area: 800}},
-						color: {value: '#ecc82c'},
+						color: {value: '#2fb996'},
 						shape: {
 							type: 'circle',
 							stroke: {width: 0, color: '#000000'},

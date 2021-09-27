@@ -6,8 +6,8 @@ export default function About() {
 	return (
 		<main className={styles.main}>
 			<Subpage showNot={false} />
-			<img src="https://i.imgur.com/Wc93Fuf.png" alt="Design element at top left" className={styles.tri_tl} />
-			<img src="https://i.imgur.com/zQh2jAz.png" alt="Design element at bottom right" className={styles.tri_br} />
+			<img src="https://i.imgur.com/3r8ulSU.png" alt="Design element at top left" className={styles.tri_tl} />
+			<img src="https://i.imgur.com/Q9VFf4g.png" alt="Design element at bottom right" className={styles.tri_br} />
 			<div className={styles.about_container}>
 				<div className={styles.about_subcontainer}>
 					<h1>ABOUT</h1>

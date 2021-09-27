@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledEventItem = styled.div`
-	background-color: #303030;
+	background-color: #2a2c2d;
 	padding: 10px;
 	margin: 0 40px 40px 40px;
-	border: ${({is_active}) => (is_active ? '#ecc82c solid' : '#807c7c solid')};
+	border: ${({is_active}) => (is_active ? '#2fb996 solid' : '#807c7c solid')};
 	width: 400px;
 	overflow-wrap: break-word;
 
@@ -15,7 +15,7 @@ export const StyledEventItem = styled.div`
 	}
 
 	.event_item_container_a {
-		color: #ecc82c;
+		color: #2fb996;
 		font-weight: bold;
 	}
 
@@ -37,8 +37,8 @@ export const StyledEventItem = styled.div`
 	.reg_button {
 		width: 100px;
 		height: 30px;
-		background-color: #ecc82c;
-		border: #ecc82c solid 1px;
+		background-color: #2fb996;
+		border: #2fb996 solid 1px;
 		text-align: center;
 		line-height: 30px;
 		border-radius: 5px;
@@ -65,15 +65,15 @@ export const StyledEventItem = styled.div`
 	}
 
 	.reg_button:hover {
-		background-color: #303030;
-		border: #ecc82c solid 1px;
+		background-color: #2a2c2d;
+		border: #2fb996 solid 1px;
 		color: white;
 		cursor: pointer;
 	}
 
 	.event_item_container_h4 {
 		margin: 0;
-		color: #ecc82c;
+		color: #2fb996;
 	}
 
 	@media (max-width: 450px) {
