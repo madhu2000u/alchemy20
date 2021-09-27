@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledEventItem = styled.div`
-	background-color: #2a2c2d;
+	background-color: #082032;
 	padding: 10px;
 	margin: 0 40px 40px 40px;
 	border: ${({is_active}) => (is_active ? '#2fb996 solid' : '#807c7c solid')};
@@ -65,7 +65,7 @@ export const StyledEventItem = styled.div`
 	}
 
 	.reg_button:hover {
-		background-color: #2a2c2d;
+		background-color: #082032;
 		border: #2fb996 solid 1px;
 		color: white;
 		cursor: pointer;

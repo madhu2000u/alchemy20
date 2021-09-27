@@ -46,7 +46,7 @@
 	height: 40px;
 	line-height: 38px;
 
-	background: #2a2c2d;
+	background: #082032;
 	border: 2px solid#2fb996;
 
 	color: #2fb996;
@@ -67,7 +67,7 @@
 .card:focus,
 .card:active {
 	background: #2fb996;
-	color: #2a2c2d;
+	color: #082032;
 }
 
 .card2 {
@@ -77,7 +77,7 @@
 
 	background: #2fb996;
 
-	color: #2a2c2d;
+	color: #082032;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -97,7 +97,7 @@
 .card2:hover,
 .card2:focus,
 .card2:active {
-	background: #2a2c2d;
+	background: #082032;
 	color: #2fb996;
 }
 

@@ -17,7 +17,7 @@ export const StyledMenu = styled.div`
   left: 0;
   border-right: solid#2fb996 5px;
   height: 100%;
-  background:#2a2c2d;
+  background:#082032;
   padding-left: 2rem;
   padding-right: 2rem;
   transition: transform 0.3s ease-in-out;
