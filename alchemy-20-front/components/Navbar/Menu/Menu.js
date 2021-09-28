@@ -7,7 +7,7 @@ export default function Menu({open, setOpen}) {
 		<StyledMenu open={open}>
 			<div className="menu_header">
 				<img src="https://i.imgur.com/T9uOy33.png" alt="Alchemy Logo"></img>
-				<a href="/">ALCHEMY'21</a>
+				<a href="/">ALCHEMY'22</a>
 				{/* <p>
           October 18<sup>th</sup> - 20<sup>th</sup>, 2020
         </p> */}

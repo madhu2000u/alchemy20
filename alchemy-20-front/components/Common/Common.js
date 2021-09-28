@@ -15,7 +15,7 @@ export default function Common({children}) {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Alchemy 2021</title>
+				<title>Alchemy 2022</title>
 				<meta charSet="UTF-8" />
 				<meta
 					name="description"

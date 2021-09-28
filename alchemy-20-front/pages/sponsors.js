@@ -9,9 +9,9 @@ export default function SponsersPage() {
 		<main className={styles.main}>
 			<Subpage showNot={false} />
 			<div className={styles.heading}>
-				<p>Our Sponsors</p>
+				<p>Our Sponsors - Comming soon</p>
 			</div>
-			<div className={styles.card}>
+			{/* <div className={styles.card}>
 				<card className={styles.card_items}>
 					<div className={styles.heading2}>
 						<p> Media Sponsor</p>
@@ -43,7 +43,7 @@ export default function SponsersPage() {
 						<a className={styles.link}>dare2compete.com</a>
 					</Link>
 				</card>
-			</div>
+			</div> */}
 		</main>
 	);
 }
