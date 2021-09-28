@@ -17,14 +17,14 @@
 }
 
 .heading p {
-	color: #ecc82c;
+	color: #2fb996;
 	text-align: center;
 	font-size: 2em;
 }
 
 .heading p:before,
 .heading p:after {
-	background-color: #ecc82c;
+	background-color: #2fb996;
 	content: '';
 	display: inline-block;
 	height: 1px;
@@ -82,7 +82,7 @@
 
 .team_container p {
 	text-align: center;
-	color: #ecc82c;
+	color: #2fb996;
 	font-size: 1.5em;
 }
 

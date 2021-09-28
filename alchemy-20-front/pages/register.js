@@ -128,7 +128,7 @@ export default function Register({notifs}) {
 			</div>
 
 			<div className={styles.formContainer}>
-				<img className={styles.userIcon} src={'https://i.imgur.com/HiNJNAv.png'} alt="User Icon" />
+				<img className={styles.userIcon} src={'https://i.imgur.com/7MnMXzg.png'} alt="User Icon" />
 
 				<div className={styles.main}>
 					<ul className="errorMessages">

@@ -7,7 +7,7 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #303030;
+	background-color: #082032;
 
 	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
 	display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
@@ -22,7 +22,7 @@
 
 .main p {
 	margin: 12px;
-	color: #ecc82c;
+	color: #2fb996;
 	text-align: center;
 	font-size: 2em;
 }
@@ -47,7 +47,7 @@
 	display: block;
 	width: 2em;
 	height: 0.3em;
-	background: #ecc82c;
+	background: #2fb996;
 	animation: move 1.5s ease-in-out infinite alternate;
 }
 

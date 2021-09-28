@@ -56,12 +56,12 @@
 
 .about_subcontainer {
 	width: 500px;
-	background-color: rgba(26, 26, 26, 0.4);
+	background-color: rgba(65, 78, 76, 0.4);
 	padding: 1rem;
 }
 
 .about_subcontainer h1 {
-	color: #ecc82c;
+	color: #2fb996;
 	font-size: 2.5rem;
 	margin: 0;
 }
@@ -69,7 +69,7 @@
 .about_subcontainer hr {
 	margin: 0;
 	width: 100%;
-	border-top: 0.04rem solid #ecc82c;
+	border-top: 0.04rem solid#2fb996;
 	border-style: solid;
 }
 

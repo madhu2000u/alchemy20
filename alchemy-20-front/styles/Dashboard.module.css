@@ -32,7 +32,7 @@
 }
 
 .profile_container p {
-	color: #ecc82c;
+	color: #2fb996;
 	font-size: 1.3rem;
 	text-align: center;
 	margin: 0 0 0 0;
@@ -43,10 +43,10 @@
 	height: 40px;
 	line-height: 40px;
 
-	background: #ecc82c;
-	border: #303030 solid 1px;
+	background: #2fb996;
+	border: #082032 solid 1px;
 
-	color: #303030;
+	color: #082032;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -66,9 +66,9 @@
 .get_id_div:hover,
 .get_id_div:focus,
 .get_id_div:active {
-	background: #303030;
-	color: #ecc82c;
-	border: #ecc82c solid 1px;
+	background: #082032;
+	color: #2fb996;
+	border: #2fb996 solid 1px;
 }
 
 .events_workshops_container {
@@ -77,7 +77,7 @@
 .eve_wor_backdrop {
 	text-align: center;
 	background-color: rgb(26, 26, 26, 0.4);
-	color: #ecc82c;
+	color: #2fb996;
 	font-size: 1.5rem;
 	padding: 12px 0 12px 0;
 }

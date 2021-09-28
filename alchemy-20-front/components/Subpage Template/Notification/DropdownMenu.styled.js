@@ -6,8 +6,8 @@ export const StyledDropdownMenu = styled.div`
 	width: 300px;
 	height: 400px;
 	transform: ${({isOpen}) => (isOpen ? 'translateX(-90%)' : 'translateX(100%)')};
-	background-color: #303030;
-	border: 4px solid #ecc82c;
+	background-color: #082032;
+	border: 4px solid#2fb996;
 	padding: 1rem;
 	overflow: auto;
 	transition: transform 0.3s ease-in-out;

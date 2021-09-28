@@ -97,7 +97,7 @@ export default function Dashboard({notifs}) {
 				<Subpage notifs={notifs} showNot={true} />
 			</div>
 			<div className={style.profile_container}>
-				<img src="https://i.imgur.com/HiNJNAv.png"></img>
+				<img src="https://i.imgur.com/7MnMXzg.png"></img>
 				<p>Hello {dashboardData.name ?? ''}</p>
 				<p hidden={!hideFillDetailBtn}>
 					Your Alchemy ID is <b>{dashboardData.alcId}</b>

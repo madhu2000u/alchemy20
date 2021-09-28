@@ -35,7 +35,7 @@
 }
 
 .h4:hover {
-	color: #ecc82c;
+	color: #2fb996;
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -55,8 +55,8 @@
 .work_button {
 	width: 170px;
 	height: 30px;
-	background-color: #ecc82c;
-	border: #ecc82c solid 1px;
+	background-color: #2fb996;
+	border: #2fb996 solid 1px;
 	text-align: center;
 	line-height: 30px;
 	border-radius: 5px;
@@ -71,8 +71,8 @@
 }
 
 .work_button:hover {
-	background-color: #303030;
-	border: #ecc82c solid 1px;
+	background-color: #082032;
+	border: #2fb996 solid 1px;
 	color: white;
 	cursor: pointer;
 }

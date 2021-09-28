@@ -13,7 +13,7 @@ export default function DetailsModal(props) {
 		palette: {
 			type: 'dark',
 			primary: {
-				main: '#ecc82c',
+				main: '#2fb996',
 			},
 			secondary: {
 				main: '#f69c2a',

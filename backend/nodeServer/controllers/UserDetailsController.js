@@ -50,20 +50,20 @@ exports.getAllUsers = (req, res) => {
 		});
 };
 
-exports.getListofField=async(req, res)=>{
+exports.getListofField = async (req, res) => {
 	/* TODO Currently, email is enough for us as Alchemy is going to get over in 2 days, 
 	but later should be implemted for general use case
 	if(!req.headers['field']) {return res.status(403).json({message:"Field that you require is not specified"})}
 	*/
-	const l=await User.distinct("email", (err, res)=>{		//email to be replaced with req.field if generalized
-		if(err) return console.log("getListofField Error: ", err)
+	const l = await User.distinct('email', (err, res) => {
+		//email to be replaced with req.field if generalized
+		if (err) return console.log('getListofField Error: ', err);
+	});
 
-	})
-	
-	return res.status(200).json({list:l})
+	return res.status(200).json({list: l});
 
 	//console.log("list of emails - ", list)
-}
+};
 
 // exports.checkTeamDetails = (req,res) => {
 // 	const body = req.body

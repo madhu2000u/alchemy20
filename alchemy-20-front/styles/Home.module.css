@@ -46,10 +46,10 @@
 	height: 40px;
 	line-height: 38px;
 
-	background: #303030;
-	border: 2px solid #ecc82c;
+	background: #082032;
+	border: 2px solid#2fb996;
 
-	color: #ecc82c;
+	color: #2fb996;
 	font-size: 1.2rem;
 	text-align: center;
 	cursor: pointer;
@@ -66,8 +66,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-	background: #ecc82c;
-	color: #303030;
+	background: #2fb996;
+	color: #082032;
 }
 
 .card2 {
@@ -75,9 +75,9 @@
 	height: 40px;
 	line-height: 40px;
 
-	background: #ecc82c;
+	background: #2fb996;
 
-	color: #303030;
+	color: #082032;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -97,12 +97,12 @@
 .card2:hover,
 .card2:focus,
 .card2:active {
-	background: #303030;
-	color: #ecc82c;
+	background: #082032;
+	color: #2fb996;
 }
 
 .main p {
-	color: #ecc82c;
+	color: #2fb996;
 	margin-top: 0;
 	font-size: 1.2em;
 	text-align: center;

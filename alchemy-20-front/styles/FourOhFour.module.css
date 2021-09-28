@@ -1,5 +1,5 @@
 .mainbox {
-	background-color: #303030;
+	background-color: #082032;
 
 	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
 	display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
@@ -44,7 +44,7 @@
 
 .mainbox a {
 	text-decoration: none;
-	color: #ecc82c;
+	color: #2fb996;
 }
 
 .mainbox a:hover {
