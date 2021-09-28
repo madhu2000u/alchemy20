@@ -143,8 +143,8 @@ const people = [
 			{
 				isHead: false,
 				img: 'https://i.imgur.com/SJygHsy.jpeg' + size + '.jpg',
-				alt: 'Image of Sabitha',
-				name: 'Sabitha',
+				alt: 'Image of Shyam',
+				name: 'Shyam',
 			}
 		],
 	},
