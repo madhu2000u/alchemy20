@@ -9,8 +9,20 @@ export default function SponsersPage() {
 		<main className={styles.main}>
 			<Subpage showNot={false} />
 			<div className={styles.heading}>
-				<p>Our Sponsors - Comming soon</p>
+				<p>Our Sponsors</p>
 			</div>
+			<div className={styles.card}>
+				<card className={styles.card_items}>
+					<div className={styles.heading2}>
+						<p> Title Sponsor</p>
+					</div>
+					<br />
+					<Image src="https://i.imgur.com/lOT3Jq9.jpg" alt="Title Sponsor" width={500} height={900}/>
+					<Link href="https://conservesolution.com">
+						<a className={styles.link}>https://conservesolution.com</a>
+					</Link>
+				</card>
+				</div>
 			{/* <div className={styles.card}>
 				<card className={styles.card_items}>
 					<div className={styles.heading2}>
