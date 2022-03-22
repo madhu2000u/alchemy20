@@ -29,7 +29,7 @@ export default function SponsersPage() {
 					</div>
 					<br />
 					<Image src="https://i.imgur.com/vUjWbF5.jpg" alt="General Sponsor" width={250} height={350} />
-					<Link href="" className={styles.link}>
+					<Link href="http://www.avircu.com/" className={styles.link}>
 						<a className={styles.link}>AVI</a>
 					</Link>
 				</card>
