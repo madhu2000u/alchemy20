@@ -11,27 +11,16 @@ export default function SponsersPage() {
 			<div className={styles.heading}>
 				<p>Our Sponsors</p>
 			</div>
-			<div className={styles.card}>
+			
+			{ <div className={styles.card}>
 				<card className={styles.card_items}>
 					<div className={styles.heading2}>
 						<p> Title Sponsor</p>
 					</div>
 					<br />
-					<Image src="https://i.imgur.com/lOT3Jq9.jpg" alt="Title Sponsor" width={500} height={900}/>
+					<Image src="https://i.imgur.com/lOT3Jq9.jpg" alt="Media Sponsor" width={250} height={350} />
 					<Link href="https://conservesolution.com">
 						<a className={styles.link}>https://conservesolution.com</a>
-					</Link>
-				</card>
-				</div>
-			{/* <div className={styles.card}>
-				<card className={styles.card_items}>
-					<div className={styles.heading2}>
-						<p> Media Sponsor</p>
-					</div>
-					<br />
-					<Image src="https://i.imgur.com/nWjywHo.jpg" alt="Media Sponsor" width={250} height={220} />
-					<Link href="https://www.noticebard.com">
-						<a className={styles.link}>Noticebard.com</a>
 					</Link>
 				</card>
 				<card className={styles.card_items}>
@@ -39,23 +28,14 @@ export default function SponsersPage() {
 						<p> General Sponsor</p>
 					</div>
 					<br />
-					<Image src="https://i.imgur.com/1OXn0I2.jpg" alt="General Sponsor" width={250} height={220} />
-					<Link href="https://Badelog.in" className={styles.link}>
-						<a className={styles.link}>Badelog.in</a>
+					<Image src="https://i.imgur.com/vUjWbF5.jpg" alt="General Sponsor" width={250} height={350} />
+					<Link href="" className={styles.link}>
+						<a className={styles.link}>AVI</a>
 					</Link>
 				</card>
 
-				<card className={styles.card_items}>
-					<div className={styles.heading2}>
-						<p> Platform Partner</p>
-					</div>
-					<br />
-					<Image src="https://i.imgur.com/QfmsiVP.jpg" alt="General Sponsor" width={250} height={220} />
-					<Link href="https://dare2compete.com/" className={styles.link}>
-						<a className={styles.link}>dare2compete.com</a>
-					</Link>
-				</card>
-			</div> */}
+				
+			</div> }
 		</main>
 	);
 }
