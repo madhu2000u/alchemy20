@@ -5,4 +5,8 @@ const utils = require('../functions/authUtils');
 
 router.post('/dashboard', utils.jwtVerify, dashboardController.dashboard);
 
+router.get('/check', (req, res) => {
+    res.sendStatus(200);
+});
+
 module.exports = router;

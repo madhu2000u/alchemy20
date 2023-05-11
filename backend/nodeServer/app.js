@@ -35,10 +35,6 @@ app.use(
 	})
 );
 
-app.get('/api/check', (req, res) => {
-	res.sendStatus(200);
-});
-
 //Routes
 app.use('/api', require('./routes/authRoutes'));
 app.use('/api', require('./routes/eventRoutes'));
