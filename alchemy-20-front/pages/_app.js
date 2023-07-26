@@ -39,11 +39,7 @@ export default function MyApp({Component, pageProps}) {
 		}
 	});
 
-	const selfPing = () => {
-		ApiService.selfPing();
-	}
-
-	setInterval(selfPing, process.env.PING_INTERVAL)
+	
 
 	const [loading, setLoad] = useState(false);
 	Router.events.on('routeChangeStart', () => setLoad(true));
