@@ -7,7 +7,7 @@ const cors = require('cors');
 dotenv.config({path: __dirname + '/.env'});
 const passport = require('passport');
 const passportCofig = require('./config/passport_config');
-const http = require('http');
+const https = require('https');
 var expressWinston = require('express-winston');
 var winston = require('winston');
 
@@ -44,7 +44,7 @@ const selfPing = () =>{
 			path: '/api/check', // Replace with the correct path for your API route
 			method: 'GET',
 		  };
-		  const req = http.request(options, (res) => {
+		  const req = https.request(options, (res) => {
 			res.on('data', (data) => {
 			  // Optionally, you can process the response data here
 			  console.log('Response:', data.toString());
