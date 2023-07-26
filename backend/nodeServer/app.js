@@ -40,7 +40,7 @@ const selfPing = () =>{
 	try {
 		const options = {
 			hostname: `${process.env.hostname}`, // Replace with the correct hostname or IP for your server
-			port: default_port, // Replace with the correct port for your server
+			port: process.env.PORT, // Replace with the correct port for your server
 			path: '/api/check', // Replace with the correct path for your API route
 			method: 'GET',
 		  };
