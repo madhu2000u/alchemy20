@@ -1,6 +1,8 @@
 # Alchemy 21
 This is the codebase for [Alchemy](https://alchemy.nitt.edu) made with [NextJs](https://nextjs.org/) (React framework) for the front-end and Express mongo for the back-end.
-
+## Demo Credentials:
+user: madhu@demo.com
+pwd: demo1234
 ## Getting Started
 
 **Important: Fork this repository and clone your fork**
