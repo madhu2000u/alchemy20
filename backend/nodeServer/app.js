@@ -7,6 +7,7 @@ const cors = require('cors');
 dotenv.config({path: __dirname + '/.env'});
 const passport = require('passport');
 const passportCofig = require('./config/passport_config');
+const http = require('http');
 var expressWinston = require('express-winston');
 var winston = require('winston');
 
@@ -34,6 +35,33 @@ app.use(
 		format: winston.format.combine(winston.format.colorize(), winston.format.json()),
 	})
 );
+
+const selfPing = () =>{
+	try {
+		const options = {
+			hostname: `${process.env.hostname}`, // Replace with the correct hostname or IP for your server
+			port: default_port, // Replace with the correct port for your server
+			path: '/api/check', // Replace with the correct path for your API route
+			method: 'GET',
+		  };
+		  const req = http.request(options, (res) => {
+			res.on('data', (data) => {
+			  // Optionally, you can process the response data here
+			  console.log('Response:', data.toString());
+			});
+		  });
+	  
+		  req.on('error', (error) => {
+			console.error('Error pinging backend:', error);
+		  });
+	  
+		  req.end();
+		} catch (error) {
+		  console.error('Error pinging backend:', error);
+		}
+}
+
+setInterval(selfPing, process.env.PING_INTERVAL);
 
 //Routes
 app.use('/api', require('./routes/authRoutes'));
