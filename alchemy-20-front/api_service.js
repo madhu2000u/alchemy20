@@ -55,4 +55,10 @@ export const ApiService = {
 			}
 		);
 	},
+	selfPing: () => {
+		return axios.default.get(
+			config + '/check',
+			{},
+		);
+	},
 };
